@@ -1,11 +1,10 @@
 import {React, useEffect} from "react";
 import { styled } from "@mui/system";
-import { Typography, Breadcrumbs, Link, Card, CardContent, } from "@mui/material";
+import { Typography, Breadcrumbs, Link, Card, CardContent, colors, } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import HomeIcon from "@mui/icons-material/Home";
 import { ScrollToTop } from "react-simple-scroll-up";
 import AppbarHead from "../SubComponents/AppbarHead";
-
 import ReactPlayer from "react-player";
 import location from "../../images/projectPageImages/smart-Classroom/location.svg";
 import { AnimationOnScroll } from "react-animation-on-scroll";
@@ -14,6 +13,8 @@ import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArro
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { Style } from "@mui/icons-material";
 import Footer from '../SubComponents/Footer';
+import Colors from "../../constants/Colors";
+import skillDevelopmentContents from "../StaticTextContents/projectContents/skillDevelopmentContents";
 
 export default function SkillDevelopmentAndTraining() {
   const BreadcrumbStyle = styled("div")(({ theme }) => ({
@@ -30,12 +31,12 @@ export default function SkillDevelopmentAndTraining() {
       alignItems: "center",
     },
     [theme.breakpoints.up("md")]: {
-      width: "67%",
+      width: "92%",
       flexDirection: "row",
       justifyContent: "space-between",
     },
     [theme.breakpoints.up("lg")]: {
-      width: "82%",
+      width: "95%",
       flexDirection: "row",
       justifyContent: "space-between",
     },
@@ -72,9 +73,11 @@ export default function SkillDevelopmentAndTraining() {
       display: "flex",
       transition: ".5s ease",
       opacity: 0,
-      padding: "20px",
       "&:hover": {
         opacity: 1,
+      },
+      [theme.breakpoints.up("lg")]: {
+        padding: "20px"
       },
     },
     [theme.breakpoints.down("md")]: {
@@ -120,7 +123,7 @@ export default function SkillDevelopmentAndTraining() {
                 <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" /> Home{" "}
               </Link>
               <Typography color="text.primary">Projects</Typography>
-              <Typography color="text.primary">
+              <Typography color={Colors.MAIN_COLOR}>
                 Skill Development & Training
               </Typography>
             </Breadcrumbs>
@@ -134,20 +137,19 @@ export default function SkillDevelopmentAndTraining() {
         <DivStyle1>
           {/* Left Side */}
           <DivStyle2>
-            <Typography
+            {skillDevelopmentContents.skillDeveloper.map((text)=>(
+              <Typography
               variant="body1"
               style={{
                 textAlign: "justify",
                 fontFamily: "nunito",
               }}
             >
-              Soft skills are those personal values and interpersonal skills
-              that determine a person’s ability to work in a collaborative
-              environment. Soft skill development must be carried out as they
-              are vital to one’s professional life as they help individuals to
-              excel in the workplace.
+              {text}
             </Typography>
-
+            ))}
+            
+            {skillDevelopmentContents.skillNetcom.map((text)=>(
             <Typography
               variant="body1"
               style={{
@@ -159,48 +161,33 @@ export default function SkillDevelopmentAndTraining() {
               <span style={{ color: "green", fontWeight: "bolder" }}>
                 Netcom
               </span>{" "}
-              goal is to help you understand these important dynamics of group
-              communication and learn how to put them into practice to improve
-              your overall teamwork.
+              {text.content1}
               <br />
               <br />
-              The Importance of soft skill are distinct from hard skills or
-              domain knowledge.it is increasingly being recogonized as a
-              prerequisite in several sectors of job Market.
+              {text.content2}
               <br />
               <br />
-              Reasearch in many fields such as sales and marketing,software
-              development, Engineering and Law has shown that to be successful
-              in the workplace, knowledge alone is not enough instead soft
-              skills are needed to deal with the external world and to work in a
-              collaborative manner.
+              {text.content3}
             </Typography>
+            ))}
           </DivStyle2>
           {/* Ride Side */}
           <DivStyle3>
-            <Typography
-              variant="h6"
-              style={{
-                marginBottom: 10,
-                fontFamily: "nunito",
-                fontWeight: "bold",
-              }}
-            >
-              Communication Skills video
-            </Typography>
-
             {/* React Player Div */}
-            <div style={{ position: "relative", paddingTop: " 56.25%" }}>
-              <ReactPlayer
+            <div>
+              <img
                 width="100%"
-                style={{ position: "absolute", top: 0, left: 0 }}
-                height="100%"
-                config={{
-                  file: { attributes: { controlsList: "nodownload" } },
+                style={{
+                  top: 0,
+                  left: 0,
+                  display: "block",
+                  width: "100%",
+                  boxShadow:
+                    "rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset",
                 }}
-                url={"https://gdurl.com/DSy3"}
-                controls
-              ></ReactPlayer>
+                height="170%"
+                src={smartClassImg2}
+              ></img>
             </div>
             {/* React Player Div */}
           </DivStyle3>
@@ -221,7 +208,6 @@ export default function SkillDevelopmentAndTraining() {
 
                 <img
                   width="100%"
-
                   className="image"
                   height="170%"
 
@@ -249,6 +235,7 @@ export default function SkillDevelopmentAndTraining() {
             </AnimationOnScroll>
           </DivStyle2>
 
+          {skillDevelopmentContents.skills.map((text)=>(
           <DivStyle3>
             <Typography
               variant="h6"
@@ -256,9 +243,10 @@ export default function SkillDevelopmentAndTraining() {
                 marginBottom: 5,
                 fontFamily: "nunito",
                 fontWeight: "bold",
+                color:Colors.MAIN_COLOR
               }}
             >
-              Communication Skills
+              {text.title1}
             </Typography>
 
             <Typography
@@ -268,13 +256,7 @@ export default function SkillDevelopmentAndTraining() {
                 fontFamily: "nunito",
               }}
             >
-              Netcom considered this as the crucial one, written and verbal
-              communication is essential to build stronger professional as well
-              as personal relationships. Effective communication skills comprise
-              of good cognitive, auditory and visual processing skills. While
-              workingon soft skill development, beginning with improving your
-              communication is an essential step as it can help bring the rest
-              of the abilities in place.
+              {text.content1}
             </Typography>
             <Typography
               variant="h6"
@@ -283,9 +265,10 @@ export default function SkillDevelopmentAndTraining() {
                 marginTop: 10,
                 fontFamily: "nunito",
                 fontWeight: "bold",
+                color:Colors.MAIN_COLOR
               }}
             >
-              Presentation and Business communication Skill:
+              {text.title2}
             </Typography>
 
             <Typography
@@ -296,11 +279,7 @@ export default function SkillDevelopmentAndTraining() {
                 fontFamily: "nunito",
               }}
             >
-              It is to communicate effectively in the workplace, you need to be
-              able to present your information clearly. Presentation skills
-              doesn't just mean knowing how to put a good set of powerpoint
-              slides together, it means engaging and connecting with an audience
-              to get your message across.
+              {text.content2}
             </Typography>
             <Typography
               variant="h6"
@@ -309,9 +288,10 @@ export default function SkillDevelopmentAndTraining() {
                 marginTop: 10,
                 fontFamily: "nunito",
                 fontWeight: "bold",
+                color:Colors.MAIN_COLOR
               }}
             >
-              Personal Effectiveness Skills:
+              {text.title3}
             </Typography>
 
             <Typography
@@ -321,11 +301,10 @@ export default function SkillDevelopmentAndTraining() {
                 fontFamily: "nunito",
               }}
             >
-              Personal Effectiveness Skills are abilities in this area that vary
-              from individual to individual, from discipline to discipline and
-              from situation to situation.
+              {text.content3}
             </Typography>
           </DivStyle3>
+          ))}
         </DivStyle1>
       </div>
 
@@ -333,6 +312,7 @@ export default function SkillDevelopmentAndTraining() {
         {/* 67% middle of page */}
         <DivStyle1>
           {/* Left Side */}
+          {skillDevelopmentContents.tbeSkills.map((text)=>(
           <DivStyle2>
             <Typography
               variant="h6"
@@ -340,9 +320,10 @@ export default function SkillDevelopmentAndTraining() {
                 marginBottom: 5,
                 fontFamily: "nunito",
                 fontWeight: "bold",
+                color:Colors.MAIN_COLOR
               }}
             >
-              Interpersonal and Team skills:
+              {text.title1}
             </Typography>
 
             <Typography
@@ -352,11 +333,7 @@ export default function SkillDevelopmentAndTraining() {
                 fontFamily: "nunito",
               }}
             >
-              Interpersonal and team skills are the behaviors and tactics that a
-              person uses to interact with stakeholders in a project
-              effectively. The ability to establish a relationship with others
-              and maintain that relationship is a key to the success of your
-              project.
+              {text.content1}
             </Typography>
             <Typography
               variant="h6"
@@ -365,9 +342,10 @@ export default function SkillDevelopmentAndTraining() {
                 marginTop: 10,
                 fontFamily: "nunito",
                 fontWeight: "bold",
+                color:Colors.MAIN_COLOR
               }}
             >
-              Presentation and Business communication Skill:
+              {text.title2}
             </Typography>
 
             <Typography
@@ -378,11 +356,7 @@ export default function SkillDevelopmentAndTraining() {
                 fontFamily: "nunito",
               }}
             >
-              It is to communicate effectively in the workplace, you need to be
-              able to present your information clearly. Presentation skills
-              doesn't just mean knowing how to put a good set of powerpoint
-              slides together, it means engaging and connecting with an audience
-              to get your message across.
+             {text.content2}
             </Typography>
             <Typography
               variant="h6"
@@ -391,9 +365,10 @@ export default function SkillDevelopmentAndTraining() {
                 marginTop: 10,
                 fontFamily: "nunito",
                 fontWeight: "bold",
+                color:Colors.MAIN_COLOR
               }}
             >
-              Personal Effectiveness Skills:
+              {text.title3}
             </Typography>
 
             <Typography
@@ -403,12 +378,12 @@ export default function SkillDevelopmentAndTraining() {
                 fontFamily: "nunito",
               }}
             >
-              Personal Effectiveness Skills are abilities in this area that vary
-              from individual to individual, from discipline to discipline and
-              from situation to situation.
+              {text.content3}
             </Typography>
           </DivStyle2>
+          ))}
           {/* Ride Side */}
+          {skillDevelopmentContents.ourProjects.map((text)=>(
           <DivStyle3>
             <Typography
               variant="h6"
@@ -416,9 +391,10 @@ export default function SkillDevelopmentAndTraining() {
                 marginBottom: 5,
                 fontFamily: "nunito",
                 fontWeight: "bold",
+                color:Colors.MAIN_COLOR
               }}
             >
-              OUR PROJECTS:
+              {text.title1}
             </Typography>
 
             <Typography
@@ -428,8 +404,7 @@ export default function SkillDevelopmentAndTraining() {
                 fontFamily: "nunito",
               }}
             >
-              Netcom have ventured in various fields with different
-              institutions.
+              {text.content1}
             </Typography>
             <Typography
               variant="h6"
@@ -438,9 +413,10 @@ export default function SkillDevelopmentAndTraining() {
                 marginTop: 10,
                 fontFamily: "nunito",
                 fontWeight: "bold",
+                color:Colors.MAIN_COLOR
               }}
             >
-              Anna University Coimbatore:
+              {text.title2}
             </Typography>
 
             <Typography
@@ -451,13 +427,10 @@ export default function SkillDevelopmentAndTraining() {
                 fontFamily: "nunito",
               }}
             >
-              We have provided training for the students of ANNA
-              UNIVERSITY,COIMBATORE during 2008-2009 and were instrumental in
-              preparing training packages with animation as Computer Aided
-              Learning for Soft Skill Programme. We have supported the students
-              with INTERVIEW SKILLS & GROUP DISCUSSION DVDs for 5000 students.
+              {text.content2}
             </Typography>
           </DivStyle3>
+          ))}
         </DivStyle1>
       </div>
 

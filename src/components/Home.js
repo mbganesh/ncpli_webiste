@@ -33,24 +33,22 @@ import EContentIcon from "../images/homePageImages/serviceIcons/eContent.svg"
 
 
 
-import AniSys from "../images/homePageImages/anisys.png";
+import AniSys from "../images/homePageImages/anisys.jpg";
 import AniMob from "../images/homePageImages/animob.png"
 import EduMob from "../images/homePageImages/edumob.png";
-import EduSys from "../images/homePageImages/edusys.png";
+import EduSys from "../images/homePageImages/edusys.jpg";
 import DevMob from "../images/homePageImages/devmob.png";
-import DevSys from "../images/homePageImages/devsys.png";
-import SmaSys from "../images/homePageImages/smasys.png";
+import DevSys from "../images/homePageImages/devsys.jpg";
+import SmaSys from "../images/homePageImages/smasys.jpg";
 import SmaMob from "../images/homePageImages/smamob.png";
-import SlideWrapper from './SubComponents/SlideWrapper';
+
+
+import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 
 
 import Imagess from '../constants/Images'
 // import  { Images }  from "../constants";
 
-import Banner1 from '../images/homePageImages/banner_animation.svg'
-import Banner2 from '../images/homePageImages/banner_development.svg'
-import Banner3 from '../images/homePageImages/banner_education.svg'
-import Banner4 from '../images/homePageImages/banner_products.svg'
 
 import Client1 from '../images/ourClients/client-anna university.svg'
 import Client2 from '../images/ourClients/client-Covai corporation.svg'
@@ -67,10 +65,28 @@ import Client11 from '../images/ourClients/client-TMB.svg'
 import homeContents from "./StaticTextContents/homeContents.js"
 
 
-const clientsLogo = [
-  Client1, Client2, Client3, Client4, Client5, Client6, Client7, Client8,
-  Client9, Client10, Client11
-];
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+
+import SlideWrapper from "./SubComponents/SlideWrapper";
+import SliderProduct from "./SubComponents/SliderProduct";
+
+
+
+import prodImg1 from "../images/homePageImages/productPageBanners/productImg1.jpg";
+import prodImg2 from "../images/homePageImages/productPageBanners/productImg2.png";
+import prodImg3 from "../images/homePageImages/productPageBanners/productImg3.png";
+import prodImg4 from "../images/homePageImages/productPageBanners/productImg4.png";
+import prodImg5 from "../images/homePageImages/productPageBanners/productImg5.png";
+
+import { useNavigate } from 'react-router-dom';
+
+
+
+
+
+const clientsLogo = [Client1, Client2, Client3, Client4, Client5, Client6, Client7, Client8, Client9, Client10, Client11];
 
 
 const NoOfDataList = [
@@ -88,6 +104,11 @@ const NoOfDataList = [
     count: '100+',
     text: 'NO. OF EMPLOYEES',
     icon: <GroupIcon style={{ width: 50, height: 50, color: Colors.MAIN_COLOR }} />
+  },
+  {
+    count: '20+',
+    text: 'YEARS OF EXPERIENCE',
+    icon: <AccessTimeFilledIcon style={{ width: 50, height: 50, color: Colors.MAIN_COLOR }} />
   }
 
 ]
@@ -96,7 +117,7 @@ const slideImage = [
   { pcImg: SmaSys, mobImg: SmaMob, slideText: "Smart Class", textColor: "white", },
   { pcImg: DevSys, mobImg: DevMob, slideText: "Development", textColor: "black", },
   { pcImg: EduSys, mobImg: EduMob, slideText: "Education", textColor: "black" },
-  { pcImg: AniSys, mobImg: AniSys, slideText: "Animation", textColor: "black" },
+  { pcImg: AniSys, mobImg: AniMob, slideText: "Animation", textColor: "black" },
 ];
 
 
@@ -105,6 +126,8 @@ export default function Home() {
 
 
   console.log(homeContents)
+
+  const navigate = useNavigate();
 
   const Centered = (theme) => ({
     position: "absolute",
@@ -131,7 +154,14 @@ export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
 
 
+  const productSlideImg = [
+    { Img: prodImg1, ImgName: "mobApp", pageLink: "/educational-mobile-app" },
+    { Img: prodImg2, ImgName: "mobApp", pageLink: "/educational-mobile-app" },
+    { Img: prodImg3, ImgName: "mobApp", pageLink: "/educational-mobile-app" },
+    { Img: prodImg4, ImgName: "tailApp",pageLink: "/smart-tailor-shop" },
+    { Img: prodImg5, ImgName: "tailApp", pageLink: "/smart-tailor-shop"},
 
+  ];
 
 
   const OurProductsSection = styled('div')(({ theme }) => ({
@@ -173,8 +203,6 @@ export default function Home() {
     },
     [theme.breakpoints.between('lg', 'xl')]: {
       height: 370,
-
-
     },
 
     [theme.breakpoints.up('xl')]: {
@@ -183,6 +211,48 @@ export default function Home() {
 
   }));
 
+  const ProductViewSize = styled('div')(({theme})=>({
+
+    [theme.breakpoints.up('md')]:{
+      borderRadius: "50px",
+              marginLeft: "15%",
+              marginRight: "15%",
+              marginBottom: "5%",
+              marginTop: "5%",
+    },
+    
+    [theme.breakpoints.down('md')]:{
+      borderRadius: "50px",
+                marginLeft: "15%",
+              marginRight: "15%",
+              marginBottom: "5%",
+              marginTop: "5%",
+    }
+      }))
+
+
+  
+      const DeskTopView = styled('div')(({ theme }) => ({
+        [theme.breakpoints.down('sm')]: {
+          display:'none'
+        }
+      }));      
+
+
+      const MobileView = styled('div')(({ theme }) => ({
+        [theme.breakpoints.up('sm')]: {
+          display:'none'
+        }
+      }));
+
+
+  const handleClickProduts = (item, tt) => {
+    for (let i = 0; i < tt.length; i++) {
+      if (tt[i].ImgName === item) {
+        navigate(tt[i].pageLink);
+      }
+    }
+  };
 
   const IntroSection = styled('div')(({ theme }) => ({
     marginTop: 50, display: "flex", marginBottom: 30, flexDirection: "column",
@@ -269,7 +339,7 @@ export default function Home() {
 
       <IntroSection>
         <Typography align='center' variant="h4" sx={{ color: Colors.MAIN_COLOR, fontWeight: "bold" }}>Meet Netcom...</Typography>
-        <Typography variant='subtitle1' sx={{ textAlign: "justify", marginTop: 4 }}> <span style={{ fontWeight: "bold", color: Colors.MAIN_COLOR }}>Netcom Computers</span> {homeContents.about} </Typography>
+        <Typography variant='subtitle1' sx={{ textAlign: "center", marginTop: 4, color:"grey" }}> <span style={{ fontWeight: "bold", color: Colors.MAIN_COLOR }}>Netcom Computers</span> {homeContents.about} </Typography>
 
       </IntroSection>
 
@@ -323,17 +393,83 @@ export default function Home() {
 
       </div>
 
-      <div style={{ backgroundColor: Colors.BACKGROUND_COLOR }}>
+      <div style={{  }}>
 
-        <div style={{ marginTop: 50, display: "flex", justifyContent: "center", marginBottom: 50, flexDirection: "column" }}>
+        <div style={{ marginTop: 30, display: "flex", justifyContent: "center", marginBottom: 50, flexDirection: "column" }}>
           <Typography align='center' variant="h4" sx={{ color: Colors.MAIN_COLOR, mt: 5, fontWeight: "bold" }}>Our Products</Typography>
           <Typography align='center' variant="body1" sx={{ color: Colors.MAIN_COLOR, mt: 2, }}>Products that make you better</Typography>
 
         </div>
 
+        <ProductViewSize      
+      >
+        {" "}
+       
+
+        <DeskTopView>
+        <SliderProduct>
+          <Slider
+            style={{ borderRadius: "50px" }}
+            autoplay={true}
+            slidesToShow={1}
+            slidesToScroll={1}            
+            pauseOnHover={false}
+            dots={true}
+            speed={2000}                                    
+            appendDots={(dots) => <ul style={{ marginBottom: 20 }}>{dots}</ul>}
+            customPaging={(i) => (
+              <div className="ft-slick__dots--custom">
+                <div className="loading" />
+              </div>
+            )}
+          >
+            
+            {productSlideImg.map((item,index) => (
+              <div>
+                <img
+                  style={{ borderRadius: "50px",marginBottom:"10px"}}
+                  width={"100%"}
+                  src={item.Img}
+                  onDoubleClick={() => {
+                  handleClickProduts(item.ImgName,productSlideImg)
+                  }}
+                />               
+              </div>
+            ))}
+            
+            
+          </Slider>
+        </SliderProduct>
+        </DeskTopView>
+
+       
+        
+      </ProductViewSize>
 
 
-        <OurProductsSection>
+      <MobileView>
+        
+            
+        {productSlideImg.map((item,index) => (
+          <div >
+            <img
+              style={{ marginBottom:"10px"}}
+              width={"100%"}
+              height={"210px"}
+              src={item.Img}
+              onDoubleClick={() => {
+              handleClickProduts(item.ImgName,productSlideImg)
+              }}
+            />               
+          </div>
+        ))}
+        
+        
+    
+    </MobileView>
+
+
+        {/* <OurProductsSection>
 
           {(homeContents.productsContent).map((text, index) => (
 
@@ -350,7 +486,7 @@ export default function Home() {
             </ProductCards>
 
           ))}
-        </OurProductsSection>
+        </OurProductsSection> */}
 
       </div>
 

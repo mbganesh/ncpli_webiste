@@ -420,7 +420,7 @@ export default function Portfolio() {
                   {" "}
                   <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" /> Home{" "}
                 </Link>
-                <Typography color="text.primary">Portfolio</Typography>
+                <Typography color={Colors.MAIN_COLOR}>Portfolio</Typography>
               </Breadcrumbs>
             </CardContent>
           </Card>

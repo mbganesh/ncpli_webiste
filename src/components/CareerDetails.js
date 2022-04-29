@@ -22,6 +22,8 @@ import BulletIconJD from "@mui/icons-material/KeyboardDoubleArrowRight";
 import BulletIconRS from "@mui/icons-material/DoneOutline";
 import BulletIconQE from "@mui/icons-material/NoiseControlOff";
 
+import { Colors } from '../constants';
+
 const BreadcrumbStyle = styled("div")(({ theme }) => ({
   display: "flex",
   justifyContent: "center",
@@ -63,7 +65,7 @@ export default function CareerDetails() {
       <ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
       <AppbarHead dataParent={{ appBtnText: "Career" }} />
       <BreadcrumbStyle>
-        <Card sx={{ width: 320, height: 50 }}>
+        <Card sx={{ width: 420, height: 50 }}>
           <CardContent>
             <Breadcrumbs
               separator={<NavigateNextIcon fontSize="small" />}
@@ -86,7 +88,7 @@ export default function CareerDetails() {
               >
                 <Typography color="text.primary">Career</Typography>
               </Link>
-              <Typography color="text.primary">Career Details</Typography>
+              <Typography color={Colors.MAIN_COLOR}>Career Details</Typography>
             </Breadcrumbs>
           </CardContent>
         </Card>

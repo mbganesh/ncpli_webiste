@@ -36,14 +36,25 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import DangerousRoundedIcon from '@mui/icons-material/DangerousRounded';
 import AdjustIcon from '@mui/icons-material/Adjust';
 import Footer from '../SubComponents/Footer';
+
 import smartTailorshopContent from "../StaticTextContents/productContents/smartTailorshopContent";
 import { Colors } from "../../constants";
+import { CenterFocusStrong } from "@mui/icons-material";
+
+import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 
 
 export default function SmartTailorShop() {
+
   const BreadcrumbStyle = styled("div")(({ theme }) => ({
     display: "flex",
     justifyContent: "center",
+  }));
+
+  const PriceHeadSection = styled("div")(({ theme }) => ({
+    display: "flex", paddingLeft: '5%', justifyContent: "center", alignItems: "center",
+    paddingRight: '5%',
+
   }));
 
   const DivStyle1 = styled("div")(({ theme }) => ({
@@ -172,9 +183,9 @@ export default function SmartTailorShop() {
 
   const smartTailorBenfits = ["First Time Fee - ₹ 14999 for Domain and Hosting Charges (includes 1 Month Ultimate Plan)", "7 Days FREE Trial", "GST @18% Applicable on All Purchases"]
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+  // useEffect(() => {
+  //   window.scrollTo(0, 0)
+  // }, [])
 
   return (
     <>
@@ -211,105 +222,48 @@ export default function SmartTailorShop() {
         <DivStyle1>
           {/* Left Side */}
           <DivStyle2>
-            <Typography variant="body1" sx={{ textAlign: "justify", fontFamily: "nunito" }}>
+         
+            <Typography variant="subtitle1" sx={{ textAlign: "justify", fontFamily: "nunito" }}>
               <span style={{ fontWeight: "bold", color: Colors.MAIN_COLOR }}>Smart Tailor Application</span>
               {smartTailorshopContent.about}
             </Typography>
 
-            <Typography
-              variant="h5"
-              style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
-            >
-              What it contains in Smart Tailor Web Application?
+            <Typography variant="h5" style={{ marginTop: 20, fontWeight: "600", color: Colors.MAIN_COLOR }}>
+              Features
             </Typography>
 
-            <ul>
-              {contains.map((text) => (
-                <li style={{ marginTop: 7 }}>{text}</li>
+
+            {
+              smartTailorshopContent.features.map((item, index) => (
+
+                <div>
+
+
+                  <Typography variant="subtitle1" style={{ color: Colors.MAIN_COLOR, marginTop: 20, fontWeight: "bold" }}>
+                    {item.name}
+                  </Typography>
+
+                  {
+                    item.points.map((text, index) => (
+                      <div style={{ display: "flex", marginTop:10 }}>
+                        <DoubleArrowIcon style={{ color: Colors.MAIN_COLOR }} />
+                        <Typography variant="subtitle1" style={{ marginLeft: 10 }}>
+                          {text}
+                        </Typography>
+                      </div>
+                    ))
+                  }
+
+
+                </div>
               ))}
-            </ul>
-            <Typography
-              variant="h4"
-              style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
-            >
-              {contains[0]}
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{ textAlign: "justify", fontFamily: "nunito", marginTop: 2 }}
-            >
-              {" "}
-              <span style={{ fontWeight: "bold", color: "green" }}>
-                {" "}
-                Smart Tailoring Application{" "}
-              </span>{" "}
-              is the Web application . Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia
-              deserunt mollit anim id est laborum.{" "}
-            </Typography>
 
-            <Typography
-              variant="body1"
-              sx={{ textAlign: "justify", fontFamily: "nunito", marginTop: 1 }}
-            >
-              {" "}
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.{" "}
-            </Typography>
-            <Typography
-              variant="h4"
-              style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
-            >
-              {contains[1]}
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{ textAlign: "justify", fontFamily: "nunito", marginTop: 2 }}
-            >
-              {" "}
-              <span style={{ fontWeight: "bold", color: "green" }}>
-                {" "}
-                Tailors Application{" "}
-              </span>{" "}
-              is the Web application . Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia
-              deserunt mollit anim id est laborum.{" "}
-            </Typography>
-
-            <Typography
-              variant="body1"
-              sx={{ textAlign: "justify", fontFamily: "nunito", marginTop: 1 }}
-            >
-              {" "}
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.{" "}
-            </Typography>
 
             <Typography
               variant="h6"
               style={{ marginTop: 7, fontWeight: "600", fontFamily: "nunito" }}
             >
-              Admin App and Tailors App Technology used{" "}
+              Technology used{" "}
             </Typography>
             <ul>
               {websiteTechnology.map((obj) => (
@@ -332,44 +286,7 @@ export default function SmartTailorShop() {
               ))}
             </ul>
 
-            <Typography
-              variant="h4"
-              style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
-            >
-              {contains[2]}
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{ textAlign: "justify", fontFamily: "nunito", marginTop: 2 }}
-            >
-              {" "}
-              <span style={{ fontWeight: "bold", color: "green" }}>
-                {" "}
-                Customer Mobile Application{" "}
-              </span>{" "}
-              is the Mobile Android application . Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia
-              deserunt mollit anim id est laborum.{" "}
-            </Typography>
 
-            <Typography
-              variant="body1"
-              sx={{ textAlign: "justify", fontFamily: "nunito", marginTop: 1 }}
-            >
-              {" "}
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.{" "}
-            </Typography>
 
             <Typography
               variant="h6"
@@ -491,15 +408,23 @@ export default function SmartTailorShop() {
       </div>
 
 
+      <PriceHeadSection>
+        <Typography variant="h4" style={{ justifyContent: "center", color: Colors.MAIN_COLOR, fontWeight: "bold" }}>Pricing Plans</Typography>
+      </PriceHeadSection>
+
+
 
 
       {/* Pricing Details */}
 
       <div>
+
         {/* Full vertical page */}
         <div style={{ width: "100%", marginTop: 25 }}>
           {/* 67% middle of page */}
+
           <DivStyle1 >
+
 
             {smartTailor.map((obj, index) => (
 

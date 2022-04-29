@@ -8,6 +8,8 @@ import { ScrollToTop } from "react-simple-scroll-up";
 import AppbarHead from "../SubComponents/AppbarHead";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import Footer from '../SubComponents/Footer';
+import { Colors } from "../../constants";
+import ictContent from "../StaticTextContents/projectContents/ictContents";
 
 
 export default function ICT() {
@@ -27,12 +29,12 @@ export default function ICT() {
       alignItems: "center",
     },
     [theme.breakpoints.up("md")]: {
-      width: "67%",
+      width: "92%",
       flexDirection: "row",
       justifyContent: "space-between",
     },
     [theme.breakpoints.up("lg")]: {
-      width: "82%",
+      width: "95%",
       flexDirection: "row",
       justifyContent: "space-between",
     },
@@ -61,9 +63,11 @@ export default function ICT() {
       display: "flex",
       transition: ".5s ease",
       opacity: 0,
-      padding: "20px",
       "&:hover": {
         opacity: 1,
+      },
+      [theme.breakpoints.up("lg")]: {
+        padding: "20px",
       },
     },
     [theme.breakpoints.down("md")]: {
@@ -75,25 +79,9 @@ export default function ICT() {
     },
   }));
 
-  const aboutSmartCard = [
-    "•	Server should act as a Teacher console. This displays the list of students in the teacher console.From this the teacher can select the student to start or stop the class. ",
-    "•	Real Time Screen and Audio Broadcast from Teacher console to Student",
-    "•	Viewing and absorbing the screens of students from teacher console",
-    "•	Recording and storing broadcasts for future use this option is used to record the files and broadcast it to other students from teacher console.",
-    "•	Sharing files among System this module is used to share the files to other system or students from the teacher console.",
-    "•	Having controls like mute audio, lock the keyboard of particular student console. This is used to control the student’s screen such as to lock the screen or keyboard or mute the audio. Teachers can easily having the control over the student’s screen. ",
-    "•	Providing some sample call lessons this provides some sample lessons to student’s screen.",
-  ];
+  
 
-  const hardware = [
-    "•	Server should act as a Teacher console. This displays the list of students in the teacher console.From this the teacher can select the student to start or stop the class. ",
-    "•	Real Time Screen and Audio Broadcast from Teacher console to Student",
-    "•	Viewing and absorbing the screens of students from teacher console",
-    "•	Recording and storing broadcasts for future use this option is used to record the files and broadcast it to other students from teacher console.",
-    "•	Sharing files among System this module is used to share the files to other system or students from the teacher console.",
-    "•	Having controls like mute audio, lock the keyboard of particular student console. This is used to control the student’s screen such as to lock the screen or keyboard or mute the audio. Teachers can easily having the control over the student’s screen. ",
-    "•	Providing some sample call lessons this provides some sample lessons to student’s screen.",
-  ];
+
 
 
   useEffect(() => {
@@ -134,27 +122,29 @@ export default function ICT() {
         <DivStyle1>
           {/* Left Side */}
           <DivStyle4>
-            <Typography
-              variant="body1"
-              style={{
-                textAlign: "justify",
-                fontFamily: "nunito",
-              }}
-            >
-              ICT/HITECH Skills are about understanding and applying a range of
-              computer programs,software and other applications.The activities
-              or equipment involve or result from the use of High Technology.
-            </Typography>
-
-            <Typography
+            {ictContent.ictMainPoints.map((text)=>(
+               <Typography
+               variant="body1"
+               style={{
+                 textAlign: "justify",
+                 fontFamily: "nunito",
+               }}
+             >
+               {text}
+             </Typography>
+            ))} 
+           {ictContent.ictProjects.map((text)=>(        
+          <div>
+          <Typography
               variant="h6"
               style={{
                 fontFamily: "nunito",
                 marginTop: 20,
                 fontWeight: "bold",
+                color: Colors.MAIN_COLOR
               }}
             >
-              ICT Projects: Implementing & Delivering IT Infrastructure For
+              {text.title}
             </Typography>
             <Typography
               variant="body1"
@@ -164,27 +154,26 @@ export default function ICT() {
                 fontFamily: "nunito",
               }}
             >
-              <span style={{ color: "green", fontWeight: "bolder" }}>
+              <span style={{ color: "green", fontWeight: "bolder",}}>
                 ComputerEducation
               </span>
-              . Experience in Facility Management Facility Management: Netcom
-              has supplied and maintained around 1500 systems and Peripherals in
-              300 Government schools spread across TamilNadu.Netcom maintains
-              the uptime of 97% for the entire IT Infrastructure supplied in
-              these schools forComputer Education.
-            </Typography>
+              {text.content}
+            </Typography> 
+          </div>
+           ))}
             <Typography
               variant="h6"
               style={{
                 fontFamily: "nunito",
                 marginTop: 20,
                 fontWeight: "bold",
+                color:Colors.MAIN_COLOR
               }}
             >
               Hardware Maintenance Management
             </Typography>
 
-           {hardware.map((text)=>(
+           {ictContent.hardware.map((text)=>(
 
 <Typography
 variant="body1"
@@ -197,8 +186,6 @@ style={{
     {text}
 
 </Typography>
-
-
            ))}
 
             <Typography
@@ -214,6 +201,7 @@ style={{
           </DivStyle4>
           {/* Ride Side */}
           <DivStyle4>
+          {ictContent.ictMethod.map((text)=>(
             <Typography
               variant="body1"
               style={{
@@ -221,56 +209,36 @@ style={{
                 fontFamily: "nunito",
               }}
             >
-              An assessment cycle effectively addressing assessment for
-              improvement will also provide the necessary evidence for
-              accountability.
+              {text.content1}
               <br />
               <br />
-              Netcom Assessment methods define the nature of the assessor
-              actions and include:
+              {text.content2}
               <br />
-              <span style={{ color: "green" }}>Examine method:</span>The process
-              of reviewing, inspecting, observing, studying, or analyzing one or
-              more assessment objects (i.e., specifications, mechanisms, or
-              activities). The purpose of the examine method is to facilitate
-              assess or understanding, achieve clarification, or obtain
-              evidence.
+              <span style={{ color: "green" }}>Examine method:</span> {text.content3}
               <br />
-              <span style={{ color: "green" }}>Interview method:</span> The
-              process of holding discussions with individuals or groups of
-              individuals within an organization to, once again, facilitate
-              assessor understanding, achieve clarification, or obtain evidence.
+              <span style={{ color: "green" }}>Interview method:</span> {text.content4}
               <br />
               <br />
               <span style={{ fontWeight: "bold", color: "green" }}>
                 Test method:
               </span>
-              The process of exercising one or more assessment objects (i.e.,
-              activities or mechanisms) under specified conditions to compare
-              actual with expected behavior
+              {text.content5}
               <br />
               <br />
-              Netcom Assessment is the ongoing process of gathering, analysing
-              and interpreting evidence, reflecting on findings, making informed
-              and consistent judgements to improve student learning.
+              {text.content6}
               <br />
-              Assessment for improved student learning and deep understanding
-              requires a range of assessment practices to be used with three
-              overarching purposes:
+              {text.content7}
               <br />
               <br />
               <span style={{ fontWeight: "bold", color: "green" }}>
                 Assessment for learning:
               </span>
-              occurs when teachers use inferences about student progress to
-              inform their teaching <br />
-              Assessment as learning: occurs when students reflect on and
-              monitor their progress to inform their future learning goals
+             {text.content8} <br />
+              {text.content9}
               <br />
-              Assessment of learning: occurs when teachers use evidence of
-              student learning to make judgements on student achievement against
-              goals and standards .
+              {text.content10}
             </Typography>
+          ))}
 
             {/* React Player Div */}
             <div style={{ position: "relative", paddingTop: " 5%" }}></div>
@@ -324,15 +292,19 @@ style={{
                 </div>
               </div>
             </AnimationOnScroll>
+            <br/>
+            {ictContent.ictTeacherComputerServer.map((text)=>(
+            <div>
             <Typography
               variant="h6"
               style={{
                 marginBottom: 10,
                 fontFamily: "nunito",
                 fontWeight: "bold",
+                color: Colors.MAIN_COLOR
               }}
             >
-              Using the Teacher Computer or Server
+              {text.title}
             </Typography>
 
             <Typography
@@ -343,10 +315,13 @@ style={{
                 fontFamily: "nunito",
               }}
             >
-              After installing the teacher setup or server setup in the
-              computer, the server or teacher has many features to access. They
-              have the ability to control the student’s or client machines.
+              {text.content}
             </Typography>
+            </div>
+            ))}
+
+{ictContent.ictStudentComputerClient.map((text)=>(
+            <div>
             <Typography
               variant="h6"
               style={{
@@ -354,9 +329,10 @@ style={{
                 marginTop: 5,
                 fontFamily: "nunito",
                 fontWeight: "bold",
+                color:Colors.MAIN_COLOR
               }}
             >
-              Using the Student’s Computer or Client
+              {text.title}
             </Typography>
 
             <Typography
@@ -364,13 +340,13 @@ style={{
               style={{
                 textAlign: "justify",
                 marginTop: 2,
-                fontFamily: "nunito",
+                fontFamily: "nunito"
               }}
             >
-              Language Lab is set up to run in the background on student
-              computers. All of the functionality is controlled at the teacher
-              computer, which enables you to have control over how it is used.
+              {text.content}
             </Typography>
+            </div>
+            ))}
           </DivStyle4>
 
           <DivStyle4>
@@ -380,12 +356,13 @@ style={{
                 marginBottom: 5,
                 fontFamily: "nunito",
                 fontWeight: "bold",
+                color:Colors.MAIN_COLOR
               }}
             >
               Features
             </Typography>
 
-            {aboutSmartCard.map((text) => (
+            {ictContent.aboutSmartCard.map((text) => (
               <div
                 style={{
                   display: "flex",

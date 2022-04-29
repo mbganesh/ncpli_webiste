@@ -1,4 +1,4 @@
-import { React, useState ,useCallback , useEffect } from 'react'
+import { React, useState, useEffect, useCallback } from 'react'
 import { AppBar, Button, IconButton, Menu, MenuItem, Paper, styled, Toolbar, Typography, } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -18,29 +18,6 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 
 export default function AppbarHead(props) {
-
-
-  // new stuff
-
-  const [y, setY] = useState(window.scrollY);
-
-  const [elevationValue, setElevationValue] = useState(0)
-
-  const handleNavigation = useCallback(
-    (e) => {
-      const window = e.currentTarget;
-      let x = Math.round(y/ (props.dataParent.appBtnText==='Home' ? 1000 : 100));
-
-      if(x<20){
-        setElevationValue(x)
-      }else{
-        setElevationValue(x)
-      }
-      setY(window.scrollY);
-    },
-    [y]
-  );
-
   const navigate = useNavigate();
   const [dataFromParents] = useState(props.dataParent);
   const menuItemStyle = (theme) => ({
@@ -146,7 +123,7 @@ export default function AppbarHead(props) {
   ];
 
   const projectsItem = [
-    { subMenuName: "Smart Class Room", subMenuLink: "/smart-class", },
+    
     { subMenuName: "Netcom Digital Contents", subMenuLink: "/netcom-digital-contents", },
     { subMenuName: "EMIS Software Solutions", subMenuLink: "/emis-sofware-solutions", },
     { subMenuName: "Language Lab", subMenuLink: "/language-lab", },
@@ -162,20 +139,21 @@ export default function AppbarHead(props) {
   const productItem = [
     { subMenuName: "Smart Tailor Shop", subMenuLink: "/smart-tailor-shop" },
     { subMenuName: "Online Cab Booking System", subMenuLink: "/online-cab-booking-system" },
-    { subMenuName: "EMIS", subMenuLink: "/product-emis" },
+    { subMenuName: "Smart Class Room", subMenuLink: "/smart-class", },
     { subMenuName: "Educational Mobile App(Gilgal)", subMenuLink: "/educational-mobile-app" },
+    { subMenuName: "EMIS", subMenuLink: "/product-emis" },
     { subMenuName: "Assessment Tool", subMenuLink: "/product-assessment-tool", },
   ];
 
   const servicesItem = [
     { subMenuName: "Graphic Design", subMenuLink: "" },
-    { subMenuName: "E Content Development", subMenuLink: "" },
+    { subMenuName: "E Content Development", subMenuLink: "/e-content-development" },
     { subMenuName: "Short Film", subMenuLink: "/short-film" },
     { subMenuName: "Web Application Development", subMenuLink: "/web-app-development" },
-    { subMenuName: "Mobile Application Development", subMenuLink: "" },
-    { subMenuName: "Web Hosting Services", subMenuLink: "" },
-    { subMenuName: "Customized Software Development", subMenuLink: "" },
-    { subMenuName: "Hardware Support & Maintainance", subMenuLink: "" },
+    { subMenuName: "Mobile Application Development", subMenuLink: "/mob-app-development" },
+    { subMenuName: "Web Hosting Services", subMenuLink: "/web-hosting" },
+    { subMenuName: "Customized Software Development", subMenuLink: "/custom-app-development" },
+    { subMenuName: "Hardware Support & Maintainance", subMenuLink: "/hardware-support-maintainence" },
   ];
 
   const [mySubMenu, setMySubMenu] = useState([]);
@@ -285,6 +263,28 @@ export default function AppbarHead(props) {
     },
   }));
 
+
+
+  const [y, setY] = useState(window.scrollY);
+
+  const [elevationValue, setElevationValue] = useState(0)
+
+  const handleNavigation = useCallback(
+    (e) => {
+      const window = e.currentTarget;
+      let x = Math.round(y/ (props.dataParent.appBtnText==='Home' ? 1000 : 100));
+      console.log(`Y: ${y} `); console.log(`X: ${x} `);
+      if(x<20){
+        setElevationValue(x)
+      }else{
+        setElevationValue(x)
+      }
+      setY(window.scrollY);
+    },
+    [y]
+  );
+
+
   useEffect(() => {
     setY(window.scrollY);
     window.addEventListener("scroll", handleNavigation);
@@ -296,8 +296,8 @@ export default function AppbarHead(props) {
 
   return (
     <>
-      <AppBar position="sticky" elevation={elevationValue+1} style={{boxShadow: elevationValue>=1 ? `rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset` : 'none'  , transition:'0.6s' }} >
-        <Toolbar sx={menuToolBarStyle}  >
+      <AppBar position="sticky" elevation={elevationValue+1} style={{boxShadow: elevationValue>=1 ? `rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset` : 'none'  , transition:'0.6s'}}>
+        <Toolbar sx={menuToolBarStyle}   >
 
           <div style={{ flex: 1 }} >
             <img src={logo} height="60px" />

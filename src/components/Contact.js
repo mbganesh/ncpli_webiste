@@ -25,6 +25,8 @@ import { Snackbar } from "@mui/material";
 
 import { Buffer } from "buffer";
 
+
+
 import Colors from "../constants/Colors";
 import Footer from "./SubComponents/Footer";
 window.Buffer = Buffer;
@@ -143,7 +145,17 @@ const dam = (theme) => ({
 });
 
 export default function Contact() {
- 
+  const S3_BUCKET = "ganesh-bucket-22";
+  const REGION = "ap-south-1";
+  const ACCESS_KEY = "AKIAUDJT64J22AA4IF5P";
+  const SECRET_ACCESS_KEY = "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";
+
+  const config = {
+    bucketName: S3_BUCKET,
+    region: REGION,
+    accessKeyId: ACCESS_KEY,
+    secretAccessKey: SECRET_ACCESS_KEY,
+  };
 
   const [submitBar, setSubmitBar] = useState(false);
 
@@ -304,7 +316,7 @@ export default function Contact() {
               <HomeIcon sx={{ mr: 0.3 }} fontSize="inherit" />
               Home
             </Link>
-            <Link style={{ textDecoration: "none" }} color="inherit">
+            <Link style={{ textDecoration: "none" }} color={Colors.MAIN_COLOR}>
               Contact Us
             </Link>
           </Breadcrumbs>

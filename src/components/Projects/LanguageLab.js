@@ -12,6 +12,8 @@ import Lab1 from "../../images/projectPageImages/assessment/lab1.svg";
 import Lab2 from "../../images/projectPageImages/assessment/lab2.svg";
 import Lab3 from "../../images/projectPageImages/assessment/lab3.svg";
 import Footer from '../SubComponents/Footer';
+import languageLabContents from "../StaticTextContents/projectContents/languageLabContents";
+import Colors from "../../constants/Colors";
 
 export default function LanguageLab() {
   const BreadcrumbStyle = styled("div")(({ theme }) => ({
@@ -30,12 +32,12 @@ export default function LanguageLab() {
       alignItems: "center",
     },
     [theme.breakpoints.up("md")]: {
-      width: "67%",
+      width: "92%",
       flexDirection: "row",
       justifyContent: "space-between",
     },
     [theme.breakpoints.up("lg")]: {
-      width: "82%",
+      width: "95%",
       flexDirection: "row",
       justifyContent: "space-between",
     },
@@ -65,9 +67,11 @@ export default function LanguageLab() {
       display: "flex",
       transition: ".5s ease",
       opacity: 0,
-      padding: "20px",
       "&:hover": {
         opacity: 1,
+      },
+      [theme.breakpoints.up("lg")]: {
+        padding:"20px"
       },
     },
     [theme.breakpoints.down("md")]: {
@@ -79,17 +83,6 @@ export default function LanguageLab() {
     },
   }));
 
-
-
-  const aboutSmartCard = [
-    "•	Server should act as a Teacher console. This displays the list of students in the teacher console. From this the teacher can select the student to start or stop the class. ",
-    "•	Real Time Screen and Audio Broadcast from Teacher console to Student",
-    "•	Viewing and absorbing the screens of students from teacher console",
-    "•	Recording and storing broadcasts for future use this option is used to record the files and broadcast it to other students from teacher console.",
-    "•	Sharing files among System this module is used to share the files to other system or students from the teacher console.",
-    "•	Having controls like mute audio, lock the keyboard of particular student console. This is used to control the student’s screen such as to lock the screen or keyboard or mute the audio. Teachers can easily having the control over the student’s screen. ",
-    "•	Providing some sample call lessons this provides some sample lessons to student’s screen.",
-  ];
 
 
 
@@ -139,6 +132,7 @@ export default function LanguageLab() {
         <DivStyle1>
           {/* Left Side */}
           <DivStyle4>
+            {languageLabContents.languageLabMainPoints.map((text)=>(
             <Typography
               variant="body1"
               style={{
@@ -146,40 +140,26 @@ export default function LanguageLab() {
                 fontFamily: "nunito",
               }}
             >
-              Language Lab is a software program designed to help the teachers
-              to improve the learning environment in a Computer-based classroom.
-              It is to increase the language skill to the students in English.
-              In this we can teach the good Pronunciation, Letter writing,
-              Grammar, Conversation, Voice and words reorganization tools, and
-              Parts of Speech.
+              {text.firstPoint}
               <br />
               <br />
-              Without language we cannot communicate with the world. English is
-              the common language that is spoken all over the world. So it is
-              necessary to speak English fluently with proper pronunciation
-              without any grammatical mistakes. we are implementing ―DIGITAL
-              MULTIMEDIA LANGUAGE LAB in colleges and schools. We split whole
-              subject coverage into three different levels. Level 1, Level 2 &
-              Level 3.Language Hall - consists of Hardware -based classroom
-              control system. We have established this language lab projects in
-              12 colleges based on the UGC norms
+              {text.secondPoint}
               <br />
               <br />
-              In this software Call Soft installed on each computer in a
-              classroom, a teacher has the ability to, Reduce Student
-              Distractions, Demonstrate Skills, Monitor Students, Access
-              Students Understanding, and Help Individual Students.
-            </Typography>
+             {text.thirdPoint}
+            </Typography> 
+            ))}
           </DivStyle4>
           {/* Ride Side */}
+          {languageLabContents.languageLabSoftware.map((text)=>(
           <DivStyle4>
             <Typography
               variant="h6"
-              style={{  fontFamily: "nunito",fontWeight:'bold' }}
+              style={{  fontFamily: "nunito",fontWeight:'bold', color:Colors.MAIN_COLOR }}
             >
-              Language Lab software include:
+              {text.title}
             </Typography>
-            {softwareIclude.map((text) => (
+            {languageLabContents.languageLabContent.map((text)=>(
               <Typography
                 variant="body1"
                 style={{
@@ -199,14 +179,14 @@ export default function LanguageLab() {
                 fontFamily: "nunito",
               }}
             >
-              We have Memorandum of Understanding (MOU) with around 10 great
-              institutions for our language lab program.
+              {text.content}
             </Typography>
 
             {/* React Player Div */}
             <div style={{ position: "relative", paddingTop: " 5%" }}></div>
             {/* React Player Div */}
           </DivStyle4>
+          ))}
         </DivStyle1>
       </div>
 
@@ -214,6 +194,7 @@ export default function LanguageLab() {
       <div style={{ width: "100%", marginTop: 25 }}>
         {/* 67% middle of page */}
         <DivStyle1>
+        {languageLabContents.languageLabHowItWorks.map((text)=>(
           <DivStyle4>
             <AnimationOnScroll
               animateIn="animate__fadeInLeft"
@@ -261,10 +242,11 @@ export default function LanguageLab() {
                 marginBottom: 10,
                 fontFamily: "nunito",
                 marginTop: "10px",
-                fontWeight:'bold'
+                fontWeight:'bold',
+                color:Colors.MAIN_COLOR
               }}
             >
-              How It Works
+              {text.title}
             </Typography>
 
             <Typography
@@ -275,28 +257,20 @@ export default function LanguageLab() {
                 fontFamily: "nunito",
               }}
             >
-              Language Lab works by enabling a teacher to control all student
-              computers within a computer- based classroom. The most logical way
-              to set up Language Lab is for each classroom or room to have a
-              teacher computer. This setup enables all of the computers in the
-              same classroom to interact with each other and one teacher to
-              control the entire room.
+              {text.content1}
               <br />
               <br />
-              After installing the software on each computer in a classroom, one
-              system can act as a teacher or server and remaining system can act
-              as a student or client. The teacher can monitor students as they
-              join and/or leave the class. This makes it easy to see who is
-              absent or who has joined the class.
+              {text.content2}
             </Typography>
           </DivStyle4>
-
+            ))}
+        {languageLabContents.languageLabUsing.map((text)=>(
           <DivStyle4>
             <Typography
               variant="h6"
-              style={{ marginBottom: 10, fontFamily: "nunito" }}
+              style={{ marginBottom: 10, fontFamily: "nunito", color:Colors.MAIN_COLOR }}
             >
-              Using the Teacher Computer or Server
+              {text.teacherTitle}
             </Typography>
 
             <Typography
@@ -307,15 +281,13 @@ export default function LanguageLab() {
                 fontFamily: "nunito",
               }}
             >
-              After installing the teacher setup or server setup in the
-              computer, the server or teacher has many features to access. They
-              have the ability to control the student’s or client machines.
+              {text.teacherContent}
             </Typography>
             <Typography
               variant="h6"
-              style={{ marginBottom: 5, marginTop: 10, fontFamily: "nunito" }}
+              style={{ marginBottom: 5, marginTop: 10, fontFamily: "nunito", color:Colors.MAIN_COLOR }}
             >
-              Using the Student’s Computer or Client
+             {text.studentTitle}
             </Typography>
 
             <Typography
@@ -326,18 +298,16 @@ export default function LanguageLab() {
                 fontFamily: "nunito",
               }}
             >
-              Language Lab is set up to run in the background on student
-              computers. All of the functionality is controlled at the teacher
-              computer, which enables you to have control over how it is used.
+             {text.studentContent}
             </Typography>
             <Typography
               variant="h6"
-              style={{ marginBottom: 5, marginTop: 10, fontFamily: "nunito" }}
+              style={{ marginBottom: 5, marginTop: 10, fontFamily: "nunito", color:Colors.MAIN_COLOR }}
             >
               Features
             </Typography>
 
-            {aboutSmartCard.map((text) => (
+            {languageLabContents.languageFeaturesContent.map((text) => (
               <div
                 style={{
                   display: "flex",
@@ -359,12 +329,14 @@ export default function LanguageLab() {
               </div>
             ))}
           </DivStyle4>
+        ))}
         </DivStyle1>
       </div>
 
       <div style={{ width: "100%", marginTop: 25 }}>
         {/* 67% middle of page */}
         <DivStyle1>
+        {languageLabContents.languageGrammarLevel1.map((text) => (
           <DivStyle4>
             <Typography
               variant="h6"
@@ -372,9 +344,10 @@ export default function LanguageLab() {
                 marginBottom: 10,
                 fontFamily: "nunito",
                 marginTop: "10px",
+                color:Colors.MAIN_COLOR
               }}
             >
-              Providing Grammar Tools
+              {text.title1}
             </Typography>
 
             <Typography
@@ -385,17 +358,17 @@ export default function LanguageLab() {
                 fontFamily: "nunito",
               }}
             >
-              This Provides Some Grammar Tools Like - ARTICLES, VOICE, TENSE,
-              PUNCTUATION, PARTS OF SPEECH CONVERSATION, DICTIONARY
+              {text.content1}
             </Typography>
             <Typography
               variant="h6"
               style={{
                 fontFamily: "nunito",
                 marginTop: "10px",
+                color:Colors.MAIN_COLOR
               }}
             >
-              Language Lab System
+              {text.title2}
             </Typography>
             <Typography
               variant="body1"
@@ -403,14 +376,11 @@ export default function LanguageLab() {
                 textAlign: "justify",
                 marginTop: 10,
                 fontFamily: "nunito",
+                
               }}
             >
-              <span style={{ fontWeight: "bold" }}>Level I - Grammar </span>
-              Grammar through activities language lab and classroom. The teacher
-              has to be a vigilant, careful of the performance, behavior,
-              interest, and need of the students, the enthusiastic participants
-              in the lab. Let’s consider Active Voice and Passive Voice as an
-              example:
+              <span style={{ fontWeight: "bold",color:Colors.MAIN_COLOR }}>Level I - Grammar </span>
+              {text.content2}
             </Typography>
             <AnimationOnScroll
               animateIn="animate__fadeInLeft"
@@ -453,7 +423,8 @@ export default function LanguageLab() {
               </div>
             </AnimationOnScroll>
           </DivStyle4>
-
+        ))}
+        {languageLabContents.languageGrammarLevel2.map((text) => (
           <DivStyle4>
             <Typography
               variant="h6"
@@ -461,9 +432,10 @@ export default function LanguageLab() {
                 marginBottom: 10,
                 fontFamily: "nunito",
                 marginTop: "10px",
+                color:Colors.MAIN_COLOR
               }}
             >
-              Level II - Grammar
+              {text.title1}
             </Typography>
 
             <Typography
@@ -474,12 +446,8 @@ export default function LanguageLab() {
                 fontFamily: "nunito",
               }}
             >
-              <span style={{ fontWeight: "bold" }}>Skill Generation </span>
-              Programs are designed to take into account your existing skills
-              and knowledge as well as workplace and other training you may have
-              received.Skills Generation will help you whether you are looking
-              for new career opportunities, advancement within your current role
-              or improving and honing existing skills and knowledge.
+              <span style={{ fontWeight: "bold", color:Colors.MAIN_COLOR }}>Skill Generation </span>
+              {text.content1}
             </Typography>
             <Typography
               variant="body1"
@@ -489,10 +457,9 @@ export default function LanguageLab() {
                 fontFamily: "nunito",
               }}
             >
-              <span style={{ fontWeight: "bold" }}>Art Of Conversation </span>
+              <span style={{ fontWeight: "bold",color:Colors.MAIN_COLOR }}>Art Of Conversation </span>
               <br />
-              Art of conversation includes the ability to listen to others as
-              well as the ability to speak effectively.
+              {text.content2}
             </Typography>
             <AnimationOnScroll
               animateIn="animate__fadeInLeft"
@@ -536,12 +503,14 @@ export default function LanguageLab() {
               </div>
             </AnimationOnScroll>
           </DivStyle4>
+        ))}
         </DivStyle1>
       </div>
 
       <div style={{ width: "100%", marginTop: 25, marginBottom: 25 }}>
         {/* 67% middle of page */}
         <DivStyle1>
+        {languageLabContents.languageGrammarLevel3.map((text) => (
           <DivStyle4>
             <Typography
               variant="h6"
@@ -549,9 +518,10 @@ export default function LanguageLab() {
                 marginBottom: 10,
                 fontFamily: "nunito",
                 marginTop: "10px",
+                color:Colors.MAIN_COLOR
               }}
             >
-              Level III
+             {text.title1}
             </Typography>
 
             <Typography
@@ -559,9 +529,10 @@ export default function LanguageLab() {
               style={{
                 fontFamily: "nunito",
                 marginTop: "10px",
+                color:Colors.MAIN_COLOR
               }}
             >
-              Art of writing:
+              {text.title2}
             </Typography>
             <Typography
               variant="body1"
@@ -571,15 +542,10 @@ export default function LanguageLab() {
                 fontFamily: "nunito",
               }}
             >
-              Writing is the art of expressing our views, ideas, and
-              thoughts.Writing is a very important skill anywhere, anytime as
-              long as we live. Through writing, we communicate to teachers to
-              receive grades in school. Effective writing can be a task as it
-              demands much more than correct grammar. It is about to gain
-              knowledge about sentence structure, develop your vocabulary, and
-              build other basic writing skills.
+              {text.content}
             </Typography>
           </DivStyle4>
+        ))}
 
           <DivStyle4>
             <AnimationOnScroll

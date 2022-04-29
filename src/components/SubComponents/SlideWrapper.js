@@ -27,10 +27,8 @@ const SlideWrapper = styled("div")`
 
   .slick-list {
     position: relative;
-
     display: block;
     /* overflow: hidden; */
-
     margin: 0;
     padding: 0;
   }
@@ -55,7 +53,6 @@ const SlideWrapper = styled("div")`
     position: relative;
     top: 0;
     left: 0;
-
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -76,7 +73,6 @@ const SlideWrapper = styled("div")`
   .slick-slide {
     display: none;
     float: left;
-
     height: 100%;
     min-height: 1px;
   }
@@ -167,6 +163,7 @@ const SlideWrapper = styled("div")`
 
   .slick-prev {
     left: -25px;
+    
   }
   [dir="rtl"] .slick-prev {
     right: -25px;

@@ -14,10 +14,5 @@ export default {
   // DELIVERY_STATUS:require('../assets/images/status/animation_delivery.json'),
   // PROCESSING_STATUS:require('../assets/images/status/animation_processing.json'),
   // READY_STATUS:require('../assets/images/status/animation_ready.json')};
-  BANNER1: require('../images/homePageImages/banner_animation.svg'),
-  BANNER2: require('../images/homePageImages/banner_development.svg'),
-  BANNER3: require('../images/homePageImages/banner_education.svg'),
-  BANNER4: require('../images/homePageImages/banner_products.svg'),
-  Banner5: require('../images/homePageImages/banner_animation.svg'),
-  Banner6: require('../images/homePageImages/banner_development.svg')
+
 }

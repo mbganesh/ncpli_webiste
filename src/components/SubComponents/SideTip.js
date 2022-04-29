@@ -42,6 +42,7 @@ export default function SideTip() {
 
   return (
     <div>
+      
       {/* call stuff */}
       <SideStyle
         style={{ top: "45%" }}

@@ -11,9 +11,8 @@ import EContentIcon from "../../images/homePageImages/serviceIcons/eContent.svg"
 
 
 export default {
-    about : "have installed more than 300 and above eSmart Class Room in Government and Government aided schools. We have already implemented the Smart Class Room Pilot Project in 3 Government Higher Secondary Schools namely, Maranthai School at Tirunelveli District, Mallankinaru School at Virudhunagar District and Thummanathy school at Nilgiris District",
+    about : "an information technology based company since 2004, in Education and Training, is offering wide range of that include creating educational and training content of global relevance,designing and executing large learning initiatives and setting up the requisite infrastructure.",
     serviceContent :  [
-       
         {
           title: "Graphic Design",
           icon: GraphicDesignIcon,
@@ -24,7 +23,7 @@ export default {
           title: "E Content Development",
           icon: EContentIcon,
           content:
-            "We make Short Films, Ads, 2D and 3D Animations",
+            "Comprehensive digital repository offering superior-quality content in Mathematics, Physics, Chemistry, Biology, Social Sciences, English Grammar, Business Studies, Economics and Accountancy",
         },
         {
           title: "Short Film",

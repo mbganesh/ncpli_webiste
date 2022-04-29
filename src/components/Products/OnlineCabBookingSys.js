@@ -16,8 +16,8 @@ import AppbarHead from "../SubComponents/AppbarHead";
 import ReactPlayer from "react-player";
 
 
-import HomeSD from "../../images/productPageImages/smart_Tailor_App/Home.png";
-import OrderSD from "../../images/productPageImages/smart_Tailor_App/order.png";
+import Home from "../../images/productPageImages/online_cab_app/home.png";
+import Vehicles from "../../images/productPageImages/online_cab_app/vehicles.png";
 import orderUser from "../../images/productPageImages/smart_Tailor_App/orderUser.png";
 import SDApp from "../../images/productPageImages/smart_Tailor_App/SDApp.svg";
 
@@ -44,6 +44,11 @@ import ytLogo from "../../images/productPageImages/smart_Tailor_App/socialmedia_
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import DangerousRoundedIcon from '@mui/icons-material/DangerousRounded';
 import AdjustIcon from '@mui/icons-material/Adjust';
+import onlineCabBookingContent from "../StaticTextContents/productContents/onlineCabBookingContent";
+import { Colors } from "../../constants";
+import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
+
+
 
 export default function SmartTailorShop() {
   const BreadcrumbStyle = styled("div")(({ theme }) => ({
@@ -128,25 +133,25 @@ export default function SmartTailorShop() {
   const DivStyle5= styled("div")(({ theme }) => ({
     display:"flex",margin:"0 auto",flexDirection:"column",
     [theme.breakpoints.down("md")]: {
-      
+
       width:"90%",
-    
+
     },
     [theme.breakpoints.up("md")]: {
       width:"90%",
-      
 
-   
+
+
     },
     [theme.breakpoints.up("lg")]: {
       width:"82%",
-      
+
 
 
     },
     [theme.breakpoints.up("xl")]: {
       width:"67%",
-     
+
     }
   }));
 
@@ -188,10 +193,7 @@ export default function SmartTailorShop() {
       <BreadcrumbStyle>
         <Card elevation={6}>
           <CardContent>
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" />}
-              aria-label="breadcrumb"
-            >
+            <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb"  >
               <Link
                 underline="hover"
                 color="inherit"
@@ -208,7 +210,7 @@ export default function SmartTailorShop() {
         </Card>
       </BreadcrumbStyle>
 
-   
+
 
       {/* Full vertical page */}
       <div style={{ width: "100%", marginTop: 25 }}>
@@ -216,119 +218,32 @@ export default function SmartTailorShop() {
         <DivStyle1>
           {/* Left Side */}
           <DivStyle2>
-            <Typography
-              variant="body1"
-              sx={{ textAlign: "justify", fontFamily: "nunito" }}
-            >
-            
+            <Typography variant="body1" sx={{ textAlign: "justify", fontFamily: "nunito" }} >
+
               <span style={{ fontWeight: "bold", color: "green" }}>
-            
+
               Online Cab Booking  Application
               </span>
-              is the Web application . Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia
-              deserunt mollit anim id est laborum.{" "}
+              {onlineCabBookingContent.about}
             </Typography>
 
-            <Typography
-              variant="h5"
-              style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
-            >
-              What it contains in Online Cab Booking  Web Application?
+            <Typography variant="h5" style={{ marginTop: 20, fontWeight: "600", color: Colors.MAIN_COLOR }}>
+              Features
             </Typography>
 
-            <ul>
-              {contains.map((text) => (
-                <li style={{ marginTop: 7 }}>{text}</li>
-              ))}
-            </ul>
-            <Typography
-              variant="h4"
-              style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
-            >
-              {contains[0]}
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{ textAlign: "justify", fontFamily: "nunito", marginTop: 2 }}
-            >
-              {" "}
-              <span style={{ fontWeight: "bold", color: "green" }}>
-                {" "}
-                Online Cab Booking  Application{" "}
-              </span>{" "}
-              is the Web application . Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia
-              deserunt mollit anim id est laborum.{" "}
-            </Typography>
+            {
+                    onlineCabBookingContent.features.map((text, index) => (
+                      <div style={{ display: "flex", marginTop:10 }}>
+                        <DoubleArrowIcon style={{ color: Colors.MAIN_COLOR }} />
+                        <Typography variant="subtitle1" style={{ marginLeft: 10 }}>
+                          {text}
+                        </Typography>
+                      </div>
+                    ))
+                  }
 
-            <Typography
-              variant="body1"
-              sx={{ textAlign: "justify", fontFamily: "nunito", marginTop: 1 }}
-            >
-              {" "}
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.{" "}
-            </Typography>
-            <Typography
-              variant="h4"
-              style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
-            >
-              {contains[1]}
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{ textAlign: "justify", fontFamily: "nunito", marginTop: 2 }}
-            >
-              {" "}
-              <span style={{ fontWeight: "bold", color: "green" }}>
-                {" "}
-                Tailors Application{" "}
-              </span>{" "}
-              is the Web application . Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia
-              deserunt mollit anim id est laborum.{" "}
-            </Typography>
-
-            <Typography
-              variant="body1"
-              sx={{ textAlign: "justify", fontFamily: "nunito", marginTop: 1 }}
-            >
-              {" "}
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.{" "}
-            </Typography>
-
-            <Typography
-              variant="h6"
-              style={{ marginTop: 7, fontWeight: "600", fontFamily: "nunito" }}
-            >
-              Admin App and Tailors App Technology used{" "}
+            <Typography variant="h6" style={{ marginTop: 7, fontWeight: "600", fontFamily: "nunito" }}  >
+              Technology used
             </Typography>
             <ul>
               {websiteTechnology.map((obj) => (
@@ -351,50 +266,10 @@ export default function SmartTailorShop() {
               ))}
             </ul>
 
-            <Typography
-              variant="h4"
-              style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
-            >
-              {contains[2]}
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{ textAlign: "justify", fontFamily: "nunito", marginTop: 2 }}
-            >
-              {" "}
-              <span style={{ fontWeight: "bold", color: "green" }}>
-                {" "}
-                Customer Mobile Application{" "}
-              </span>{" "}
-              is the Mobile Android application . Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia
-              deserunt mollit anim id est laborum.{" "}
-            </Typography>
 
-            <Typography
-              variant="body1"
-              sx={{ textAlign: "justify", fontFamily: "nunito", marginTop: 1 }}
-            >
-              {" "}
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.{" "}
-            </Typography>
 
-            <Typography
-              variant="h6"
-              style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
-            >
-              Customer Mobile App Technology used
+            <Typography variant="h6" style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}            >
+              Technology used
             </Typography>
 
             <ul>
@@ -443,16 +318,11 @@ export default function SmartTailorShop() {
             </div>
             {/* React Player Div */}
 
-            <Typography
-              variant="body1"
-              style={{ marginTop: 25, marginBottom: 10, fontFamily: "nunito" }}
-            >
-              Please mail us to get the free demo for smart tailoring app:
+            <Typography variant="body1" style={{ marginTop: 25, marginBottom: 10, fontFamily: "nunito" }}            >
+              Please mail us to get the free demo for Online Cab Booking App:
               <span
                 style={{ color: " #3B7CFE", cursor: "pointer" }}
-                onClick={() => {
-                  window.open("mailto:career@ncpli.com");
-                }}
+                onClick={() => { window.open("mailto:career@ncpli.com"); }}
               >
                 career@ncpli.com
               </span>
@@ -468,7 +338,7 @@ export default function SmartTailorShop() {
                   width="100%"
                   style={{ top: 0, left: 0 }}
                   height="150%"
-                  src={HomeSD}
+                  src={Home}
                 ></img>
               </div>
             </AnimationOnScroll>
@@ -478,33 +348,11 @@ export default function SmartTailorShop() {
                 width="100%"
                 style={{ top: 0, left: 0 }}
                 height="100%"
-                src={OrderSD}
+                src={Vehicles}
               ></img>
             </div>
 
-            <div style={{ position: "relative", marginTop: 10 }}>
-              <img
-                width="100%"
-                style={{ top: 0, left: 0 }}
-                height="100%"
-                src={orderUser}
-              ></img>
-            </div>
-            <Typography
-              variant="body1"
-              style={{ marginTop: 10, fontFamily: "nunito" }}
-            >
-              Online Cab Booking Web Application  Screenshots{" "}
-            </Typography>
 
-            <div style={{ position: "relative", marginTop: 10 }}>
-              <img
-                width="100%"
-                style={{ top: 0, left: 0 }}
-                height="100%"
-                src={SDApp}
-              ></img>
-            </div>
           </DivStyle3>
         </DivStyle1>
       </div>

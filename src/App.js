@@ -19,7 +19,7 @@ import Portfolio from "./components/Portfolio";
 import Carrer from "./components/Carrer";
 import Contact from "./components/Contact";
 import ICT from "./components/Projects/ICT";
-import SmartClass from "./components/Projects/SmartClass";
+import SmartClass from "./components/Products/SmartClass";
 import EcontentDevelopment from './components/Projects/Econtent';
 import SmartTailorShop from "./components/Products/SmartTailorShop";
 import CareerDetails from "./components/CareerDetails";
@@ -33,7 +33,12 @@ import ProductAssessmentTool from './components/Products/AssessmentTool';
 
 import WebApplicationDevelopment from "./components/Services/WebApplicationDevelopment"; 
 import ShortFilm from "./components/Services/ShortFilm";
-import PhoneFrame from "./components/PhoneFrame";
+import MobileApplicationDevelopment from "./components/Services/MobileApplicationDevelopment";
+
+import CustomizedSoftwareDevelopment from "./components/Services/CustomizedSoftwareDevelopment";
+import EContentDevelopment from "./components/Services/EContentDevelopment";
+import WebHostingServices from "./components/Services/WebHostingServices";
+import HardwareSupportMaintanence from "./components/Services/HardwareSupportMaintanence";
 
 
 
@@ -44,7 +49,7 @@ function App() {
   });
   return (
     <>
-      <BrowserRouter basename={window.location.pathname || ''}>
+        <BrowserRouter basename={window.location.pathname || ''}>
         <Routes>
           <Route exact path="/smart-class" element={<SmartClass />}></Route>
           <Route exact path="/netcom-digital-contents" element={<NetcomDigitalContents />}></Route>
@@ -54,7 +59,6 @@ function App() {
 
           <Route exact path="/language-lab" element={<LanguageLab />}></Route>
           <Route exact path="/emis-sofware-solutions" element={<TwDThDAnimations />}          ></Route>
-          <Route exact path="/e-content-development" element={<EcontentDevelopment/>}></Route>
           <Route exact path="/kiosk-project" element={<Kiosk />}></Route>
           <Route exact path="/call-soft-project" element={<CallSoft />}></Route>
           <Route exact path="/software-solution" element={<RFIDSoftwareSolutions />}          ></Route>
@@ -77,11 +81,12 @@ function App() {
 
           {/* Services Routes */}
           <Route exact path="/web-app-development" element={<WebApplicationDevelopment />} />
+          <Route exact path="/mob-app-development" element={<MobileApplicationDevelopment />} />
+          <Route exact path="/custom-app-development" element={<CustomizedSoftwareDevelopment />} />
+          <Route exact path="/e-content-development" element={<EContentDevelopment />} />
+          <Route exact path="/web-hosting" element={<WebHostingServices />} />
+          <Route exact path="/hardware-support-maintainence" element={<HardwareSupportMaintanence />} />
           <Route exact path="/short-film" element={<ShortFilm />} />
-
-
-          <Route exact path="/frame" element={<PhoneFrame />} />
-
 
         </Routes>
       </BrowserRouter>

@@ -18,6 +18,7 @@ import { ScrollToTop } from "react-simple-scroll-up";
 import AppbarHead from "./SubComponents/AppbarHead";
 import CareerBanner from "../images/careerPageImages/career_bg.svg";
 import Footer from "./SubComponents/Footer";
+import { Colors } from '../constants';
 
 export default function Carrer() {
   const BreadcrumbStyle = styled("div")(({ theme }) => ({
@@ -51,7 +52,7 @@ export default function Carrer() {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-evenly",
-    margin:'0px 10px'
+    margin: '0px 10px'
   }));
 
   const mySingleCard = (theme) => ({
@@ -60,14 +61,14 @@ export default function Carrer() {
     width: "400px",
     backgroundColor: "#FFF9F9",
     border: "1px solid #157561",
-    borderRadius:'5px',
+    borderRadius: '5px',
     boxShadow: `rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px`,
 
     "&:hover": {
       transition: "0.5s",
       transform: `scale(${1.02})`,
       boxShadow: `rgba(21, 117, 97, 0.55) 0px 15px 25px, rgba(21, 117, 97, 0.65) 0px 5px 10px`,
-      borderRadius:'15px',
+      borderRadius: '15px',
     },
 
     [theme.breakpoints.down("sm")]: {
@@ -79,17 +80,17 @@ export default function Carrer() {
   const applyBtn = (theme) => ({
     margin: "15px 0px 5px",
     border: "2px solid #157561",
-    color:'#157561',
+    color: '#157561',
 
     "&:hover": {
       transition: "0.5s",
       backgroundColor: "#157561",
       color: "white",
       border: "1px solid #157561",
-      fontSize:'16px',
-      fontWeight:'bold',
+      fontSize: '16px',
+      fontWeight: 'bold',
     },
- 
+
   });
 
   const navigate = useNavigate();
@@ -485,7 +486,7 @@ export default function Carrer() {
                 {" "}
                 <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" /> Home{" "}
               </Link>
-              <Typography color="text.primary">Career</Typography>
+              <Typography color={Colors.MAIN_COLOR}>Career</Typography>
             </Breadcrumbs>
           </CardContent>
         </Card>
@@ -501,19 +502,19 @@ export default function Carrer() {
         <CardRow>
           {CareerDataList.map((data, i) => (
             <Card sx={mySingleCard} elevation="2" key={i}>
-              <CardTopItem/>
+              <CardTopItem />
 
 
 
-              <div style={{display:'flex', whiteSpace:'nowrap' , justifyContent:'center', alignItems:'center' ,paddingTop:'10px' , paddingBottom:'5px'}}> 
+              <div style={{ display: 'flex', whiteSpace: 'nowrap', justifyContent: 'center', alignItems: 'center', paddingTop: '10px', paddingBottom: '5px' }}>
 
-                <Typography variant="body1" sx={{fontWeight:'bold' , marginRight:'5px'}}> Job Role :  </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 'bold', marginRight: '5px' }}> Job Role :  </Typography>
 
                 <Typography variant="subtitle1"> {data.details.title} </Typography>
 
               </div>
 
-             
+
               <div
                 style={{
                   display: "flex",
@@ -526,20 +527,20 @@ export default function Carrer() {
                   <ExperienceIcon
                     style={{ color: "#157561", marginRight: "1%" }}
                   />
-              
+
                   <Typography
                     variant="subtitle1"
-                    style={{ whiteSpace: "nowrap", marginLeft: "1%"  }}
+                    style={{ whiteSpace: "nowrap", marginLeft: "1%" }}
                   >
                     Experience : {data.cardData[0]}{" "}
                   </Typography>
                 </CardSingleItem>
-                <br/>
+                <br />
                 <CardSingleItem>
                   <DegreeIcon style={{ color: "#157561", marginRight: "1%" }} />
                   <Typography
                     variant="subtitle1"
-                    style={{ whiteSpace: "nowrap", marginLeft: "1%"  }}
+                    style={{ whiteSpace: "nowrap", marginLeft: "1%" }}
                   >
                     Qualification : {data.cardData[1]}{" "}
                   </Typography>
@@ -549,16 +550,16 @@ export default function Carrer() {
 
               <CardLocation>
 
-<CardSingleItem >
-  <LocationIcon style={{ marginRight: "1%" , color:'gray' }} />
-  <Typography
-    variant="subtitle1"
-    style={{ whiteSpace: "nowrap", marginLeft: "1%" }}
-  >
-    {"Tirunelveli and Chennai"}{" "}
-  </Typography>
-</CardSingleItem>
-</CardLocation>
+                <CardSingleItem >
+                  <LocationIcon style={{ marginRight: "1%", color: 'gray' }} />
+                  <Typography
+                    variant="subtitle1"
+                    style={{ whiteSpace: "nowrap", marginLeft: "1%" }}
+                  >
+                    {"Tirunelveli and Chennai"}{" "}
+                  </Typography>
+                </CardSingleItem>
+              </CardLocation>
 
 
               <Button

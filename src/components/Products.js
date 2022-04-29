@@ -83,7 +83,7 @@ return (
   <CardContent>
     <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb">
       <Link underline="hover" color="inherit" href="/"  sx={{ display: 'flex', alignItems: 'center'}}> <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />{" "} Home{" "} </Link>
-      <Typography color="text.primary">Products</Typography>
+      <Typography color={Colors.MAIN_COLOR}>Products</Typography>
 
     </Breadcrumbs>
   </CardContent>

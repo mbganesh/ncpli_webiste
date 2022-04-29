@@ -1,24 +1,19 @@
-import {React, useEffect} from "react";
+import { React, useEffect } from "react";
 import { styled } from "@mui/system";
-import {
-  Typography,
-  Breadcrumbs,
-  Link,
-  Card,
-  CardContent,
-} from "@mui/material";
+import { Typography, Breadcrumbs, Link, Card, CardContent } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import HomeIcon from "@mui/icons-material/Home";
 import { ScrollToTop } from "react-simple-scroll-up";
 import AppbarHead from "../SubComponents/AppbarHead";
-
 import ReactPlayer from "react-player";
 import location from "../../images/projectPageImages/smart-Classroom/location.svg";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import smartClassImg2 from "../../images/projectPageImages/smart-Classroom/smart_class_2.svg";
-import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Footer from '../SubComponents/Footer';
+import { Colors } from "../../constants";
+import kioskContent from "../StaticTextContents/projectContents/kioskContents";
+import FirstImage from "../../images/projectPageImages/kiosk/1.png"
+import SecondImage from "../../images/projectPageImages/kiosk/2.png"
 
 export default function Kiosk() {
   const BreadcrumbStyle = styled("div")(({ theme }) => ({
@@ -28,7 +23,7 @@ export default function Kiosk() {
 
   const DivStyle1 = styled("div")(({ theme }) => ({
     display: "flex",
-    margin: "0 auto",
+    margin:"0 auto",
     [theme.breakpoints.down("md")]: {
       width: "90%",
       flexDirection: "column",
@@ -36,12 +31,12 @@ export default function Kiosk() {
       alignItems: "center",
     },
     [theme.breakpoints.up("md")]: {
-      width: "67%",
+      width: "92%",
       flexDirection: "row",
       justifyContent: "space-between",
     },
     [theme.breakpoints.up("lg")]: {
-      width: "82%",
+      width: "95%",
       flexDirection: "row",
       justifyContent: "space-between",
     },
@@ -69,9 +64,11 @@ export default function Kiosk() {
       display: "flex",
       transition: ".5s ease",
       opacity: 0,
-      padding: "20px",
       "&:hover": {
         opacity: 1,
+      },
+      [theme.breakpoints.up("lg")]: {
+        padding:"20px"
       },
     },
     [theme.breakpoints.down("md")]: {
@@ -83,6 +80,8 @@ export default function Kiosk() {
     },
   }));
   const DivStyle3 = styled("div")(({ theme }) => ({
+    position: "relative",
+    marginTop: 10,
     [theme.breakpoints.down("md")]: {
       width: "100%",
       margin: "0 auto",
@@ -91,6 +90,8 @@ export default function Kiosk() {
       width: "42%",
     },
   }));
+
+  
 
   const cardStyle = (theme) => ({
     boxShadow:
@@ -144,29 +145,10 @@ export default function Kiosk() {
     },
   });
 
-  const reason = [
-    "• Migrate customers from teller-based transactions to on-line banking to reduce costs.",
-    "• Enhance customer satisfaction by providing needed Web-based services in the branch office.",
-    " • Increase revenue and 'share of wallet' by offering additional products and services via cross sell and up-sell opportunities.",
-    "• Acquire new customers via sign-up/opening an account.",
-    "• Educate new and existing customers about service & product offering.",
-    "• Initiate and provide rewards in the form of loyalty.",
-    "• Provide service 24 hours a day, 7 days a week, in centralized locations.",
-    "• Learn more about customer preferences by collecting vital data.",
-    "• Provide additional training and educational services to employees.",
-    "• Bridge language barriers with non-English speaking customers.",
-  ];
-
-  const reasonForKiosk = [
-    "• The primary reasons of self-service kiosks have become popular so quickly is that they allow companies to engage with their customer base on the user’s own terms.",
-    "• The self-service kiosk is to allow customers to complete various common tasks on their own without the assistance of a dedicated employee.",
-    "• Kiosks can also reduce business costs.",
-    "• Kiosks are easily accessible and the individuals working there are usually pleasant and ready to help, both of which make it simpler to provide the customer with detailed information. ∙ Kiosks are small, temporary booths placed in areas with high foot traffic that are used by businesses to reach their customers.",
-  ];
-
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+
 
   return (
     <>
@@ -197,104 +179,67 @@ export default function Kiosk() {
       </BreadcrumbStyle>
 
       {/* Full vertical page */}
-      <div style={{ width: "100%", marginTop: 25 }}>
+      
+      <div style={{ width: "100%", marginTop: 25,}}>
         {/* 67% middle of page */}
         <DivStyle1>
           {/* Left Side */}
           <DivStyle2>
-            <Typography
-              variant="body1"
-              style={{
-                textAlign: "justify",
-                marginTop: 20,
-                fontFamily: "nunito",
-              }}
-            >
-              A kiosk is an interactive system designed for public use that
-              delivers information or enables transactions. Standard or custom
-              applications developed for information kiosks provide customers
-              with information, the ability to participate in loyalty programs,
-              and transaction capability. Enterprises deploy kiosks to increase
-              customer loyalty, strengthen their brand with target customers,
-              and reduce operational costs.
-            </Typography>
+            {kioskContent.kioskMainPoints.map((text) => (
+              <Typography
+                variant="body1"
+                style={{
+                  textAlign: "justify",
+                  marginTop: 20,
+                  fontFamily: "nunito",
+                }}
+              >
+                {text}
+              </Typography>
+            ))}
+            <br />
 
-            <Typography
-              variant="body1"
-              style={{
-                textAlign: "justify",
-                marginTop: 7,
-                fontFamily: "nunito",
-              }}
-            >
-              A kiosk includes a computer and a display screen and allows for
-              customer input of data via an input device such as a touch screen
-              or keyboard. A kiosk differs from a standard computer in that it
-              runs application(s) developed for a specific purpose(s).
-            </Typography>
+            {kioskContent.kioskPuropseOfKiosk.map((text) => (
+              <div>
+                <Typography variant="h6" style={{ marginBottom: 10, fontFamily: "nunito", fontWeight: "bold", color: Colors.MAIN_COLOR }}>
+                  {text.title}
+                </Typography>
 
-            <Typography
-              variant="h6"
-              style={{
-                marginBottom: 10,
-                fontFamily: "nunito",
-                fontWeight: "bold",
-              }}
-            >
-              Puropse of Kiosk:
-            </Typography>
+                <Typography variant="body1" style={{ textAlign: "justify", marginTop: 10, fontFamily: "nunito" }}>
+                  {text.content}
+                </Typography>
+              </div>
+            ))}
 
-            <Typography
-              variant="body1"
-              style={{
-                textAlign: "justify",
-                marginTop: 10,
-                fontFamily: "nunito",
-              }}
-            >
-              A kiosk is a small, stand-alone booth typically placed in
-              high-traffic areas for business purposes.It typically provides
-              information and applications on education, commerce,
-              entertainment, and a variety of other topics.
-            </Typography>
           </DivStyle2>
           {/* Ride Side */}
           <DivStyle3>
-            <Typography
-              variant="h6"
-              style={{
-                marginBottom: 10,
-                fontFamily: "nunito",
-                fontWeight: "bold",
-              }}
-            >
-              Kiosk Using video
-            </Typography>
-
-            {/* React Player Div */}
-            <div style={{ position: "relative", paddingTop: " 56.25%" }}>
-              <ReactPlayer
+            <div>
+              <img
                 width="100%"
-                style={{ position: "absolute", top: 0, left: 0 }}
-                height="100%"
-                config={{
-                  file: { attributes: { controlsList: "nodownload" } },
+                style={{
+                  top: 0,
+                  left: 0,
+                  display: "block",
+                  width: "100%",
+                  boxShadow:
+                    "rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset",
                 }}
-                url={"https://gdurl.com/DSy3"}
-                controls
-              ></ReactPlayer>
+                height="170%"
+                src={FirstImage}
+              ></img>
             </div>
-            {/* React Player Div */}
           </DivStyle3>
         </DivStyle1>
+
       </div>
 
-      {/* Full vertical page */}
-      <div style={{ width: "100%", marginTop: 25 }}>
+
+<div style={{ width: "100%", marginTop: 25,}}>
         {/* 67% middle of page */}
         <DivStyle1>
           <DivStyle2>
-            <AnimationOnScroll
+          <AnimationOnScroll
               animateIn="animate__fadeInLeft"
               animateOnce={true}
               duration={2}
@@ -311,7 +256,7 @@ export default function Kiosk() {
                       "rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset",
                   }}
                   height="170%"
-                  src={smartClassImg2}
+                  src={SecondImage}
                 ></img>
                 <div className="overlay">
                   <div style={{ display: "flex", flexDirection: "row" }}>
@@ -332,73 +277,73 @@ export default function Kiosk() {
                 </div>
               </div>
             </AnimationOnScroll>
-            <Typography
-              variant="h6"
-              style={{
-                marginTop: 10,
-                fontFamily: "nunito",
-                fontWeight: "bold",
-              }}
-            >
-              Koisk Project
-            </Typography>
+            <br />
+            {kioskContent.kioskKioskProject.map((text) => (
+              <div>
+                <Typography
+                  variant="h6"
+                  style={{
+                    marginTop: 10,
+                    fontFamily: "nunito",
+                    fontWeight: "bold",
+                    color: Colors.MAIN_COLOR
+                  }}
+                >
+                  {text.title}
+                </Typography>
 
-            <Typography
-              variant="body1"
-              style={{
-                textAlign: "justify",
-                marginTop: 10,
-                fontFamily: "nunito",
-              }}
-            >
-              The software we developed for TMB contains the Contents that are
-              designed and developed by using the FLASH software. Online
-              Contents can be upload/download easily. If we want to changeor
-              edit the contents, it will be easily modified and updated.
-              <br />
-              <br />
-              NETCOM executed the KIOSK project along with Software and have
-              installed 82 Bank Kiosks for Tamil Nadu Mercantile Bank (TMB).
-              These KIOSKs have touch screen facility where the user or the
-              customer could access his / her Banking details such as
-              transaction details along with the information about the bank's
-              new products and facilities. These KIOSKs have been established in
-              the States of Karnataka, Gujarat, Delhi, Maharashtra, Andhra
-              Pradesh, Kerala, Tamil Nadu and Puducherry in India.
-            </Typography>
+                <Typography
+                  variant="body1"
+                  style={{
+                    textAlign: "justify",
+                    marginTop: 10,
+                    fontFamily: "nunito",
+                  }}
+                >
+                  {text.content1}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  style={{
+                    textAlign: "justify",
+                    marginTop: 10,
+                    fontFamily: "nunito",
+                  }}
+                >
+                  {text.content2}
+                </Typography>
+              </div>
+            ))}
           </DivStyle2>
 
           <DivStyle3>
-            <Typography
-              variant="h6"
-              style={{
-                marginBottom: 5,
-                marginTop: 10,
-                fontFamily: "nunito",
-                fontWeight: "bold",
-              }}
-            >
-              Reasons to Consider a Kiosk for Your Bank
-            </Typography>
-            <Typography
-              variant="body1"
-              style={{
-                textAlign: "justify",
-                marginTop: 2,
-                fontFamily: "nunito",
-              }}
-            >
-              Netcom smart card is connected with our project ―School Management
-              System‖. This is about the class attendance signing system using
-              student’s smart card. The Purpose of our project is to collect the
-              student’s class attendance by using student’s smart card and it
-              also provides the options for the staff to calculate the student
-              attendance percentage to view the attendance report and entry the
-              student’s marks for automatically calculating the total,
-              percentage, and grade.
-            </Typography>
-
-            {reason.map((text) => (
+            {kioskContent.kioskKioskForYourBank.map((text) => (
+              <div>
+                <Typography
+                  variant="h6"
+                  style={{
+                    marginBottom: 5,
+                    marginTop: 10,
+                    fontFamily: "nunito",
+                    fontWeight: "bold",
+                    color: Colors.MAIN_COLOR
+                  }}
+                >
+                  {text.title}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  style={{
+                    textAlign: "justify",
+                    marginTop: 2,
+                    fontFamily: "nunito",
+                  }}
+                >
+                  {text.content}
+                </Typography>
+              </div>
+            ))}
+            {kioskContent.kioskKioskForYourBankReason.map((text) => (
               <div
                 style={{
                   display: "flex",
@@ -440,169 +385,166 @@ export default function Kiosk() {
         <DivStyle1>
           {/* Left Side */}
           <DivStyle2>
-            <Typography
-              variant="h6"
-              style={{
-                marginBottom: 5,
-                fontFamily: "nunito",
-                fontWeight: "bold",
-              }}
-            >
-              KIOSK In Health care:
-            </Typography>
-            <Typography
-              variant="body1"
-              style={{
-                textAlign: "justify",
-                marginTop: 2,
-                fontFamily: "nunito",
-              }}
-            >
-              Netcom Health Care Kiosk helps in mechanised check-ins and
-              registration, patient status, online filling of forms and
-              questionnaires, insurance confirmation, systematize patient
-              queuing, payment of bills and report of outstanding payments.
-              Public Health Centre often utilize self-service kiosks to assist
-              patients with check-in, as well as offer wayfinding services on
-              large campuses.
-            </Typography>
+            {kioskContent.kioskKioskInHealthCare.map((text) => (
+              <div>
+                <Typography
+                  variant="h6"
+                  style={{
+                    marginBottom: 5,
+                    fontFamily: "nunito",
+                    fontWeight: "bold",
+                    color: Colors.MAIN_COLOR
+                  }}
+                >
+                  {text.title}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  style={{
+                    textAlign: "justify",
+                    marginTop: 2,
+                    fontFamily: "nunito",
+                  }}
+                >
+                  {text.content}
+                </Typography>
+              </div>
+            ))}
+            <br />
+            {kioskContent.kioskKioskInTravelDesk.map((text) => (
+              <div>
+                <Typography
+                  variant="h6"
+                  style={{
+                    fontFamily: "nunito",
+                    fontWeight: "bold",
+                    color: Colors.MAIN_COLOR
+                  }}
+                >
+                  {text.title}
+                </Typography>
 
-            <Typography
-              variant="h6"
-              style={{
-                fontFamily: "nunito",
-                fontWeight: "bold",
-              }}
-            >
-              KIOSK in Travel Desk:
-            </Typography>
+                <Typography
+                  variant="body1"
+                  style={{
+                    marginTop: 5,
+                    textAlign: "justify",
+                    fontFamily: "nunito",
+                  }}
+                >
+                  {text.content}
+                </Typography>
+              </div>
+            ))}
+            <br />
+            {kioskContent.kioskKioskAtAirport.map((text) => (
+              <div>
+                <Typography
+                  variant="h6"
+                  style={{
+                    fontFamily: "nunito",
+                    fontWeight: "bold",
+                    color: Colors.MAIN_COLOR
+                  }}
+                >
+                  {text.title}
+                </Typography>
 
-            <Typography
-              variant="body1"
-              style={{
-                marginTop: 5,
-                textAlign: "justify",
-                fontFamily: "nunito",
-              }}
-            >
-              Netcom Travel Desk Kiosk used in bus and train stations to
-              dispense tickets and provide wayfinding for different stops along
-              each route.Printing tickets for train or bus journeys.Interactive
-              touchscreen for viewing timetables and selecting train or bus
-              tickets. Scanning railcards, and season tickets.Buying travel and
-              season tickets.Gaining feedback via surveys on interactive
-              kiosks.It is helpful in information such as bus or train times,
-              travel updates or government guidelines
-            </Typography>
+                <Typography
+                  variant="body1"
+                  style={{
+                    marginTop: 5,
+                    textAlign: "justify",
+                    fontFamily: "nunito",
+                  }}
+                >
+                  {text.content}
+                </Typography>
+              </div>
+            ))}
+            <br />
+            {kioskContent.kioskkioskInTourismDepartment.map((text) => (
+              <div>
+                <Typography
+                  variant="h6"
+                  style={{
+                    fontFamily: "nunito",
+                    fontWeight: "bold",
+                    color: Colors.MAIN_COLOR
+                  }}
+                >
+                  {text.title}
+                </Typography>
 
-            <Typography
-              variant="h6"
-              style={{
-                fontFamily: "nunito",
-                fontWeight: "bold",
-              }}
-            >
-              KIOSK at Airport:
-            </Typography>
+                <Typography
+                  variant="body1"
+                  style={{
+                    marginTop: 5,
+                    textAlign: "justify",
+                    fontFamily: "nunito",
+                  }}
+                >
+                  {text.content}
+                </Typography>
+              </div>
+            ))}
 
-            <Typography
-              variant="body1"
-              style={{
-                marginTop: 5,
-                textAlign: "justify",
-                fontFamily: "nunito",
-              }}
-            >
-              Netcom kiosks for flight check-in and self-tagging of checked
-              luggage have been common for more than a decade now. Airports also
-              utilize kiosks for wayfinding around facility, and to communicate
-              flight information and gate changes. It is a touch-screen device
-              allowing passengers to do self-check-in and pay with credit or
-              debit cards for free.Kiosks provide a valid boarding pass at the
-              end.Passengers can save time by using kiosks at busy airports and
-              avoid long queues.
-            </Typography>
-
-            <Typography
-              variant="h6"
-              style={{
-                fontFamily: "nunito",
-                fontWeight: "bold",
-              }}
-            >
-              KIOSK in Tourism Department:
-            </Typography>
-
-            <Typography
-              variant="body1"
-              style={{
-                marginTop: 5,
-                textAlign: "justify",
-                fontFamily: "nunito",
-              }}
-            >
-              Netcom Travel and Tourism kiosks provide visitors with information
-              on local restaurants, hotels, shopping, and attractions.
-              Individual listings provide additional information, and wayfinding
-              capabilities allow visitors to navigate their destination.
-            </Typography>
           </DivStyle2>
           {/* Ride Side */}
           <DivStyle3>
-            <Typography
-              variant="body1"
-              style={{
-                marginTop: 5,
-                textAlign: "justify",
-                fontFamily: "nunito",
-              }}
-            >
-              Our kiosks can also streamline the check-in process— significantly
-              reducing long lines at airports, train stations or car hire
-              outlets. Netcom Tourism Kiosk Application streamlines information
-              and provides the best possible and latest results, which
-              significantly saves the time of users and consistently yields
-              desirable results.
-            </Typography>
+            {kioskContent.kioskOurKiosk.map((text) => (
+              <Typography
+                variant="body1"
+                style={{
+                  marginTop: 5,
+                  textAlign: "justify",
+                  fontFamily: "nunito",
+                }}
+              >
+                {text}
+              </Typography>
+            ))}
+            <br />
+            {kioskContent.kioskKioskInAgriculture.map((text) => (
+              <div>
+                <Typography
+                  variant="h6"
+                  style={{
+                    marginBottom: 5,
+                    fontFamily: "nunito",
+                    fontWeight: "bold",
+                    color: Colors.MAIN_COLOR
+                  }}
+                >
+                  {text.title}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  style={{
+                    textAlign: "justify",
+                    marginTop: 2,
+                    fontFamily: "nunito",
+                  }}
+                >
+                  {text.content}
+                </Typography>
+              </div>
+            ))}
+
+            <br />
 
             <Typography
               variant="h6"
               style={{
-                marginBottom: 5,
-                fontFamily: "nunito",
-                fontWeight: "bold",
-              }}
-            >
-              KIOSK in Agriculture:
-            </Typography>
-            <Typography
-              variant="body1"
-              style={{
-                textAlign: "justify",
-                marginTop: 2,
-                fontFamily: "nunito",
-              }}
-            >
-              Netcom agri-kiosk is finding a strong foothold and to empower
-              marginalized peoples from some of the backward districts and
-              creating skilled farmers.Agri-kiosk is a one-stop shop for all
-              agricultural needs providing services such as soil testing, seed
-              selection, appropriate pesticides, herbicides, and
-              fungicides.Agri-kiosks also provide the latest
-              agriculturalequipment on rent which make it easily accessible for
-              women farmers.
-            </Typography>
-            <Typography
-              variant="h6"
-              style={{
                 marginTop: 5,
                 fontFamily: "nunito",
                 fontWeight: "bold",
+                color: Colors.MAIN_COLOR
               }}
             >
               Common Reasons for using KIOSK:
             </Typography>
-            {reasonForKiosk.map((text) => (
+            {kioskContent.reasonForKiosk.map((text) => (
               <div
                 style={{
                   display: "flex",
@@ -627,7 +569,7 @@ export default function Kiosk() {
         </DivStyle1>
       </div>
 
-      <Footer />
+<Footer/>
     </>
   );
 }

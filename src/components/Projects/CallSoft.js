@@ -14,6 +14,10 @@ import Lab1 from "../../images/projectPageImages/assessment/lab1.svg";
 import Lab2 from "../../images/projectPageImages/assessment/lab2.svg";
 import AppbarHead from "../SubComponents/AppbarHead";
 import { AnimationOnScroll } from "react-animation-on-scroll";
+import Footer from '../SubComponents/Footer';
+
+import callSoftContent from "../StaticTextContents/projectContents/callSoftContents";
+import { Colors } from "../../constants";
 
 export default function CallSoft() {
   const BreadcrumbStyle = styled("div")(({ theme }) => ({
@@ -32,12 +36,12 @@ export default function CallSoft() {
       alignItems: "center",
     },
     [theme.breakpoints.up("md")]: {
-      width: "67%",
+      width: "92%",
       flexDirection: "row",
       justifyContent: "space-between",
     },
     [theme.breakpoints.up("lg")]: {
-      width: "82%",
+      width: "95%",
       flexDirection: "row",
       justifyContent: "space-between",
     },
@@ -66,9 +70,11 @@ export default function CallSoft() {
       display: "flex",
       transition: ".5s ease",
       opacity: 0,
-      padding: "20px",
       "&:hover": {
         opacity: 1,
+      },
+      [theme.breakpoints.up("lg")]: {
+        padding: "20px",
       },
     },
     [theme.breakpoints.down("md")]: {
@@ -80,23 +86,6 @@ export default function CallSoft() {
     },
   }));
 
-  const points = [
-    "•	 The teacher can control the nodal computers of the students through his/her computer and correct them then and there during the session. ",
-    "•	 The most logical way to set up CALLSOFT is for each classroom or room to have its own teacher channel, as well as just one teacher and a computer. ",
-    "•	 This setup enables all the computers in the same classroom to interact with one another and one teacher to control the entire room. ",
-    "•	 The teacher can monitor students as they join or leave the class. ",
-    "•	 This makes it easy to see who is absent or who has newly joined the class. ",
-  ];
-
-  const aboutSmartCard = [
-    "•	Server should act as a Teacher console. This displays the list of students in the teacher console. From this the teacher can select the student to start or stop the class. ",
-    "•	Real Time Screen and Audio Broadcast from Teacher console to Student",
-    "•	Viewing and absorbing the screens of students from teacher console",
-    "•	Recording and storing broadcasts for future use this option is used to record the files and broadcast it to other students from teacher console.",
-    "•	Sharing files among System this module is used to share the files to other system or students from the teacher console.",
-    "•	Having controls like mute audio, lock the keyboard of particular student console. This is used to control the student’s screen such as to lock the screen or keyboard or mute the audio. Teachers can easily having the control over the student’s screen. ",
-    "•	Providing some sample call lessons this provides some sample lessons to student’s screen.",
-  ];
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -109,17 +98,13 @@ export default function CallSoft() {
       <BreadcrumbStyle>
         <Card elevation={6}>
           <CardContent>
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" />}
-              aria-label="breadcrumb"
-            >
+            <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb" >
               <Link
                 underline="hover"
                 color="inherit"
                 href="/"
                 sx={{ display: "flex", alignItems: "center" }}
               >
-                {" "}
                 <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" /> Home{" "}
               </Link>
               <Typography color="text.primary">Projects</Typography>
@@ -135,38 +120,24 @@ export default function CallSoft() {
         <DivStyle1>
           {/* Left Side */}
           <DivStyle4>
+            {callSoftContent.callSoftMainPoints.map((text)=>(
             <Typography
               variant="body1"
-              style={{
-                textAlign: "justify",
-                fontFamily: "nunito",
-              }}
+              style={{ textAlign: "justify", fontFamily: "nunito", }}
             >
-              Computer Based Tutorial is a new medium of imparting education and
-              not just an interactive CD ROM equivalent to a book with a
-              difference to view on a computer screen. The CBT course material
-              should be designed keeping in mind one concept - the package
-              should be useful to the end user.
+             {text.firstPoint}
               <br />
               <br />
-              The success of a CBT depends on the content of the CBT and how the
-              subject is conveyed. We have also developed CBT's for school
-              students for all subjects. CALLSOFT is an English Language
-              Learning Software specially designed for the development of
-              English Language Skills in students which has provision for
-              interaction between students and teachers.
+              {text.secondPoint}
             </Typography>
+            ))}
           </DivStyle4>
           {/* Ride Side */}
           <DivStyle4>
-            {points.map((text) => (
+            {callSoftContent.callSoftPoints.map((text) => (
               <Typography
                 variant="body1"
-                style={{
-                  textAlign: "justify",
-                  paddingBottom: 10,
-                  fontFamily: "nunito",
-                }}
+                style={{ textAlign: "justify", paddingBottom: 10, fontFamily: "nunito", }}
               >
                 {text}
               </Typography>
@@ -182,31 +153,14 @@ export default function CallSoft() {
       <div style={{ width: "100%", marginTop: 25, marginBottom: 50 }}>
         {/* 67% middle of page */}
         <DivStyle1>
+        {callSoftContent.callSoftFeatures.map((text)=>(
           <DivStyle4>
-            <Typography
-              variant="h6"
-              style={{
-                marginBottom: 10,
-                fontFamily: "nunito",
-                marginTop: "10px",
-              }}
-            >
-              Features
+            <Typography variant="h6" style={{ marginBottom: 10, fontFamily: "nunito", marginTop: "10px", color:Colors.MAIN_COLOR }}>
+              {text.title}
             </Typography>
 
-            <Typography
-              variant="body1"
-              style={{
-                textAlign: "justify",
-                marginTop: 10,
-                fontFamily: "nunito",
-              }}
-            >
-              We have strong foothold in a variety of fields like computer
-              education, computer-aided education, software solutions, web
-              solutions, cartoon animations, etc. We are also doing data entry
-              and conversion works and provide sales and servicing of computers
-              and computer peripherals.
+            <Typography variant="body1" style={{ textAlign: "justify", marginTop: 10, fontFamily: "nunito", }} >
+              {text.content}
             </Typography>
             <AnimationOnScroll
               animateIn="animate__fadeInLeft"
@@ -249,17 +203,18 @@ export default function CallSoft() {
               </div>
             </AnimationOnScroll>
           </DivStyle4>
-
+        ))}
+        {callSoftContent.callSoftCallLabProjects.map((text)=>(
           <DivStyle4>
             <Typography
               variant="h6"
               style={{
                 marginBottom: 10,
                 fontFamily: "nunito",
-                marginTop: "10px",
+                marginTop: "10px",color:Colors.MAIN_COLOR
               }}
             >
-              Call Lab Projects
+              {text.title}
             </Typography>
 
             <Typography
@@ -270,10 +225,7 @@ export default function CallSoft() {
                 fontFamily: "nunito",
               }}
             >
-              CALL LAB PROJECT - ELCOT 350 SCHOOLS IN TAMILNADU: We have
-              implemented CALL LAB Project with ELCOT for 350 Schools in
-              Tamilnadu. CALLSOFT works by enabling a teacher to control all
-              student computers within a computer-based classroom.
+              {text.content1}
             </Typography>
 
             <AnimationOnScroll
@@ -324,15 +276,14 @@ export default function CallSoft() {
                 fontFamily: "nunito",
               }}
             >
-              The coordination of ELCOT in 1000 Schools in Thoothukudi,
-              Tirunelveli, Kanyakumari, Madurai, Virudhunagar, Sivagangai,
-              Ramanathapuram, Dindugal, Theni, Thirupur, Namakkal, Karur,
-              Coimbatore, Erode, Salem, Dharmpuri, Krishnagiri, Thiruvannamalai,
-              Vellore, Cudalore and Villupuram Districts in Tamil Nadu.
+              {text.content2}
             </Typography>
           </DivStyle4>
+        ))}
         </DivStyle1>
       </div>
+
+      <Footer/>
     </>
   );
 }

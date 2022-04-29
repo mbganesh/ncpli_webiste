@@ -208,10 +208,7 @@ export default function SoftwareSolutions() {
             </div>
             <br />
 
-{/* How do we work?      */}
-            <Typography variant="subtitle2" style={{ textAlign: "justify", margin: "0px 20px" }} gutterBottom>
-              How do we work?
-            </Typography>
+
 
 {/* METHODOLOGIES  */}
             <div>
