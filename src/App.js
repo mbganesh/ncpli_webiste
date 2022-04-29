@@ -44,7 +44,7 @@ function App() {
   });
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename={window.location.pathname || ''}>
         <Routes>
           <Route exact path="/smart-class" element={<SmartClass />}></Route>
           <Route exact path="/netcom-digital-contents" element={<NetcomDigitalContents />}></Route>
