@@ -39,6 +39,7 @@ import CustomizedSoftwareDevelopment from "./components/Services/CustomizedSoftw
 import EContentDevelopment from "./components/Services/EContentDevelopment";
 import WebHostingServices from "./components/Services/WebHostingServices";
 import HardwareSupportMaintanence from "./components/Services/HardwareSupportMaintanence";
+import PhoneFrame from "./components/PhoneFrame";
 
 
 
@@ -48,8 +49,10 @@ function App() {
     document.title = "Netcom Computers";
   });
   return (
+
+    // basename={window.location.pathname || ''}
     <>
-        <BrowserRouter basename={window.location.pathname || ''}>
+        <BrowserRouter basename={window.location.pathname || ''}> 
         <Routes>
           <Route exact path="/smart-class" element={<SmartClass />}></Route>
           <Route exact path="/netcom-digital-contents" element={<NetcomDigitalContents />}></Route>
@@ -87,6 +90,10 @@ function App() {
           <Route exact path="/web-hosting" element={<WebHostingServices />} />
           <Route exact path="/hardware-support-maintainence" element={<HardwareSupportMaintanence />} />
           <Route exact path="/short-film" element={<ShortFilm />} />
+
+
+
+          <Route exact path="/frame" element={<PhoneFrame />} />
 
         </Routes>
       </BrowserRouter>

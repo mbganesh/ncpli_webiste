@@ -2,124 +2,230 @@ import { React, useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { margin, styled } from "@mui/system";
+import { style, styled } from "@mui/system";
 
-import FrameDD from "../images/PFPic/FrameDD.png";
-import Frame from "../images/PFPic/Frame.png";
+import ServiceMaintainenceIcon from "../images/homePageImages/serviceIcons/serviceMaintainance.svg";
+import GraphicDesignIcon from "../images/homePageImages/serviceIcons/graphicDesign.svg";
+import DesktopWebAppIcon from "../images/homePageImages/serviceIcons/desktopWebApp.svg";
+import MobileAppIcon from "../images/homePageImages/serviceIcons/mobileApp.svg";
+import CustomSoftwareIcon from "../images/homePageImages/serviceIcons/customSoftware.svg";
+import HardwareMaintanenceIcon from "../images/homePageImages/serviceIcons/hardwareMaintainenceApp.svg";
+import ShortFilmIcon from "../images/homePageImages/serviceIcons/shortFilm.svg";
+import EContentIcon from "../images/homePageImages/serviceIcons/eContent.svg";
 
-import About from "../images/PFPic/About.png";
-import Account from "../images/PFPic/Account.png";
-import Board from "../images/PFPic/Board.png";
-import Class from "../images/PFPic/Class.png";
+import { Button, Typography } from "@mui/material";
 
-import Home from "../images/PFPic/Home.png";
-import Quiz from "../images/PFPic/Quiz.png";
-import Splash from "../images/PFPic/Splash.png";
-import Subject from "../images/PFPic/Subject.png";
-import Unit from "../images/PFPic/Unit.png";
-import Video from "../images/PFPic/Video.png";
-import { Button, IconButton, Typography } from "@mui/material";
-import StarIcon from '@mui/icons-material/Star';
-
-const Container = styled("div")(({ theme }) => ({
-  position: "relative",
-  textAlign: "center",
-  color: "black",
+const OurServicesDataDiv = styled("div")(({ theme }) => ({
+  width: "450px",
+  padding: "15px",
+  margin: "35px 0px",
+  borderRadius: "20px",
+  background: "#FDFAF6",
+  boxShadow: `20px 20px 60px #bebebe, -20px -20px 60px #ffffff`,
+  [theme.breakpoints.down("sm")]: {
+    width: "300px",
+    margin: "35px 0px",
+  },
 }));
 
-export default function PhoneFrame() {
-  const [width, setWidth] = useState(window.innerWidth);
-  const [height, setHeight] = useState(window.innerHeight);
-  console.log(width);
-  console.log(height);
-  const updateWidthAndHeight = () => {
-    setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
-  };
+const OurServicesTopImage = styled("div")(({ theme }) => ({
+  position: "absolute",
+  top: -75,
+  left: "40%",
+  zIndex: 1,
+  objectFit: "contain",
+  borderRadius: "50%",
+  backgroundColor: "#F1F6F9",
+  padding: "12px",
+  [theme.breakpoints.down("sm")]: {
+    left: "25%",
+  },
+}));
 
-  const pics = [
-    Subject,
-    Home,
-    Splash,
-    About,
-    Account,
-    Board,
-    Class,
-    Quiz,
-    Unit,
-    Video,
+const OurServicesBottomDiv = styled("div")(({ theme }) => ({
+  height: 250,
+    width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  marginTop: "30px",
+  justifyContent: "space-between",
+  alignItems: "center",
+  [theme.breakpoints.down("sm")]: {
+    height: 360,
+  },
+}));
+export default function PhoneFrame() {
+  const serviceContent = [
+    {
+      title: "Graphic Design",
+      icon: GraphicDesignIcon,
+      content:
+        "With A Team Of Creative Design Professionals, We Support Our Clients To Enter Into The Global Business Market With Trendy And Eye-Catching Designs",
+    },
+    {
+      title: "E Content Development",
+      icon: EContentIcon,
+      content:
+        "Comprehensive digital repository offering superior-quality content in Mathematics, Physics, Chemistry, Biology, Social Sciences, English Grammar, Business Studies, Economics and Accountancy",
+    },
+    {
+      title: "Short Film",
+      icon: ShortFilmIcon,
+      content: "We make Short Films, Ads, 2D and 3D Animations",
+    },
+    {
+      title: "Web Application Development",
+      icon: DesktopWebAppIcon,
+      content:
+        "A Composed Team Of Pre-Eminent And Rapid Working Web Development Professionals Are In Netcom",
+    },
+    {
+      title: "Mobile Application Development",
+      icon: MobileAppIcon,
+      content:
+        "With A Great Fame, Best Working Mobile Apps Are Warm Welcomed. In That Line, Apps From Netcom Has Received Great Response From Our Clients",
+    },
+    {
+      title: "Web Hosting Services",
+      icon: ServiceMaintainenceIcon,
+      content:
+        "Includes software upgrades, repairs and fixes. We will also monitor the performance of the software so you don’t face any issues",
+    },
+    {
+      title: "Customized Software Development",
+      icon: CustomSoftwareIcon,
+      content:
+        "Aim to provide you the exact services and solutions you have asked for, because we value your product!",
+    },
+    {
+      title: "Hardware Support & Maintainance",
+      icon: HardwareMaintanenceIcon,
+      content:
+        "Aim to provide you the exact services and solutions you have asked for, because we value your product!",
+    },
   ];
 
-  useEffect(() => {
-    window.addEventListener("resize", updateWidthAndHeight);
-    window.scrollTo(0, 0);
-    console.log(width);
-  }, []);
 
-  const ListData = [1, 2, 3];
+  console.log(window.location.pathname);
 
   return (
     <>
-      
-    <div>
+      {/* root div */}
+      <div
+        style={{
+          marginTop: "5rem",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          paddingLeft: "15%",
+          paddingRight: "15%",
+        }}
+      >
+        {serviceContent.map((data) => (
+          <OurServicesDataDiv>
+            <div style={{ position: "relative", backgroundColor: "cyan" }}>
+              <OurServicesTopImage>
+                <img
+                  src={data.icon}
+                  style={{ height: "60px", width: "60px" }}
+                />
+              </OurServicesTopImage>
+            </div>
 
+            <OurServicesBottomDiv
+            >
+              <div>
+                <Typography variant="h6" sx={{ textAlign: "center" }}>
+                  {" "}
+                  {data.title}{" "}
+                </Typography>
+                <Typography variant="subtitle1" sx={{ textAlign: "justify" }}> {data.content} </Typography>
+              </div>
 
-        <div style={{width:'300px' , height:'400px' , backgroundColor:'skyblue'}}>
-
-
-                    <div style={{width:'100%'}}>
-                    <StarIcon style={{position:'absolute' , top:0,left:'50%' , transform:`translate(-50%,-50%)`}}/>
-                    </div>
-
-                <Typography variant='subtitle1' sx={{padding:'25px'}}> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, </Typography>
-
-                <Button variant='contained' color='primary'> Hit Me </Button>
-        </div>
-
-
-    </div>
-
-      {/* <div style={{ position: "relative", marginTop: "100px" }}>
-        <Slider
-          autoplay={true}
-          arrows={false}
-          speed={100}
-          slidesToShow={width > 1300 ? 5 : 3}
-          slidesToScroll={1}
-          adaptiveHeight={false}
-        >
-          {pics.map((item) => (
-            // <Container>
-            <img
-              src={item}
-              style={{
-                objectFit: "contain",
-                height: width > 1300 ? "495px" : "250px",
-                width: "30%",
-                marginTop: "40px",
-              }}
-            />
-            // </Container>
-          ))}
-        </Slider>
-
-        {width > 1300 ? (
-          <img
-            src={Frame}
-            width="27%"
-            style={{
-              // margin:'-10px 0px',
-              objectFit: "contain",
-              position: "absolute",
-              left: "50%",
-            //   top: width >= 848 ? "-100px" : "-190px", // 020
-            top: "-20%", // 020
-
-              transform: `translateX(-50%)`,
-            }}
-          />
-        ) : null}
-      </div> */}
+              <Button
+                variant="outlined"
+                color="primary"
+                sx={{
+                  border: "2px solid #157561",
+                  color: "#157561",
+                  "&:hover": {
+                    transition: "0.5s",
+                    backgroundColor: "#157561",
+                    color: "white",
+                    border: "1px solid #157561",
+                    fontWeight: "bold",
+                  },
+                }}
+              >
+                {" "}
+                Read More{" "}
+              </Button>
+            </OurServicesBottomDiv>
+          </OurServicesDataDiv>
+        ))}
+      </div>
     </>
   );
 }
+
+// {
+//   "homepage": "http://mbganesh.github.io/ncpli_live",
+//   "name": "ncpli",
+//   "version": "0.1.0",
+//   "private": true,
+//   "dependencies": {
+//     "@emotion/react": "^11.8.2",
+//     "@emotion/styled": "^11.8.1",
+//     "@mui/icons-material": "^5.5.1",
+//     "@mui/lab": "^5.0.0-alpha.77",
+//     "@mui/material": "^5.5.2",
+//     "@testing-library/jest-dom": "^5.16.2",
+//     "@testing-library/react": "^12.1.4",
+//     "@testing-library/user-event": "^13.5.0",
+//     "animate.css": "^4.1.1",
+//     "react": "^17.0.2",
+//     "react-animation-on-scroll": "^5.0.0",
+//     "react-countup": "^6.1.1",
+//     "react-dom": "^17.0.2",
+//     "react-player": "^2.10.0",
+//     "react-router-dom": "^6.2.2",
+//     "react-scripts": "5.0.0",
+//     "react-scroll-up": "^1.3.7",
+//     "react-simple-scroll-up": "^0.2.0",
+//     "react-simply-carousel": "^5.1.4",
+//     "react-slick": "^0.28.1",
+//     "react-video-js-player": "^1.1.1",
+//     "slick-carousel": "^1.8.1",
+//     "web-vitals": "^2.1.4"
+//   },
+//   "scripts": {
+//     "start": "react-scripts start",
+//     "build": "react-scripts build",
+//     "test": "react-scripts test",
+//     "eject": "react-scripts eject",
+//     "predeploy": "npm run build",
+//     "deploy": "gh-pages -d build"
+//   },
+//   "eslintConfig": {
+//     "extends": [
+//       "react-app",
+//       "react-app/jest"
+//     ]
+//   },
+//   "browserslist": {
+//     "production": [
+//       ">0.2%",
+//       "not dead",
+//       "not op_mini all"
+//     ],
+//     "development": [
+//       "last 1 chrome version",
+//       "last 1 firefox version",
+//       "last 1 safari version"
+//     ]
+//   },
+//   "devDependencies": {
+//     "gh-pages": "^3.2.3"
+//   }
+// }
