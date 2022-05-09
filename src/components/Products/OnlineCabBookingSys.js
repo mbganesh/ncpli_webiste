@@ -18,8 +18,7 @@ import ReactPlayer from "react-player";
 
 import Home from "../../images/productPageImages/online_cab_app/home.png";
 import Vehicles from "../../images/productPageImages/online_cab_app/vehicles.png";
-import orderUser from "../../images/productPageImages/smart_Tailor_App/orderUser.png";
-import SDApp from "../../images/productPageImages/smart_Tailor_App/SDApp.svg";
+
 
 import reactLogo from "../../images/productPageImages/smart_Tailor_App/mernLogo/reactLogo.svg";
 import nodeLogo from "../../images/productPageImages/smart_Tailor_App/mernLogo/nodeLogo.svg";
@@ -45,12 +44,18 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import DangerousRoundedIcon from '@mui/icons-material/DangerousRounded';
 import AdjustIcon from '@mui/icons-material/Adjust';
 import onlineCabBookingContent from "../StaticTextContents/productContents/onlineCabBookingContent";
-import { Colors } from "../../constants";
+import { Colors } from '../../constants';
+import about1 from "../../images/allPageBanner/abouts-03.png"
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
+import { useNavigate } from "react-router-dom";
+import BannerAll from '../SubComponents/BreadCrumbComponent';
 
 
 
 export default function SmartTailorShop() {
+
+ const navigate=useNavigate();
+
   const BreadcrumbStyle = styled("div")(({ theme }) => ({
     display: "flex",
     justifyContent: "center",
@@ -190,25 +195,18 @@ export default function SmartTailorShop() {
     <>
       <ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
       <AppbarHead dataParent={{ appBtnText: "Products" }} />
-      <BreadcrumbStyle>
-        <Card elevation={6}>
-          <CardContent>
-            <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb"  >
-              <Link
-                underline="hover"
-                color="inherit"
-                href="/"
-                sx={{ display: "flex", alignItems: "center" }}
-              >
-                {" "}
-                <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" /> Home{" "}
-              </Link>
-              <Typography color="text.primary">Products</Typography>
-              <Typography color="text.primary">Online Cab Booking </Typography>
-            </Breadcrumbs>
-          </CardContent>
-        </Card>
-      </BreadcrumbStyle>
+
+       
+      <BannerAll
+        dataParent={{
+          title: "Online Cab Booking",
+          subTitle: "",
+          path: ["Home", "Products", "Online Cab Booking"],
+        }}
+      />
+
+
+     
 
 
 
@@ -242,7 +240,7 @@ export default function SmartTailorShop() {
                     ))
                   }
 
-            <Typography variant="h6" style={{ marginTop: 7, fontWeight: "600", fontFamily: "nunito" }}  >
+            <Typography variant="h6" style={{ marginTop: 7, fontWeight: "600", fontFamily: "nunito" ,color:Colors.MAIN_COLOR}}  >
               Technology used
             </Typography>
             <ul>
@@ -268,7 +266,7 @@ export default function SmartTailorShop() {
 
 
 
-            <Typography variant="h6" style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}            >
+            <Typography variant="h6" style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" ,color:Colors.MAIN_COLOR}}            >
               Technology used
             </Typography>
 
@@ -298,7 +296,7 @@ export default function SmartTailorShop() {
           <DivStyle3>
             <Typography
               variant="h6"
-              style={{ marginBottom: 10, fontFamily: "nunito" }}
+              style={{ marginBottom: 10, fontFamily: "nunito" ,color:Colors.MAIN_COLOR}}
             >
               Online Cab Booking  Web Application Demo
             </Typography>
@@ -322,9 +320,9 @@ export default function SmartTailorShop() {
               Please mail us to get the free demo for Online Cab Booking App:
               <span
                 style={{ color: " #3B7CFE", cursor: "pointer" }}
-                onClick={() => { window.open("mailto:career@ncpli.com"); }}
+                onClick={() => { window.open("mailto:info@ncpli.com"); }}
               >
-                career@ncpli.com
+                info@ncpli.com
               </span>
             </Typography>
 
@@ -360,21 +358,11 @@ export default function SmartTailorShop() {
 
 
 
-
-
-
-
-
-
-
-
-
-
       <div style={{ width: "100%", marginTop: 25 }}>
         <DivStyle4>
           <Typography
             variant="h4"
-            style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
+            style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" ,color:Colors.MAIN_COLOR}}
           >
             Need this Product? Contact us:
           </Typography>
@@ -397,22 +385,14 @@ export default function SmartTailorShop() {
             <span
               style={{ color: " #3B7CFE", cursor: "pointer" }}
               onClick={() => {
-                window.open("mailto:career@ncpli.com");
+                window.open("mailto:info@ncpli.com");
               }}
             >
               {" "}
-              career@ncpli.com
+              info@ncpli.com
             </span>{" "}
             or call
-            <span
-              style={{ cursor: "pointer" }}
-              onClick={() => {
-                window.open("tel:04622585979");
-              }}
-            >
-              {" "}
-              0462 - 2585979{" "}
-            </span>
+            <span style={{ cursor: "pointer", color: " #3B7CFE" }} onClick={() => { window.open("tel:753886286", "_self"); }} > +91 753 886 286 </span>
           </Typography>
           <Button
             style={{
@@ -424,180 +404,14 @@ export default function SmartTailorShop() {
               textTransform: "none",
               width: 150,
             }}
+            onClick={()=>navigate('/form-submit',{state:{productName:'Online Cab Booking App'}})}
           >
-            Requested a Demo
+            Request a Demo
           </Button>
         </DivStyle4>
       </div>
 
-      <div style={{ width: "100%", marginTop: 25 }}>
-        <div
-          style={{
-            width: "67%",
-            margin: "0 auto",
-            flexDirection: "row",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <Typography
-            variant="h4"
-            style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
-          >
-            Submit a Query
-          </Typography>
-        </div>
-      </div>
-
-      {/* Full vertical page */}
-      <div style={{ width: "100%", marginTop: 25, marginBottom: 50 }}>
-        {/* 67% middle of page */}
-        <div
-          style={{
-            width: "57%",
-            margin: "0 auto",
-            flexDirection: "row",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          {/* Left Side */}
-          <div style={{ width: "65%" }}>
-            {contactDetails.map((text) => (
-              <div>
-                <Typography
-                  variant="body1"
-                  style={{
-                    marginTop: 20,
-                    fontWeight: "600",
-                    fontFamily: "nunito",
-                  }}
-                  multiline
-                >
-                  {text} <span style={{ color: "#ED514A" }}>*</span>
-                </Typography>
-                <TextField
-                  style={{ width: "90%", marginTop: 7 }}
-                  size="small"
-                  onChange={(e) => {
-                    text === "Name"
-                      ? setName(e.target.value)
-                      : text === "Company Name"
-                      ? setCompanyName(e.target.value)
-                      : text === "Email"
-                      ? setEmail(e.target.value)
-                      : setPhNumber(e.target.value);
-                  }}
-                />
-              </div>
-            ))}
-
-            <Typography
-              variant="body1"
-              style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
-            >
-              Select Products <span style={{ color: "#ED514A" }}>*</span>{" "}
-            </Typography>
-            <TextField
-              style={{ width: "90%", marginTop: 7 }}
-              size="small"
-              select
-              onChange={(e) => setSelectProduct(e.target.value)}
-            >
-              {products.map((productName) => (
-                <MenuItem value={productName}> {productName} </MenuItem>
-              ))}
-            </TextField>
-            <Typography
-              variant="body1"
-              style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
-            >
-              Message <span style={{ color: "#ED514A" }}>*</span>{" "}
-            </Typography>
-            <TextField
-              multiline
-              rows={3}
-              style={{ width: "90%" }}
-              onChange={(e) => {
-                setMessage(e.target.value);
-              }}
-            />
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <Button
-                style={{
-                  backgroundColor: "#ED514A",
-                  color: "white",
-                  fontWeight: "600",
-                  fontFamily: "nunito",
-                  marginTop: 20,
-                  textTransform: "none",
-                  width: "20%",
-                }}
-                onClick={() => {
-                  console.log(
-                    name,
-                    companyName,
-                    Email,
-                    phNumber,
-                    selectProduct,
-                    message
-                  );
-                }}
-              >
-                Submit
-              </Button>
-            </div>
-          </div>
-
-          <div style={{ width: "25%" }}>
-            <Typography
-              variant="h5"
-              style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
-            >
-              Contact{" "}
-            </Typography>
-            <div
-              style={{ display: "flex", flexDirection: "row", marginTop: 20 }}
-            >
-              <EmailIcon style={{}} />
-              <Typography
-                variant="h6"
-                style={{
-                  fontFamily: "nunito",
-                  paddingLeft: 4,
-                  color: " #3B7CFE",
-                  cursor: "pointer",
-                }}
-                onClick={() => {
-                  window.open("mailto:career@ncpli.com");
-                }}
-              >
-                career@ncpli.com
-              </Typography>
-            </div>
-            <div
-              style={{ display: "flex", flexDirection: "row", marginTop: 20 }}
-            >
-              <PhoneIcon />
-              <Typography
-                variant="h6"
-                style={{ fontFamily: "nunito", paddingLeft: 4 }}
-                onClick={() => {
-                  window.open("tel:04622585979");
-                }}
-              >
-                0462 - 2585979{" "}
-              </Typography>
-            </div>
-
-            <div style={{ marginTop: 20, marginLeft: 2 }}>
-              {logos.map((image) => (
-                <img src={image} width="10%" style={{ paddingLeft: 20 }} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+     
       <Footer/>
     </>
   );

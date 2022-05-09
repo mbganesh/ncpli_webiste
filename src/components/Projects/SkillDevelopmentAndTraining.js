@@ -8,13 +8,16 @@ import AppbarHead from "../SubComponents/AppbarHead";
 import ReactPlayer from "react-player";
 import location from "../../images/projectPageImages/smart-Classroom/location.svg";
 import { AnimationOnScroll } from "react-animation-on-scroll";
-import smartClassImg2 from "../../images/projectPageImages/smart-Classroom/smart_class_2.svg";
+import smartClassImg2 from "../../images/projectPageImages/smart-Classroom/skill2.jpg";
+import smartClassImg3 from "../../images/projectPageImages/smart-Classroom/skill5.jpg";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { Style } from "@mui/icons-material";
 import Footer from '../SubComponents/Footer';
-import Colors from "../../constants/Colors";
+import { Colors } from '../../constants';
+import about1 from "../../images/allPageBanner/abouts-03.png"
 import skillDevelopmentContents from "../StaticTextContents/projectContents/skillDevelopmentContents";
+import BannerAll from '../SubComponents/BreadCrumbComponent';
 
 export default function SkillDevelopmentAndTraining() {
   const BreadcrumbStyle = styled("div")(({ theme }) => ({
@@ -106,30 +109,18 @@ export default function SkillDevelopmentAndTraining() {
     <>
       <ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
       <AppbarHead dataParent={{ appBtnText: "Projects" }} />
-      <BreadcrumbStyle>
-        <Card elevation={6}>
-          <CardContent>
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" />}
-              aria-label="breadcrumb"
-            >
-              <Link
-                underline="hover"
-                color="inherit"
-                href="/"
-                sx={{ display: "flex", alignItems: "center" }}
-              >
-                {" "}
-                <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" /> Home{" "}
-              </Link>
-              <Typography color="text.primary">Projects</Typography>
-              <Typography color={Colors.MAIN_COLOR}>
-                Skill Development & Training
-              </Typography>
-            </Breadcrumbs>
-          </CardContent>
-        </Card>
-      </BreadcrumbStyle>
+
+
+      <BannerAll
+        dataParent={{
+          title: "Skill Development & Training",
+          subTitle: "",
+          path: ["Home", "Projects", "Skill Development & Training"],
+        }}
+      />
+
+
+      
 
       {/* Full vertical page */}
       <div style={{ width: "100%", marginTop: 25 }}>
@@ -185,7 +176,7 @@ export default function SkillDevelopmentAndTraining() {
                   boxShadow:
                     "rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset",
                 }}
-                height="170%"
+                height="360px"
                 src={smartClassImg2}
               ></img>
             </div>
@@ -211,7 +202,7 @@ export default function SkillDevelopmentAndTraining() {
                   className="image"
                   height="170%"
 
-                  src={smartClassImg2}
+                  src={smartClassImg3}
                 />
 
                 <div className="overlay">

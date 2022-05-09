@@ -5,6 +5,8 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import HomeIcon from "@mui/icons-material/Home";
 import { ScrollToTop } from "react-simple-scroll-up";
 import AppbarHead from "../SubComponents/AppbarHead";
+import { Colors } from '../../constants';
+import about1 from "../../images/allPageBanner/abouts-03.png"
 
 import { AnimationOnScroll } from "react-animation-on-scroll";
 
@@ -13,7 +15,8 @@ import Lab2 from "../../images/projectPageImages/assessment/lab2.svg";
 import Lab3 from "../../images/projectPageImages/assessment/lab3.svg";
 import Footer from '../SubComponents/Footer';
 import languageLabContents from "../StaticTextContents/projectContents/languageLabContents";
-import Colors from "../../constants/Colors";
+import BannerAll from '../SubComponents/BreadCrumbComponent';
+
 
 export default function LanguageLab() {
   const BreadcrumbStyle = styled("div")(({ theme }) => ({
@@ -102,29 +105,19 @@ export default function LanguageLab() {
   return (
     <>
       <ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
-      <AppbarHead dataParent={{ appBtnText: "Language Lab" }} />
-      <BreadcrumbStyle>
-        <Card elevation={6}>
-          <CardContent>
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" />}
-              aria-label="breadcrumb"
-            >
-              <Link
-                underline="hover"
-                color="inherit"
-                href="/"
-                sx={{ display: "flex", alignItems: "center" }}
-              >
-                {" "}
-                <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" /> Home{" "}
-              </Link>
-              <Typography color="text.primary">Projects</Typography>
-              <Typography color="text.primary">Language Lab</Typography>
-            </Breadcrumbs>
-          </CardContent>
-        </Card>
-      </BreadcrumbStyle>
+      <AppbarHead dataParent={{ appBtnText: "Projects" }} />
+
+
+      <BannerAll
+        dataParent={{
+          title: "Language Lab",
+          subTitle: "",
+          path: ["Home", "Projects", "Language Lab"],
+        }}
+      />
+
+
+     
 
       {/* Full vertical page */}
       <div style={{ width: "100%", marginTop: 25 }}>

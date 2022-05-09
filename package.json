@@ -1,5 +1,4 @@
 {
-  "homepage": "http://mbganesh.github.io/ncpli_live",
   "name": "ncpli",
   "version": "0.1.0",
   "private": true,
@@ -33,8 +32,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy":"aws s3 sync build/ s3://www.ncpli.com"
   },
   "eslintConfig": {
     "extends": [
@@ -53,8 +51,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^3.2.3"
   }
 }

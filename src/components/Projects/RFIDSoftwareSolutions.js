@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { styled } from "@mui/system";
 import { Typography, Breadcrumbs, Link, Card, CardContent, Divider, Box, } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import HomeIcon from "@mui/icons-material/Home";
 import AppbarHead from "../SubComponents/AppbarHead";
 import { ScrollToTop } from "react-simple-scroll-up";
-import { Colors } from "../../constants";
+import { Colors } from '../../constants';
+import about1 from "../../images/allPageBanner/abouts-03.png"
 import rfidContents from "../StaticTextContents/projectContents/rfidContents";
 import StarsIcon from '@mui/icons-material/Stars';
+import BannerAll from '../SubComponents/BreadCrumbComponent';
+import Footer from "../SubComponents/Footer";
 
 
 const Root = styled("div")(({ theme }) => ({
@@ -73,23 +76,27 @@ export default function SoftwareSolutions() {
     justifyContent: "center",
   }));
 
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
+  
+
   return (
     <>
       <ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
-      <AppbarHead dataParent={{ appBtnText: "Contact" }} />
-      <BreadcrumbStyle>
-        <Card sx={{ width: 400, height: 50 }}>
-          <CardContent>
-            <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb">
-              <Link underline="hover" color="inherit" href="/" sx={{ display: "flex", alignItems: "center" }}>
-                <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" /> Home{" "}
-              </Link>
-              <Typography color="text.primary">Products</Typography>
-              <Typography color="text.primary">SoftwareSolutions</Typography>
-            </Breadcrumbs>
-          </CardContent>
-        </Card>
-      </BreadcrumbStyle>
+      <AppbarHead dataParent={{ appBtnText: "Projects" }} />
+
+
+      <BannerAll
+        dataParent={{
+          title: "RFID Software Solutions",
+          subTitle: "",
+          path: ["Home", "Projects", "RFID Software Solutions"],
+        }}
+      />
+
+     
 
       <br />
       <br />
@@ -98,7 +105,7 @@ export default function SoftwareSolutions() {
         <Root>
           <div>
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <Typography variant="h5" style={{ borderBottom: "4px solid", borderColor: Colors.MAIN_COLOR }}>Radio-frequency identification (RFID)</Typography>
+              <Typography variant="h5" style={{ borderBottom: "4px solid", borderColor: Colors.MAIN_COLOR ,color:Colors.MAIN_COLOR}}>Radio-frequency identification (RFID)</Typography>
             </div>
             <Divider></Divider>
             <br />
@@ -114,7 +121,7 @@ export default function SoftwareSolutions() {
 {/* Netcom Features */}
           <div>
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <Typography variant="h5" style={{ borderBottom: "4px solid green" }}>RFID Features</Typography>
+              <Typography variant="h5" style={{ borderBottom: "4px solid green",color:Colors.MAIN_COLOR }}>RFID Features</Typography>
             </div>
             <Divider></Divider>
             <br />
@@ -138,7 +145,7 @@ export default function SoftwareSolutions() {
 {/* Development Software */}
             <div>
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <Typography variant="h5" style={{ borderBottom: "4px solid green" }}>Development Software</Typography>
+                <Typography variant="h5" style={{ borderBottom: "4px solid green" ,color:Colors.MAIN_COLOR}}>Development Software</Typography>
               </div>
               <Divider></Divider>
               <br />
@@ -165,7 +172,7 @@ export default function SoftwareSolutions() {
 {/* RFID Server */}
             <div>
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <Typography variant="h5" style={{ borderBottom: "4px solid green" }}>RFID Server</Typography>
+                <Typography variant="h5" style={{ borderBottom: "4px solid green" ,color:Colors.MAIN_COLOR}}>RFID Server</Typography>
               </div>
               <Divider></Divider>
               <br />
@@ -190,7 +197,7 @@ export default function SoftwareSolutions() {
 {/* NETCOM RFID SOLUTIONS */}
             <div>
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <Typography variant="h5" style={{ borderBottom: "4px solid green" }}>Netcom RFID Solutions</Typography>
+                <Typography variant="h5" style={{ borderBottom: "4px solid green",color:Colors.MAIN_COLOR }}>Netcom RFID Solutions</Typography>
               </div>
               <Divider></Divider>
               <br />
@@ -213,7 +220,7 @@ export default function SoftwareSolutions() {
 {/* METHODOLOGIES  */}
             <div>
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <Typography variant="h5" style={{ borderBottom: "4px solid green" }}>Methodologies</Typography>
+                <Typography variant="h5" style={{ borderBottom: "4px solid green" ,color:Colors.MAIN_COLOR}}>Methodologies</Typography>
               </div>
               <Divider></Divider>
               <br />
@@ -241,6 +248,7 @@ export default function SoftwareSolutions() {
 
         </Root>
       </div>
+      <Footer/>
     </>
   );
 }

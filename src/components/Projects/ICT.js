@@ -8,9 +8,12 @@ import { ScrollToTop } from "react-simple-scroll-up";
 import AppbarHead from "../SubComponents/AppbarHead";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import Footer from '../SubComponents/Footer';
-import { Colors } from "../../constants";
+import { Colors } from '../../constants';
+import about1 from "../../images/allPageBanner/abouts-03.png"
 import ictContent from "../StaticTextContents/projectContents/ictContents";
-
+import BannerAll from '../SubComponents/BreadCrumbComponent';
+import ICTIMG from '../../images/projectPageImages/ict/ict.jpg'
+ 
 
 export default function ICT() {
   const BreadcrumbStyle = styled("div")(({ theme }) => ({
@@ -91,30 +94,20 @@ export default function ICT() {
   return (
     <>
       <ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
-      <AppbarHead dataParent={{ appBtnText: "Assessment" }} />
-      <BreadcrumbStyle>
-        <Card elevation={6}>
-          <CardContent>
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" />}
-              aria-label="breadcrumb"
-            >
-              <Link
-                underline="hover"
-                color="inherit"
-                href="/"
-                sx={{ display: "flex", alignItems: "center" }}
-              >
-                {" "}
-                <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" /> Home{" "}
-              </Link>
-              <Typography color="text.primary">Projects</Typography>
+      <AppbarHead dataParent={{ appBtnText: "Projects" }} />
 
-              <Typography color="text.primary">ICT/Hi-Tect Lab</Typography>
-            </Breadcrumbs>
-          </CardContent>
-        </Card>
-      </BreadcrumbStyle>
+
+      <BannerAll
+        dataParent={{
+          title: "ICT/Hi-Tech Lab",
+          subTitle: "",
+          path: ["Home", "Projects", "ICT/Hi-Tech Lab"],
+        }}
+      />
+
+
+
+      
 
       {/* Full vertical page */}
       <div  style={{ width: "100%", marginTop: 25 }}>
@@ -269,8 +262,8 @@ style={{
                       "rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset",
                   }}
                   height="170%"
-                  src={"https://netcomcomputersindia.com/img/lang.jpg"}
-                ></img>
+                  src={ICTIMG}
+                />
                 <div className="overlay">
                   <div style={{ display: "flex", flexDirection: "row" }}>
                     <Typography

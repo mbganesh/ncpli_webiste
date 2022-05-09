@@ -10,10 +10,12 @@ import location from "../../images/projectPageImages/smart-Classroom/location.sv
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import smartClassImg2 from "../../images/projectPageImages/smart-Classroom/smart_class_2.svg";
 import Footer from '../SubComponents/Footer';
-import { Colors } from "../../constants";
+import { Colors } from '../../constants';
+import about1 from "../../images/allPageBanner/abouts-03.png"
 import kioskContent from "../StaticTextContents/projectContents/kioskContents";
 import FirstImage from "../../images/projectPageImages/kiosk/1.png"
 import SecondImage from "../../images/projectPageImages/kiosk/2.png"
+import BannerAll from '../SubComponents/BreadCrumbComponent';
 
 export default function Kiosk() {
   const BreadcrumbStyle = styled("div")(({ theme }) => ({
@@ -153,30 +155,18 @@ export default function Kiosk() {
   return (
     <>
       <ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
-      <AppbarHead dataParent={{ appBtnText: "Kiosk" }} />
-      <BreadcrumbStyle>
-        <Card>
-          <CardContent>
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" />}
-              aria-label="breadcrumb"
-            >
-              <Link
-                underline="hover"
-                color="inherit"
-                href="/"
-                sx={{ display: "flex", alignItems: "center" }}
-              >
-                {" "}
-                <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" /> Home{" "}
-              </Link>
-              <Typography color="text.primary">Projects</Typography>
+      <AppbarHead dataParent={{ appBtnText: "Projects" }} />
 
-              <Typography color="text.primary">Kiosk</Typography>
-            </Breadcrumbs>
-          </CardContent>
-        </Card>
-      </BreadcrumbStyle>
+      <BannerAll
+        dataParent={{
+          title: "Kiosk Projects",
+          subTitle: "",
+          path: ["Home", "Projects", "Kiosk Projects"],
+        }}
+      />
+
+
+     
 
       {/* Full vertical page */}
       

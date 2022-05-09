@@ -3,12 +3,14 @@ import { styled } from "@mui/system";
 import { ScrollToTop } from "react-simple-scroll-up";
 import AppbarHead from "../SubComponents/AppbarHead";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-
+import about1 from "../../images/allPageBanner/abouts-03.png"
 import bgImg from "../../images/projectPageImages/smart-Classroom/grey-washed-wall.png";
 import { Typography, Breadcrumbs, Link, Card, CardContent, } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import ReactPlayer from "react-player";
 import Footer from '../SubComponents/Footer';
+import { Colors } from '../../constants';
+import BannerAll from '../SubComponents/BreadCrumbComponent';
 
 
 export default function Econtent(){
@@ -96,31 +98,17 @@ export default function Econtent(){
     <>
     <ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
       <AppbarHead dataParent={{ appBtnText: "Projects" }} />
-      <BreadcrumbStyle>
-        <Card sx={{ width: 410, height: 50 }}>
-          <CardContent>
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" />}
-              aria-label="breadcrumb"
-            >
-              <Link
-                underline="hover"
-                color="inherit"
-                href="/"
-                sx={{ display: "flex", alignItems: "center" }}
-              >
-                {" "}
-                <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" /> Home{" "}
-              </Link>
-              <Typography color="text.primary">Projects</Typography>
-              <Typography color="text.primary">
-                Netcom Digital Contents
-              </Typography>
-            </Breadcrumbs>
-          </CardContent>
-        </Card>
-      </BreadcrumbStyle>
 
+      <BannerAll
+        dataParent={{
+          title: "Netcom Digital Contents",
+          subTitle: "",
+          path: ["Home", "Projects", "Netcom Digital Contents"],
+        }}
+      />
+
+      
+      
       {/* Full vertical page */}
       <div style={{ width: "100%", marginTop: 25 }}>
         {/* 67% middle of page */}

@@ -1,6 +1,5 @@
-import { React, useState } from "react";
+import { React, useState,useEffect } from "react";
 import { styled } from "@mui/system";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import HomeIcon from "@mui/icons-material/Home";
 import { ScrollToTop } from "react-simple-scroll-up";
 import AppbarHead from "./SubComponents/AppbarHead";
@@ -9,55 +8,82 @@ import {
   Typography,
   Card,
   CardContent,
-  Box,
   TextField,
   Button,
   SnackbarContent,
+  IconButton,
 } from "@mui/material";
 import MailIcon from "@mui/icons-material/Mail";
 import PhoneIcon from "@mui/icons-material/Phone";
-
-import image1 from "../images/contactPageImages/undrawcontact.svg";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Link from "@mui/material/Link";
 
 import { Snackbar } from "@mui/material";
 
 import { Buffer } from "buffer";
 
-
+import footerContents from "./StaticTextContents/subComponentContents/footerContents";
 
 import Colors from "../constants/Colors";
 import Footer from "./SubComponents/Footer";
+import BannerAll from '../components/SubComponents/BreadCrumbComponent';
+
 window.Buffer = Buffer;
 
-const Root = styled("div")(({ theme }) => ({
+const DivStyle1 = styled("div")(({ theme }) => ({
   display: "flex",
-  justifyContent: "space-between",
-  flexWrap: "wrap",
-  width: "70%",
+  paddingLeft: "5%",
+  paddingRight: "5%",
   [theme.breakpoints.down("md")]: {
-    width: "95%",
+    flexDirection: "column-reverse",
+    justifyContent: "center",
+    gap: 5,
+    paddingLeft: "5%",
+    paddingRight: "5%",
   },
-  [theme.breakpoints.down("sm")]: {
+  [theme.breakpoints.only("md")]: {
+    flexDirection: "column-reverse",
+    justifyContent: "space-between",
+    gap: 5,
+    paddingLeft: "15%",
+    paddingRight: "15%",
+  },
+  [theme.breakpoints.up("lg")]: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingLeft: "15%",
+    paddingRight: "15%",
+  },
+  [theme.breakpoints.up("xl")]: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingLeft: "15%",
+    paddingRight: "15%",
+  },
+}));
+const DivStyle2 = styled("div")(({ theme }) => ({
+  [theme.breakpoints.down("md")]: {
     width: "100%",
+    margin: "0 auto",
   },
-  [theme.breakpoints.up("lg")]: {},
+  [theme.breakpoints.only("md")]: {
+    width: "100%",
+    margin: "0 auto",
+  },
+  [theme.breakpoints.up("lg")]: {
+    width: "45%",
+  },
 }));
 
-const Root2 = styled("div")(({ theme }) => ({
-  display: "flex",
-  width: "70%",
-  justifyContent: "space-between",
-  [theme.breakpoints.between("md", "lg")]: {
-    flexWrap: "wrap",
-  },
+const DivStyle3 = styled("div")(({ theme }) => ({
   [theme.breakpoints.down("md")]: {
-    flexWrap: "wrap",
-    width: "88%",
+    width: "100%",
+    margin: "0 auto",
   },
-  [theme.breakpoints.up("md")]: {},
-  [theme.breakpoints.up("lg")]: {},
+  [theme.breakpoints.only("md")]: {
+    width: "100%",
+  },
+  [theme.breakpoints.up("lg")]: {
+    width: "45%",
+  },
 }));
 
 const Root3 = styled("div")(({ theme }) => ({
@@ -72,91 +98,34 @@ const Root3 = styled("div")(({ theme }) => ({
   [theme.breakpoints.up("lg")]: {},
 }));
 
-const RootItem1 = styled("div")(({ theme }) => ({
-  flexGrow: 1,
-  marginRight: "10px",
-  [theme.breakpoints.between("md", "lg")]: {
-    marginRight: "0px",
-    marginBottom: "20px",
-  },
 
-  [theme.breakpoints.down("md")]: {
-    marginRight: "10px",
-  },
 
-  [theme.breakpoints.down("sm")]: {
-    marginRight: "0px",
-    marginBottom: "20px",
-  },
-  [theme.breakpoints.up("lg")]: {},
-}));
-
-const RootItem2 = styled("div")(({ theme }) => ({
-  flexGrow: 1,
-  marginLeft: "10px",
-  [theme.breakpoints.between("md", "lg")]: {
-    marginLeft: "0px",
-  },
-  [theme.breakpoints.down("md")]: {
-    marginLeft: "10px",
-  },
-
-  [theme.breakpoints.down("sm")]: {
-    marginLeft: "0px",
-  },
-  [theme.breakpoints.up("lg")]: {},
-}));
-
-const RootItem3 = styled("div")(({ theme }) => ({
-  padding: "10px",
-  display: "flex",
-  alignItems: "center",
-  flex: 1,
-  [theme.breakpoints.down("md")]: {
-    display: "none",
-  },
-
-  [theme.breakpoints.up("md")]: {},
-  [theme.breakpoints.up("lg")]: {},
-}));
-
-const dam2 = (theme) => ({
-  background: `linear-gradient(135deg, #82B688, #75e671)`,
-  width: "49%",
-  [theme.breakpoints.down("md")]: {
-    marginBottom: "20px",
-    width: "100%",
-  },
-});
-
-const dam3 = (theme) => ({
-  background: `linear-gradient(135deg, #82B688, #75e671)`,
-  width: "49%",
-  [theme.breakpoints.down("md")]: {
-    width: "100%",
-  },
-});
-
-const dam = (theme) => ({
+const cardStyle = (theme) => ({
+  height: 500,  
   [theme.breakpoints.down("md")]: {
     boxShadow: "none",
     border: "none",
   },
 });
 
+const Address = [
+  {
+    branch: "Head Office",
+    address:
+      "No. 1/1, Nathan Street, Adaikalapuram,  Trivandrum Road, Palayamkottai, Tirunelveli-627002, Tamil Nadu , India.",
+    mail: "info@ncpli.com",
+    contact: "+91 753 886 2862 ",
+  },
+  {
+    branch: "Branch Office",
+    address:
+      "No. 5/3, Second Floor, Kush Kumar Road, Nungambakkam, Chennai - 600034, Tamil Nadu , India.",
+    mail: "info@ncpli.com",
+    contact: "044 - 4212 5369",
+  },
+];
+
 export default function Contact() {
-  const S3_BUCKET = "ganesh-bucket-22";
-  const REGION = "ap-south-1";
-  const ACCESS_KEY = "AKIAUDJT64J22AA4IF5P";
-  const SECRET_ACCESS_KEY = "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";
-
-  const config = {
-    bucketName: S3_BUCKET,
-    region: REGION,
-    accessKeyId: ACCESS_KEY,
-    secretAccessKey: SECRET_ACCESS_KEY,
-  };
-
   const [submitBar, setSubmitBar] = useState(false);
 
   const handleOpen = () => setSubmitBar(true);
@@ -289,46 +258,67 @@ export default function Contact() {
 
       console.log("filled data");
 
+      setUserData({
+        name: { text: "", isValid: false, errorMessage: "" },
+        email: { text: "", isValid: false, errorMessage: "" },
+        subject: { text: "", isValid: false, errorMessage: "" },
+        message: { text: "", isValid: false, errorMessage: "" },
+      });
+
       handleOpen();
     }
   };
 
+  const SocialMediaLogo = styled("div")(({ theme }) => ({
+    border: "1px solid #ffff",
+    borderRadius: "5px",
+    cursor: "pointer",
+    display: "inline-block",
+    textAlign: "center",
+    margin: "5px",
+    padding: "5px",
+    width: "25px",
+    height: "25px",
+    [theme.breakpoints.down("sm")]: {
+      margin: "3px",
+      padding: "2px",
+    },
+  }));
+
+
+  const textfieldColor = (theme) => ({
+    ".MuiFormLabel-root.Mui-focused": {
+      color: `${Colors.MAIN_COLOR} !important`,
+    },
+    ".MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: `${Colors.MAIN_COLOR} !important`,
+    },
+  });
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
       <AppbarHead dataParent={{ appBtnText: "Contact" }} />
+      <BannerAll
+        dataParent={{
+          title: "Contact",
+          subTitle: "Happy To Help You",
+          path: ["Home", "Contact"],
+        }}
+      />
       <div style={{ backgroundColor: "white " }}>
-        <div
-          style={{
-            marginTop: "2vh",
-            display: "flex",
-            justifyContent: "center",
-            alignContent: "center",
-          }}
-        >
-          <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />}>
-            <Link
-              underline="hover"
-              sx={{ display: "flex", alignItems: "center" }}
-              color="inherit"
-              href="/"
-            >
-              <HomeIcon sx={{ mr: 0.3 }} fontSize="inherit" />
-              Home
-            </Link>
-            <Link style={{ textDecoration: "none" }} color={Colors.MAIN_COLOR}>
-              Contact Us
-            </Link>
-          </Breadcrumbs>
-        </div>
         <br />
         <br />
 
         <div>
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <Root>
-              <div style={{ flex: 2 }}>
-                <Card elevation={3} sx={dam}>
+          <div style={{ width: "100%", marginTop: 25, marginBottom: 50 }}>
+            <DivStyle1>
+              <DivStyle2>
+                <Card elevation={3} sx={cardStyle}>
                   <CardContent>
                     <form style={{ padding: "10px" }}>
                       <div
@@ -337,9 +327,12 @@ export default function Contact() {
                         <Typography
                           variant="h5"
                           gutterBottom
-                          style={{ borderBottom: "4px solid green" }}
+                          style={{
+                            borderBottom: `4px solid ${Colors.MAIN_COLOR}`,
+                          }}
                         >
-                          GET IN TOUCH
+                          {" "}
+                          GET IN TOUCH{" "}
                         </Typography>
                       </div>
                       <Typography
@@ -347,19 +340,14 @@ export default function Contact() {
                         gutterBottom
                         style={{ display: "flex", justifyContent: "center" }}
                       >
-                        Send us a message, we will call back later
+                        {" "}
+                        Send us a message, we will call back later{" "}
                       </Typography>
                       <br />
-                      <div
-                        style={{
-                          display: "flex",
-                          flexWrap: "wrap",
-                          justifyContent: "space-between",
-                          marginBottom: "20px",
-                        }}
-                      >
-                        <RootItem1>
+                      <div style={{ marginBottom: "20px" }}>
+                       
                           <TextField
+                            sx={textfieldColor}
                             autoComplete="off"
                             value={userData.name.text}
                             onChange={(e) => HandleName(e)}
@@ -370,9 +358,11 @@ export default function Contact() {
                             label="Your Name"
                             variant="outlined"
                           />
-                        </RootItem1>
-                        <RootItem2>
+                        </div>
+                     <div style={{ marginBottom: "20px" }}>
                           <TextField
+                            sx={textfieldColor}
+                            style={{marginTop:10}}
                             autoComplete="off"
                             value={userData.email.text}
                             onChange={(e) => HandleEmail(e)}
@@ -383,10 +373,10 @@ export default function Contact() {
                             label="Your Email"
                             variant="outlined"
                           />
-                        </RootItem2>
                       </div>
                       <div style={{ marginBottom: "20px" }}>
                         <TextField
+                          sx={textfieldColor}
                           autoComplete="off"
                           value={userData.subject.text}
                           onChange={(e) => HandleSubject(e)}
@@ -400,6 +390,7 @@ export default function Contact() {
                       </div>
                       <div style={{ marginBottom: "20px" }}>
                         <TextField
+                          sx={textfieldColor}
                           autoComplete="off"
                           maxRows={2}
                           rows={2}
@@ -418,127 +409,159 @@ export default function Contact() {
                       <Button
                         onClick={() => handleSubmit()}
                         variant="contained"
-                        style={{ backgroundColor: "#80BD85" }}
+                        fullWidth
+                        style={{
+                          backgroundColor: Colors.MAIN_COLOR,
+                          justifyContent: "center",
+                          display: "flex",
+                          marginTop: 15,
+                        }}
                       >
-                        Submit
+                        {" "}
+                        Send Message{" "}
                       </Button>
                     </form>
                   </CardContent>
                 </Card>
-              </div>
+              </DivStyle2>
 
-              <RootItem3>
-                <Box
-                  component="img"
-                  sx={{ height: "250px", width: "100%" }}
-                  alt="First Image Place"
-                  src={image1}
-                />
-              </RootItem3>
-            </Root>
+              <DivStyle3>
+                <Typography
+                  variant="h5"
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
+                  Contact Details
+                </Typography>
+                {Address.map((obj) => (
+                  <>
+                    <Typography variant="h6" style={{ marginTop: 15 }}>
+                      {obj.branch}
+                    </Typography>
+
+                    <div
+                      style={{
+                        marginTop: 10,
+                        flexDirection: "row",
+                        display: "flex",
+                      }}
+                    >
+                      <HomeIcon style={{ color: Colors.MAIN_COLOR }} />
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          fontFamily: "nunito",
+                          paddingLeft: 1,
+                          textAlign: "justify",
+                          marginBottom: 1,
+                        }}
+                      >
+                        {obj.address}{" "}
+                      </Typography>
+                    </div>
+
+                    <div
+                      style={{
+                        marginTop: 10,
+                        flexDirection: "row",
+                        display: "flex",
+                      }}
+                    >
+                      <MailIcon style={{ color: Colors.MAIN_COLOR }} />
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          fontFamily: "nunito",
+                          paddingLeft: 1,
+                          textAlign: "justify",
+                          marginBottom: 1,
+                          color: "#3873FD",
+                          cursor: "pointer",
+                        }}
+                        onClick={() => {
+                          window.open("mailto:info@ncpli.com");
+                        }}
+                      >
+                        {obj.mail}{" "}
+                      </Typography>
+                    </div>
+
+                    <div
+                      style={{
+                        marginTop: 10,
+                        flexDirection: "row",
+                        display: "flex",
+                      }}
+                    >
+                      <PhoneIcon style={{ color: Colors.MAIN_COLOR }} />
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          fontFamily: "nunito",
+                          paddingLeft: 1,
+                          textAlign: "justify",
+                          marginBottom: 1,
+                          color: "#3873FD",
+                          cursor: "pointer",
+                        }}
+                        onClick={() => {
+                          window.open(`tel:${obj.contact}`);
+                        }}
+                      >
+                        {obj.contact}{" "}
+                      </Typography>
+                    </div>
+                  </>
+                ))}
+
+                <div style={{ marginTop: 15, marginBottom: 15 }}>
+                  {footerContents.socialMedia.map((data) => (
+                    <SocialMediaLogo
+                      sx={{
+                        borderColor: "#ADB5BD",
+                        "&:hover": {
+                          background: data.color,
+                          transition: "0.6s",
+                        },
+                      }}
+                      onClick={() => window.open(data.link)}
+                    >
+                      <IconButton
+                        sx={{
+                          height: "25px",
+                          width: "25px",
+                          color: " #ADB5BD",
+                          "&:hover": {
+                            color: "white",
+                          },
+                        }}
+                        onClick={() => window.open(data.link)}
+                      >
+                        {data.icon}
+                      </IconButton>
+                    </SocialMediaLogo>
+                  ))}
+                </div>
+              </DivStyle3>
+            </DivStyle1>
           </div>
 
-          <br />
-
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <Root2>
-              <Card sx={dam2}>
-                <CardContent>
-                  <Typography
-                    variant="h4"
-                    gutterBottom
-                    style={{ textAlign: "center" }}
-                  >
-                    Head Office
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    gutterBottom
-                    style={{ textAlign: "center" }}
-                  >
-                    <HomeIcon
-                      fontSize="medium"
-                      style={{ verticalAlign: "middle", marginBottom: "5px" }}
-                    />{" "}
-                    Nathan Street, Adaikalapuram, 1/1, Trivandrum Rd,
-                    Palayamkottai, Tirunelveli, Tamil Nadu 627002, India
-                  </Typography>
-                  <Typography
-                    variant="subtitle1"
-                    gutterBottom
-                    style={{ textAlign: "center" }}
-                  >
-                    <MailIcon
-                      fontSize="medium"
-                      style={{ verticalAlign: "middle" }}
-                    />{" "}
-                    info@netcomcomputersindia.com
-                  </Typography>
-                  <Typography
-                    variant="subtitle1"
-                    gutterBottom
-                    style={{ textAlign: "center" }}
-                  >
-                    <PhoneIcon
-                      fontSize="medium"
-                      style={{ verticalAlign: "middle" }}
-                    />{" "}
-                    +919585652538
-                  </Typography>
-                </CardContent>
-              </Card>
-
-              <Card sx={dam3}>
-                <CardContent>
-                  <Typography
-                    variant="h4"
-                    gutterBottom
-                    style={{ textAlign: "center" }}
-                  >
-                    Branch Office
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    gutterBottom
-                    style={{ textAlign: "center" }}
-                  >
-                    <HomeIcon
-                      fontSize="medium"
-                      style={{ verticalAlign: "middle", marginBottom: "5px" }}
-                    />{" "}
-                    No. 5/3, Second Floor, Kush Kumar Road, Nungambakkam,
-                    Chennai - 600 034
-                  </Typography>
-                  <Typography
-                    variant="subtitle1"
-                    gutterBottom
-                    style={{ textAlign: "center" }}
-                  >
-                    <MailIcon
-                      fontSize="medium"
-                      style={{ verticalAlign: "middle" }}
-                    />{" "}
-                    info@netcomcomputersindia.com
-                  </Typography>
-                  <Typography
-                    variant="subtitle1"
-                    gutterBottom
-                    style={{ textAlign: "center" }}
-                  >
-                    <PhoneIcon
-                      fontSize="medium"
-                      style={{ verticalAlign: "middle" }}
-                    />{" "}
-                    +919885652538
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Root2>
-          </div>
-          <br />
-
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <Root3>
+          <div style={{ width: "100%", marginTop: "5%", marginBottom: 30 }}>
+        <DivStyle1 style={{ display: "flex", justifyContent: "center" }}>
+          <Typography
+            variant="h4"
+            style={{ marginTop: 10, fontFamily: "nunito",color:Colors.MAIN_COLOR }}
+          >
+            Location
+          </Typography>
+        </DivStyle1>
+      </div>
+          
+          <div
+            style={{ display: "flex", justifyContent: "center", marginTop: 15 }}          
+          >
+            
+            
+            <Root3>              
               <iframe
                 src="https://www.google.com/maps/d/u/1/embed?mid=1ZpjFzBZqaF_lOgNmYQ9gk3nqTBDJBQAc&ehbc=2E312F"
                 frameborder="0"
@@ -559,19 +582,19 @@ export default function Contact() {
 
       <Snackbar
         anchorOrigin={{
-          vertical: "top",
-          horizontal: "right",
+          vertical: "bottom",
+          horizontal: "center",
         }}
         severity="success"
         open={submitBar}
         onClose={handleClose}
-        autoHideDuration={6000}
+        autoHideDuration={3000}
       >
         <SnackbarContent
           style={{
             backgroundColor: "#157561",
           }}
-          message="Thanks a lot! for contacting us."
+          message="Thanks a lot ! for contacting us."
         />
       </Snackbar>
     </>

@@ -1,6 +1,8 @@
 import AppbarHead from "./SubComponents/AppbarHead";
 import React, { useEffect } from "react";
 
+import BannerAll from '../components/SubComponents/BreadCrumbComponent';
+
 import HomeIcon from "@mui/icons-material/Home";
 import Divider from "@mui/material/Divider";
 import Footer from "./SubComponents/Footer";
@@ -20,48 +22,43 @@ import { styled } from "@mui/material/styles";
 import { Colors } from "../constants";
 import aboutContents from "./StaticTextContents/aboutContents";
 
-
-
-
 export default function About() {
   const BreadcrumbStyle = styled("div")(({ theme }) => ({
     display: "flex",
     justifyContent: "center",
   }));
 
-
-
   const FirstSection = styled("div")(({ theme }) => ({
-    display: "flex", paddingLeft: "5%", paddingRight: "5%",
-    [theme.breakpoints.down("lg")]: {
-
-    },
-    [theme.breakpoints.up("md")]: {
-
-    },
+    display: "flex",
+    paddingLeft: "5%",
+    paddingRight: "5%",
+    [theme.breakpoints.down("lg")]: {},
+    [theme.breakpoints.up("md")]: {},
     [theme.breakpoints.up("xl")]: {
-      paddingLeft: "15%", paddingRight: "15%"
+      paddingLeft: "15%",
+      paddingRight: "15%",
     },
   }));
 
-
   const SecondSection = styled("div")(({ theme }) => ({
-    display: "flex", paddingLeft: "5%", paddingRight: "5%",
+    display: "flex",
+    paddingLeft: "5%",
+    paddingRight: "5%",
     marginTop: 60,
-    marginBottom: 60, justifyContent: "space-between",
+    marginBottom: 60,
+    justifyContent: "space-between",
     gap: 5,
     flexWrap: "wrap",
 
-    [theme.breakpoints.down("lg")]: {
-
-    },
+    [theme.breakpoints.down("lg")]: {},
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
-      width: "87%", gap: 35,
-
+      width: "87%",
+      gap: 35,
     },
     [theme.breakpoints.up("xl")]: {
-      paddingLeft: "15%", paddingRight: "15%"
+      paddingLeft: "15%",
+      paddingRight: "15%",
     },
   }));
 
@@ -74,74 +71,53 @@ export default function About() {
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-    textAlign: "justify", backgroundColor: "white", border: `2px solid`, borderColor: Colors.LIGHT_COLOR,
-
+    textAlign: "justify",
+    backgroundColor: "white",
+    border: `2px solid`,
+    borderColor: Colors.LIGHT_COLOR,
 
     [theme.breakpoints.down("md")]: {
       width: "100%",
-
     },
     [theme.breakpoints.only("md")]: {
-      height: 400
-
+      height: 400,
     },
     [theme.breakpoints.up("lg")]: {
-      height: 400
-
+      height: 400,
     },
   });
 
-
-
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
-
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
       <ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
       <AppbarHead dataParent={{ appBtnText: "About Us" }} />
 
+      <BannerAll
+        dataParent={{
+          title: "About",
+          subTitle: "Know Who We Are",
+          path: ["Home", "About"],
+        }}
+      />
 
-      <BreadcrumbStyle style={{marginTop:30}}>
-          <Card elevation={3} style={{padding:10}}>
-           
-              <Breadcrumbs
-                separator={<NavigateNextIcon fontSize="small" />}
-                aria-label="breadcrumb"
-              >
-                <Link
-                  underline="hover"
-                  color="inherit"
-                  href="/"
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
-                 Home
-                </Link>
-                <Typography style={{color:Colors.MAIN_COLOR, fontWeight:"bold"}} >About Us</Typography>
-              </Breadcrumbs>
-         
-          </Card>
-        </BreadcrumbStyle>
-
-        <div style={{ marginTop: "2%", textAlign:"center" }}>
-        <Typography variant="h3" style ={{color:Colors.MAIN_COLOR}}>
-            About Us
-          </Typography>
-          <Typography variant="subtitle1" style ={{color:"grey", marginTop: "1%"}}>
-            Know about us
-          </Typography>
-        </div>
-
-
+    
 
       <FirstSection>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <Typography variant="subtitle1" style={{ marginTop: 15, textAlign: "justify" }}>
-            <br /><span style={{ color: Colors.MAIN_COLOR, fontWeight: "bold" }}>Netcom Computers Pvt Ltd</span> ,
-            an information technology based company since 2004, in Education and
-            Training, is offering wide range of that include creating
+          <Typography
+            variant="subtitle1"
+            style={{ marginTop: 15, textAlign: "justify" }}
+          >
+            <br />
+            <span style={{ color: Colors.MAIN_COLOR, fontWeight: "bold" }}>
+              Netcom Computers Pvt Ltd
+            </span>{" "}
+            , an information technology based company since 2004, in Education
+            and Training, is offering wide range of that include creating
             educational and training content of global relevance,designing and
             executing large learning initiatives and setting up the requisite
             infrastructure.
@@ -162,27 +138,71 @@ export default function About() {
             team
           </Typography>
 
-          <Typography variant="h4" style={{ marginTop: 40, marginBottom: 30, color: Colors.MAIN_COLOR, fontWeight: "bold" }}>
+          <Typography
+            variant="subtitle1"
+            sx={{ textAlign: "justify", marginTop: 4, color: "grey" }}
+          >
+            Netcom providing multiple software services to clients. Our mission
+            is to help customers achieve their business objectives by providing
+            innovative, best-in-class consulting, IT solutions, and services. We
+            function as an IT partner to business, offering a consulting – plan
+            – implementation approach with an integrated portfolio of technology
+            IT solutions that encompass the entire Enterprise value chain.
+          </Typography>
+
+          <Typography
+            variant="subtitle1"
+            sx={{ textAlign: "justify", marginTop: 4, color: "grey" }}
+          >
+            Our company by a team of innovative software professionals, we are a
+            premier software development company, specializing in outsourcing
+            services, product-engineering-services that includes custom
+            Application / software application development, maintenance and
+            mobile application development. Netcom domestic and international
+            business network delivers highly flexible, adaptive solutions and a
+            best-of-both worlds scenario for business needs. Our Company
+            offshore development team will be always in contact with clients for
+            customer-driven continuous development and to ensure that the
+            project is always on track.
+          </Typography>
+
+          <Typography
+            variant="h4"
+            style={{
+              marginTop: 40,
+              marginBottom: 30,
+              color: Colors.MAIN_COLOR,
+              fontWeight: "bold",
+            }}
+          >
             What we do?
           </Typography>
 
-          <Typography variant="subtitle1" style={{ textAlign: "justify" }}> { }
+          <Typography variant="subtitle1" style={{ textAlign: "justify" }}>
+            {" "}
+            {}
             {aboutContents.whatWeDo}
           </Typography>
         </div>
       </FirstSection>
 
-
       <SecondSection>
-
         <Card square elevation={4} sx={cardstyles}>
           <img
             src={aboutContents.missionVision[0]["imgIcon"]}
             style={{ height: 80, width: 80, marginTop: 10 }}
           />
-          <Typography variant="h5" style={{ color: Colors.MAIN_COLOR, marginTop: 10 }}>{aboutContents.missionVision[0]["title"]}</Typography>
+          <Typography
+            variant="h5"
+            style={{ color: Colors.MAIN_COLOR, marginTop: 10 }}
+          >
+            {aboutContents.missionVision[0]["title"]}
+          </Typography>
 
-          <Typography variant="subtitle1" style={{ margin: 20, textAlign: "justify", marginTop: 10 }}>
+          <Typography
+            variant="subtitle1"
+            style={{ margin: 20, textAlign: "justify", marginTop: 10 }}
+          >
             {aboutContents.missionVision[0]["content"]}
           </Typography>
         </Card>
@@ -192,17 +212,21 @@ export default function About() {
             src={aboutContents.missionVision[1]["imgIcon"]}
             style={{ height: 80, width: 80, marginTop: 10 }}
           />
-          <Typography variant="h5" style={{ color: Colors.MAIN_COLOR, marginTop: 10 }}>{aboutContents.missionVision[1]["title"]}</Typography>
+          <Typography
+            variant="h5"
+            style={{ color: Colors.MAIN_COLOR, marginTop: 10 }}
+          >
+            {aboutContents.missionVision[1]["title"]}
+          </Typography>
 
-          <Typography variant="subtitle1" style={{ margin: 20, textAlign: "justify", marginTop: 10 }}>
+          <Typography
+            variant="subtitle1"
+            style={{ margin: 20, textAlign: "justify", marginTop: 10 }}
+          >
             {aboutContents.missionVision[1]["content"]}
           </Typography>
         </Card>
-
       </SecondSection>
-
-
-
 
       <Footer />
     </>

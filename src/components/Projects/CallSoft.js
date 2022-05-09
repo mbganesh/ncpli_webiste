@@ -15,9 +15,12 @@ import Lab2 from "../../images/projectPageImages/assessment/lab2.svg";
 import AppbarHead from "../SubComponents/AppbarHead";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import Footer from '../SubComponents/Footer';
+import { Colors } from '../../constants';
+import about1 from "../../images/allPageBanner/abouts-03.png"
 
 import callSoftContent from "../StaticTextContents/projectContents/callSoftContents";
-import { Colors } from "../../constants";
+import BannerAll from '../SubComponents/BreadCrumbComponent';
+
 
 export default function CallSoft() {
   const BreadcrumbStyle = styled("div")(({ theme }) => ({
@@ -94,26 +97,18 @@ export default function CallSoft() {
   return (
     <>
       <ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
-      <AppbarHead dataParent={{ appBtnText: "Call Soft" }} />
-      <BreadcrumbStyle>
-        <Card elevation={6}>
-          <CardContent>
-            <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb" >
-              <Link
-                underline="hover"
-                color="inherit"
-                href="/"
-                sx={{ display: "flex", alignItems: "center" }}
-              >
-                <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" /> Home{" "}
-              </Link>
-              <Typography color="text.primary">Projects</Typography>
+      <AppbarHead dataParent={{ appBtnText: "Projects" }} />
 
-              <Typography color="text.primary">Call Soft</Typography>
-            </Breadcrumbs>
-          </CardContent>
-        </Card>
-      </BreadcrumbStyle>
+      <BannerAll
+        dataParent={{
+          title: "Call Soft",
+          subTitle: "",
+          path: ["Home", "Projects", "Call Soft"],
+        }}
+      />
+
+
+
       {/* Full vertical page */}
       <div style={{ width: "100%", marginTop: 25 }}>
         {/* 67% middle of page */}

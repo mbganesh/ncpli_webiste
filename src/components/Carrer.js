@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import BannerAll from "../components/SubComponents/BreadCrumbComponent";
 import ExperienceIcon from "@mui/icons-material/Work";
 import { styled } from "@mui/system";
 import {
@@ -18,7 +19,7 @@ import { ScrollToTop } from "react-simple-scroll-up";
 import AppbarHead from "./SubComponents/AppbarHead";
 import CareerBanner from "../images/careerPageImages/career_bg.svg";
 import Footer from "./SubComponents/Footer";
-import { Colors } from '../constants';
+import { Colors } from "../constants";
 
 export default function Carrer() {
   const BreadcrumbStyle = styled("div")(({ theme }) => ({
@@ -40,7 +41,6 @@ export default function Carrer() {
     // width: "450px",
   }));
 
-
   const CardLocation = styled("div")(({ theme }) => ({
     display: "flex",
     flexDirection: "column",
@@ -52,7 +52,7 @@ export default function Carrer() {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-evenly",
-    margin: '0px 10px'
+    margin: "0px 10px",
   }));
 
   const mySingleCard = (theme) => ({
@@ -61,14 +61,14 @@ export default function Carrer() {
     width: "400px",
     backgroundColor: "#FFF9F9",
     border: "1px solid #157561",
-    borderRadius: '5px',
+    borderRadius: "5px",
     boxShadow: `rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px`,
 
     "&:hover": {
       transition: "0.5s",
       transform: `scale(${1.02})`,
       boxShadow: `rgba(21, 117, 97, 0.55) 0px 15px 25px, rgba(21, 117, 97, 0.65) 0px 5px 10px`,
-      borderRadius: '15px',
+      borderRadius: "15px",
     },
 
     [theme.breakpoints.down("sm")]: {
@@ -80,17 +80,16 @@ export default function Carrer() {
   const applyBtn = (theme) => ({
     margin: "15px 0px 5px",
     border: "2px solid #157561",
-    color: '#157561',
+    color: "#157561",
 
     "&:hover": {
       transition: "0.5s",
       backgroundColor: "#157561",
       color: "white",
       border: "1px solid #157561",
-      fontSize: '16px',
-      fontWeight: 'bold',
+      fontSize: "16px",
+      fontWeight: "bold",
     },
-
   });
 
   const navigate = useNavigate();
@@ -282,10 +281,7 @@ export default function Carrer() {
           "2 - 5 years experience in Software Development",
         ],
       },
-      cardData: [
-        "2 - 5 years experience",
-        "Any Degree in Engineering",
-      ],
+      cardData: ["2 - 5 years experience", "Any Degree in Engineering"],
     },
     {
       details: {
@@ -421,7 +417,10 @@ export default function Carrer() {
           "Must be able to handle the relevant Subjects in all standards also",
         ],
         skills: [
-          `<b><br/>List of Subjects (Tamilnadu State Board)</b><br/> All subjects other than Languages- Both Tamil and English Medium<br/><br/> <b>1st-5th Std:</b> Tamil, English, Mathematics, Environmental Science (1st & 2nd), Science (3rd-5th) and Social Science (3rd-5th) <br/><br/> <b>6th-10th Std:</b> Tamil, English, Mathematics, Science and Social Science. <br/><br/> <b>11th and 12th Std:</b> Tamil, English, Advanced Tamil, Communicative English, Mathematics, physics, Chemistry, Biology, Bio-Botany, Bio-Zoology, Microbiology, Bio-Chemistry, Computer Science, computer Applications, Accountancy, Commerce, Economics, Statistics, Business Mathematics and Statistics, Ethics and Indian Culture, Geography, History, Political Science and Home Science.`,
+          `<b>List of Subjects (Tamilnadu State Board):</b> All subjects other than Languages- Both Tamil and English Medium`,
+          `<b>1st-5th Std:</b> Tamil, English, Mathematics, Environmental Science (1st & 2nd), Science (3rd-5th) and Social Science (3rd-5th) `,
+          `<b>6th-10th Std:</b> Tamil, English, Mathematics, Science and Social Science.`,
+          `<b>11th and 12th Std:</b> Tamil, English, Advanced Tamil, Communicative English, Mathematics, physics, Chemistry, Biology, Bio-Botany, Bio-Zoology, Microbiology, Bio-Chemistry, Computer Science, computer Applications, Accountancy, Commerce, Economics, Statistics, Business Mathematics and Statistics, Ethics and Indian Culture, Geography, History, Political Science and Home Science.`,
         ],
         eligibility: [
           "Any Post Graduate or PhD in the following subjects with a minimum of 5-10 years of experience in Teaching and Curriculum Creation.",
@@ -470,28 +469,13 @@ export default function Carrer() {
       <ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
       <AppbarHead dataParent={{ appBtnText: "Career" }} />
 
-      <BreadcrumbStyle>
-        <Card sx={{ width: 200, height: 50 }}>
-          <CardContent>
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" />}
-              aria-label="breadcrumb"
-            >
-              <Link
-                underline="hover"
-                color="inherit"
-                href="/"
-                sx={{ display: "flex", alignItems: "center" }}
-              >
-                {" "}
-                <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" /> Home{" "}
-              </Link>
-              <Typography color={Colors.MAIN_COLOR}>Career</Typography>
-            </Breadcrumbs>
-          </CardContent>
-        </Card>
-      </BreadcrumbStyle>
-
+      <BannerAll
+        dataParent={{
+          title: "Career",
+          subTitle: "Grow With Us",
+          path: ["Home", "Career"],
+        }}
+      />
       <div
         style={{
           display: "flex",
@@ -504,16 +488,29 @@ export default function Carrer() {
             <Card sx={mySingleCard} elevation="2" key={i}>
               <CardTopItem />
 
+              <div
+                style={{
+                  display: "flex",
+                  whiteSpace: "nowrap",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  paddingTop: "10px",
+                  paddingBottom: "5px",
+                }}
+              >
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: "bold", marginRight: "5px" }}
+                >
+                  {" "}
+                  Job Role :{" "}
+                </Typography>
 
-
-              <div style={{ display: 'flex', whiteSpace: 'nowrap', justifyContent: 'center', alignItems: 'center', paddingTop: '10px', paddingBottom: '5px' }}>
-
-                <Typography variant="body1" sx={{ fontWeight: 'bold', marginRight: '5px' }}> Job Role :  </Typography>
-
-                <Typography variant="subtitle1"> {data.details.title} </Typography>
-
+                <Typography variant="subtitle1">
+                  {" "}
+                  {data.details.title}{" "}
+                </Typography>
               </div>
-
 
               <div
                 style={{
@@ -547,11 +544,9 @@ export default function Carrer() {
                 </CardSingleItem>
               </div>
 
-
               <CardLocation>
-
-                <CardSingleItem >
-                  <LocationIcon style={{ marginRight: "1%", color: 'gray' }} />
+                <CardSingleItem>
+                  <LocationIcon style={{ marginRight: "1%", color: "gray" }} />
                   <Typography
                     variant="subtitle1"
                     style={{ whiteSpace: "nowrap", marginLeft: "1%" }}
@@ -560,7 +555,6 @@ export default function Carrer() {
                   </Typography>
                 </CardSingleItem>
               </CardLocation>
-
 
               <Button
                 variant="outlined"

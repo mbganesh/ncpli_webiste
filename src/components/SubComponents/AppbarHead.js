@@ -146,7 +146,7 @@ export default function AppbarHead(props) {
   ];
 
   const servicesItem = [
-    { subMenuName: "Graphic Design", subMenuLink: "" },
+    
     { subMenuName: "E Content Development", subMenuLink: "/e-content-development" },
     { subMenuName: "Short Film", subMenuLink: "/short-film" },
     { subMenuName: "Web Application Development", subMenuLink: "/web-app-development" },
@@ -178,18 +178,18 @@ export default function AppbarHead(props) {
   };
 
   const handleHover = (text, e) => {
-    console.log({ text });
+    //console.log({ text });
 
     if (text.menutitle === "Projects") {
-      console.log(text);
+      //console.log(text);
       setMySubMenu(projectsItem);
-      console.log(e.currentTarget);
+      //console.log(e.currentTarget);
       setproject(e.currentTarget);
     } else if (text.menutitle === "Products") {
       setMySubMenu(productItem);
       setproject(e.currentTarget);
     } else if (text.menutitle === "Services") {
-      console.log(text);
+      //console.log(text);
       setMySubMenu(servicesItem);
       setproject(e.currentTarget);
     } else if (
@@ -205,16 +205,16 @@ export default function AppbarHead(props) {
 
 
   const handleHoverMI = (text, e) => {
-    console.log({ text });
+    //console.log({ text });
 
     if (text.menutitle === "Projects") {
-      console.log(text);
+      //console.log(text);
       setMySubMenu(projectsItem);
-      console.log(e.currentTarget);
+      //console.log(e.currentTarget);
     } else if (text.menutitle === "Products") {
       setMySubMenu(productItem);
     } else if (text.menutitle === "Services") {
-      console.log(text);
+      //console.log(text);
       setMySubMenu(servicesItem);
     } else if (
       text.menutitle === "Home" ||
@@ -273,7 +273,7 @@ export default function AppbarHead(props) {
     (e) => {
       const window = e.currentTarget;
       let x = Math.round(y/ (props.dataParent.appBtnText==='Home' ? 1000 : 100));
-      console.log(`Y: ${y} `); console.log(`X: ${x} `);
+      //console.log(`Y: ${y} `); //console.log(`X: ${x} `);
       if(x<20){
         setElevationValue(x)
       }else{
@@ -300,7 +300,10 @@ export default function AppbarHead(props) {
         <Toolbar sx={menuToolBarStyle}   >
 
           <div style={{ flex: 1 }} >
-            <img src={logo} height="60px" />
+            <img src={logo} height="60px" onClick={()=>{
+              navigate("/")
+              window.scrollTo(0,0)
+            }} style={{cursor:"pointer",marginTop:10,marginBottom:10}} />
           </div>
 
           <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }} >

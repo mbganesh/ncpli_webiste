@@ -1,6 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes  } from "react-router-dom";
 import React, { useEffect } from "react";
 
 import Home from "./components/Home";
@@ -20,7 +19,6 @@ import Carrer from "./components/Carrer";
 import Contact from "./components/Contact";
 import ICT from "./components/Projects/ICT";
 import SmartClass from "./components/Products/SmartClass";
-import EcontentDevelopment from './components/Projects/Econtent';
 import SmartTailorShop from "./components/Products/SmartTailorShop";
 import CareerDetails from "./components/CareerDetails";
 import NetcomDigitalContents from "./components/Projects/NetcomDigitalContents"
@@ -39,7 +37,7 @@ import CustomizedSoftwareDevelopment from "./components/Services/CustomizedSoftw
 import EContentDevelopment from "./components/Services/EContentDevelopment";
 import WebHostingServices from "./components/Services/WebHostingServices";
 import HardwareSupportMaintanence from "./components/Services/HardwareSupportMaintanence";
-import PhoneFrame from "./components/PhoneFrame";
+import FormSubmit from "./components/SubComponents/FormSubmit";
 
 
 
@@ -49,17 +47,15 @@ function App() {
     document.title = "Netcom Computers";
   });
   return (
-
-    // basename={window.location.pathname || ''}
     <>
-        <BrowserRouter basename={window.location.pathname || ''}> 
+      <HashRouter>
         <Routes>
           <Route exact path="/smart-class" element={<SmartClass />}></Route>
           <Route exact path="/netcom-digital-contents" element={<NetcomDigitalContents />}></Route>
 
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/about" element={<About />}></Route>
-
+          <Route exact path="/form-submit" element={<FormSubmit/>}></Route> 
           <Route exact path="/language-lab" element={<LanguageLab />}></Route>
           <Route exact path="/emis-sofware-solutions" element={<TwDThDAnimations />}          ></Route>
           <Route exact path="/kiosk-project" element={<Kiosk />}></Route>
@@ -91,12 +87,8 @@ function App() {
           <Route exact path="/hardware-support-maintainence" element={<HardwareSupportMaintanence />} />
           <Route exact path="/short-film" element={<ShortFilm />} />
 
-
-
-          <Route exact path="/frame" element={<PhoneFrame />} />
-
         </Routes>
-      </BrowserRouter>
+      </HashRouter >
     </>
   );
 }

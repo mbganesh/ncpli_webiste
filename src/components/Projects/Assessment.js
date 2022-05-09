@@ -1,4 +1,4 @@
-import {React, useEffect} from "react";
+import { React, useEffect } from "react";
 import { styled } from "@mui/system";
 import {
   Typography,
@@ -16,8 +16,10 @@ import Lab1 from "../../images/projectPageImages/assessment/lab1.svg";
 import Lab2 from "../../images/projectPageImages/assessment/lab2.svg";
 import Lab3 from "../../images/projectPageImages/assessment/lab3.svg";
 import assessmentContent from "../StaticTextContents/projectContents/assessmentContents";
-import Colors from "../../constants/Colors";
-
+import { Colors } from "../../constants";
+import about1 from "../../images/allPageBanner/abouts-03.png";
+import BannerAll from '../SubComponents/BreadCrumbComponent';
+import Footer from "../SubComponents/Footer";
 
 export default function Assessment() {
   const BreadcrumbStyle = styled("div")(({ theme }) => ({
@@ -97,36 +99,21 @@ export default function Assessment() {
   ];
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
       <ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
-      <AppbarHead dataParent={{ appBtnText: "Assessment" }} />
-      <BreadcrumbStyle>
-        <Card elevation={6}>
-          <CardContent>
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" />}
-              aria-label="breadcrumb"
-            >
-              <Link
-                underline="hover"
-                color="inherit"
-                href="/"
-                sx={{ display: "flex", alignItems: "center" }}
-              >
-                {" "}
-                <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" /> Home{" "}
-              </Link>
-              <Typography color="text.primary">Projects</Typography>
+      <AppbarHead dataParent={{ appBtnText: "Projects" }} />
 
-              <Typography color="text.primary">Assessment</Typography>
-            </Breadcrumbs>
-          </CardContent>
-        </Card>
-      </BreadcrumbStyle>
+      <BannerAll
+        dataParent={{
+          title: "Assessment",
+          subTitle: "",
+          path: ["Home", "Projects", "Assessment"],
+        }}
+      />
 
       {/* Full vertical page */}
       <div style={{ width: "100%", marginTop: 25 }}>
@@ -134,84 +121,91 @@ export default function Assessment() {
         <DivStyle1>
           {/* Left Side */}
           <DivStyle4>
-            {assessmentContent.assessmentMainPoint.map((text)=>(
-            <Typography
-              variant="body1"
-              style={{
-                textAlign: "justify",
-                fontFamily: "nunito",
-              }}
-            >
-              {text.firstPoint}
-              <br />
-              <br />
-              {text.secondPoint}
-              <br />
-              <br /> {text.thirdPoint}
-            </Typography>
+            {assessmentContent.assessmentMainPoint.map((text) => (
+              <Typography
+                variant="body1"
+                style={{
+                  textAlign: "justify",
+                  fontFamily: "nunito",
+                }}
+              >
+                {text.firstPoint}
+                <br />
+                <br />
+                {text.secondPoint}
+                <br />
+                <br /> {text.thirdPoint}
+              </Typography>
             ))}
             <Typography
               variant="h6"
-              style={{ fontFamily: "nunito", marginTop: 20,fontWeight:'bold', color:Colors.MAIN_COLOR}}
+              style={{
+                fontFamily: "nunito",
+                marginTop: 20,
+                fontWeight: "bold",
+                color: Colors.MAIN_COLOR,
+              }}
             >
               Purpose of Assessment:
             </Typography>
-            {assessmentContent.assessmentPurposeofAssessment.map((text)=>(
-            <Typography
-              variant="body1"
-              style={{
-                textAlign: "justify",
-                marginTop: 5,
-                fontFamily: "nunito",
-              }}
-            >
-             {text.firstPoint}
-              <br />
-              <br />
-              {text.secondPoint}
-            </Typography>
+            {assessmentContent.assessmentPurposeofAssessment.map((text) => (
+              <Typography
+                variant="body1"
+                style={{
+                  textAlign: "justify",
+                  marginTop: 5,
+                  fontFamily: "nunito",
+                }}
+              >
+                {text.firstPoint}
+                <br />
+                <br />
+                {text.secondPoint}
+              </Typography>
             ))}
           </DivStyle4>
           {/* Ride Side */}
           <DivStyle4>
-          {assessmentContent.assessmentContent.map((text)=>(
-            <Typography
-              variant="body1"
-              style={{
-                textAlign: "justify",                
-                fontFamily: "nunito",
-              }}
-            >
-              {text.firstPoint}
-              <br />
-              <br />
-              {text.secondPoint}
-              <br />
-              <span style={{ color: "green" }}>Examine method:</span>{text.thirdPoint}
-              <br />
-              <span style={{ color: "green" }}>Interview method:</span> {text.fourthPoint}
-              <br />
-              <br />
-              <span style={{ fontWeight: "bold", color: "green" }}>
-                Test method:
-              </span>
-              {text.fivethPoint}
-              <br />
-              <br />
-              {text.sixthPoint}
-              <br />
-              {text.seventhPoint}
-              <br />
-              <br />
-              <span style={{ fontWeight: "bold", color: "green" }}>
-                Assessment for learning:
-              </span>
-              {text.eightthPoint} <br />
-              {text.ninethPoint}
-              <br />
-              {text.tenthPoint}
-            </Typography>
-          ))}
+            {assessmentContent.assessmentContent.map((text) => (
+              <Typography
+                variant="body1"
+                style={{
+                  textAlign: "justify",
+                  fontFamily: "nunito",
+                }}
+              >
+                {text.firstPoint}
+                <br />
+                <br />
+                {text.secondPoint}
+                <br />
+                <span style={{ color: "green" }}>Examine method:</span>
+                {text.thirdPoint}
+                <br />
+                <span style={{ color: "green" }}>Interview method:</span>{" "}
+                {text.fourthPoint}
+                <br />
+                <br />
+                <span style={{ fontWeight: "bold", color: "green" }}>
+                  Test method:
+                </span>
+                {text.fivethPoint}
+                <br />
+                <br />
+                {text.sixthPoint}
+                <br />
+                {text.seventhPoint}
+                <br />
+                <br />
+                <span style={{ fontWeight: "bold", color: "green" }}>
+                  Assessment for learning:
+                </span>
+                {text.eightthPoint} <br />
+                {text.ninethPoint}
+                <br />
+                {text.tenthPoint}
+              </Typography>
+            ))}
 
             {/* React Player Div */}
             <div style={{ position: "relative", paddingTop: " 5%" }}></div>
@@ -257,7 +251,6 @@ export default function Assessment() {
                         paddingLeft: "5px",
                         paddingRight: "5px",
                         boxShadow: "10px 13px 11px 5px rgba(0,0,0,0.61)",
-
                       }}
                     >
                       Using the Teacher Computer or Server
@@ -266,58 +259,71 @@ export default function Assessment() {
                 </div>
               </div>
             </AnimationOnScroll>
-            <br/>
-            {assessmentContent.assessmentTeacherComputerServer.map((text)=>(
-            <div>
-            <Typography
-              variant="h6"
-              style={{ marginBottom: 10, fontFamily: "nunito",fontWeight:'bold',color:Colors.MAIN_COLOR}}
-            >
-              {text.title}
-            </Typography>
+            <br />
+            {assessmentContent.assessmentTeacherComputerServer.map((text) => (
+              <div>
+                <Typography
+                  variant="h6"
+                  style={{
+                    marginBottom: 10,
+                    fontFamily: "nunito",
+                    fontWeight: "bold",
+                    color: Colors.MAIN_COLOR,
+                  }}
+                >
+                  {text.title}
+                </Typography>
 
-            <Typography
-              variant="body1"
-              style={{
-                textAlign: "justify",
-                marginTop: 10,
-                fontFamily: "nunito",
-              }}
-            >
-              {text.content}
-            </Typography>
-            </div>
+                <Typography
+                  variant="body1"
+                  style={{
+                    textAlign: "justify",
+                    marginTop: 10,
+                    fontFamily: "nunito",
+                  }}
+                >
+                  {text.content}
+                </Typography>
+              </div>
             ))}
-          {assessmentContent.assessmentStudentComputerClient.map((text)=>(
-            <div>
-            <Typography
-              variant="h6"
-              style={{ marginBottom: 5, marginTop:5, fontFamily: "nunito",fontWeight:'bold',color:Colors.MAIN_COLOR }}
-            >
-              {text.title}
-            </Typography>
+            {assessmentContent.assessmentStudentComputerClient.map((text) => (
+              <div>
+                <Typography
+                  variant="h6"
+                  style={{
+                    marginBottom: 5,
+                    marginTop: 5,
+                    fontFamily: "nunito",
+                    fontWeight: "bold",
+                    color: Colors.MAIN_COLOR,
+                  }}
+                >
+                  {text.title}
+                </Typography>
 
-            <Typography
-              variant="body1"
-              style={{
-                textAlign: "justify",
-                marginTop: 2,
-                fontFamily: "nunito",
-              }}
-            >
-              {text.content}
-            </Typography>
-           
-            </div>
+                <Typography
+                  variant="body1"
+                  style={{
+                    textAlign: "justify",
+                    marginTop: 2,
+                    fontFamily: "nunito",
+                  }}
+                >
+                  {text.content}
+                </Typography>
+              </div>
             ))}
           </DivStyle4>
 
           <DivStyle4>
-         
-           
             <Typography
               variant="h6"
-              style={{ marginBottom: 5, fontFamily: "nunito",fontWeight:'bold',color:Colors.MAIN_COLOR}}
+              style={{
+                marginBottom: 5,
+                fontFamily: "nunito",
+                fontWeight: "bold",
+                color: Colors.MAIN_COLOR,
+              }}
             >
               Features
             </Typography>
@@ -347,9 +353,11 @@ export default function Assessment() {
         </DivStyle1>
       </div>
 
+      <Footer/>
+
       {/* <div style={{ width: "100%", marginTop: 25 }}> */}
-        {/* 67% middle of page */}
-        {/* <DivStyle1>
+      {/* 67% middle of page */}
+      {/* <DivStyle1>
           <DivStyle4>
             <Typography
               variant="h6"
@@ -524,8 +532,8 @@ export default function Assessment() {
       {/* </div> */}
 
       {/* <div style={{ width: "100%", marginTop: 25, marginBottom: 25 }}> */}
-        {/* 67% middle of page */}
-        {/* <DivStyle1>
+      {/* 67% middle of page */}
+      {/* <DivStyle1>
           <DivStyle4>
             <Typography
               variant="h6"

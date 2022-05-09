@@ -1,6 +1,6 @@
 import {React, useEffect} from 'react'
 import { styled } from '@mui/system';
-import { Typography, Breadcrumbs, Link, Card, CardContent, Divider, Box } from "@mui/material";
+import { Typography, Breadcrumbs, Link, Card, CardContent, Divider, Box, Button } from "@mui/material";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import HomeIcon from '@mui/icons-material/Home';
 import AppbarHead from '../SubComponents/AppbarHead';
@@ -9,6 +9,10 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import FormSubmit from '../SubComponents/FormSubmit';
 import Footer from '../SubComponents/Footer';
+import { useNavigate } from 'react-router-dom';
+import { Colors } from '../../constants';
+import about1 from "../../images/allPageBanner/abouts-03.png"
+import BannerAll from '../SubComponents/BreadCrumbComponent';
 
 
 const Root = styled("div")(({ theme }) => ({
@@ -39,7 +43,25 @@ const cartitem1 = (theme) => ({
   });
 
 
+  const DivStyle4 = styled("div")(({ theme }) => ({
+    margin: "0 auto",
+    flexDirection: "column",
+    display: "flex",
+    justifyContent: "center",
+    
+    [theme.breakpoints.down("md")]: {
+      width: "90%",
+    },
+    [theme.breakpoints.up("md")]: {
+      width: "70%",
+    },
+  }));
+
+
 export default function AssessmentTool() {
+
+  const navigate = useNavigate();
+
   const BreadcrumbStyle = styled('div')(({ theme }) => ({
     display: "flex",
     justifyContent: "center",
@@ -54,18 +76,19 @@ export default function AssessmentTool() {
     <>
       <ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
       <AppbarHead dataParent={{ appBtnText: "Products" }} />
-      <BreadcrumbStyle>
-        <Card sx={{ width: 400, height: 50 }} >
-          <CardContent>
-            <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb">
-              <Link underline="hover" color="inherit" href="/" sx={{ display: 'flex', alignItems: 'center' }}> <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />{" "} Home{" "} </Link>
-              <Typography color="text.primary">Products</Typography>
 
-              <Typography color="text.primary">Assessment Tool</Typography>
-            </Breadcrumbs>
-          </CardContent>
-        </Card>
-      </BreadcrumbStyle>
+       
+      <BannerAll
+        dataParent={{
+          title: "Assessment Tool",
+          subTitle: "",
+          path: ["Home", "Projects", "Assessment Tool"],
+        }}
+      />
+
+
+
+     
 
       <br />
       <br />
@@ -75,7 +98,7 @@ export default function AssessmentTool() {
 
           <div>
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <Typography variant="h4" style={{ borderBottom: "4px solid green", }}>ASSESSMENT TOOL</Typography>
+              <Typography variant="h4" style={{ borderBottom: "4px solid green",color:Colors.MAIN_COLOR }}>ASSESSMENT TOOL</Typography>
             </div>
             <Divider></Divider>
             <br />
@@ -87,7 +110,7 @@ export default function AssessmentTool() {
           <div>
           <div>
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <Typography variant="h4" style={{ borderBottom: "4px solid green", }}>Purpose of Assessment</Typography>
+              <Typography variant="h4" style={{ borderBottom: "4px solid green",color:Colors.MAIN_COLOR }}>Purpose of Assessment</Typography>
             </div>
             <Divider></Divider>
             <br />
@@ -100,14 +123,14 @@ export default function AssessmentTool() {
 <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap",gap:"15px"}}>
 
 <Card elevation={5}  sx={cartitem1}>
-  <div style={{display:"flex"}}><Typography variant='h6' style={{ margin: "0px 20px"}}>Examine method:</Typography></div>
+  <div style={{display:"flex"}}><Typography variant='h6' style={{ margin: "0px 20px",color:Colors.MAIN_COLOR}}>Examine method:</Typography></div>
   <br />
   <Typography variant='body1' style={{ textAlign: "justify", margin: "0px 20px" }} gutterBottom>  The process of reviewing, inspecting, observing, studying, or analyzing one  or more assessment objects (i.e., specifications, mechanisms, or activities). The purpose of the  examine method is to facilitate assess or understanding, achieve clarification, or obtain evidence.</Typography>
 </Card>
 
 <Card elevation={5}  sx={cartitem1}>
 <div style={{display:"flex"}}>
-  <Typography variant='h6' style={{ margin: "0px 20px"}}>Interview method:</Typography>
+  <Typography variant='h6' style={{ margin: "0px 20px",color:Colors.MAIN_COLOR}}>Interview method:</Typography>
   </div>
   <br />
   <Typography variant='body1' style={{ textAlign: "justify", margin: " 0px 20px" }} gutterBottom>The process of holding discussions with individuals or groups of individuals  within an organization to, once again, facilitate assessor understanding, achieve clarification, or  obtain evidence. </Typography>
@@ -115,7 +138,7 @@ export default function AssessmentTool() {
 
 <Card elevation={5} sx={cartitem1}>
 <div style={{display:"flex"}}>
-  <Typography variant='h6' style={{ margin: "0px 20px"}}>Test method:</Typography>
+  <Typography variant='h6' style={{ margin: "0px 20px",color:Colors.MAIN_COLOR}}>Test method:</Typography>
   </div>
   <br />
   <Typography variant='body1' style={{ textAlign: "justify", margin: "0px 20px" }} gutterBottom>The process of exercising one or more assessment objects (i.e., activities or  mechanisms) under specified conditions to compare actual with expected behavior. </Typography>
@@ -128,17 +151,17 @@ export default function AssessmentTool() {
 
 <Card elevation={5} sx={cartitem1}>
 <div style={{display:"flex"}}>
-  <Typography variant='h6' style={{ margin: "0px 20px"}}><ArrowForwardIcon fontSize="small"  style={{verticalAlign:"middle",marginBottom:"5px"}}/>Assessment for learning:</Typography>
+  <Typography variant='h6' style={{ margin: "0px 20px",color:Colors.MAIN_COLOR}}><ArrowForwardIcon fontSize="small"  style={{verticalAlign:"middle",marginBottom:"5px",color:Colors.MAIN_COLOR}}/>Assessment for learning:</Typography>
   </div>
   <Typography variant='body1' style={{ textAlign: "justify", margin: "0px 20px" }} gutterBottom>occurs when teachers use inferences about student progress to inform  their teaching </Typography>
   <br/>
   <div style={{display:"flex"}}>
-  <Typography variant='h6' style={{ margin: "0px 20px"}}><ArrowForwardIcon fontSize="small"  style={{verticalAlign:"middle",marginBottom:"5px"}}/>Assessment as learning: </Typography>
+  <Typography variant='h6' style={{ margin: "0px 20px",color:Colors.MAIN_COLOR}}><ArrowForwardIcon fontSize="small"  style={{verticalAlign:"middle",marginBottom:"5px",color:Colors.MAIN_COLOR}}/>Assessment as learning: </Typography>
   </div>
   <Typography variant='body1' style={{ textAlign: "justify", margin: "0px 20px" }} gutterBottom>occurs when students reflect on and monitor their progress to inform  their future learning goals </Typography>
   <br/>
   <div style={{display:"flex"}}>
-  <Typography variant='h6' style={{ margin: "0px 20px"}}><ArrowForwardIcon fontSize="small"  style={{verticalAlign:"middle",marginBottom:"5px"}}/>Assessment of learning:</Typography>
+  <Typography variant='h6' style={{ margin: "0px 20px",color:Colors.MAIN_COLOR}}><ArrowForwardIcon fontSize="small"  style={{verticalAlign:"middle",marginBottom:"5px",color:Colors.MAIN_COLOR}}/>Assessment of learning:</Typography>
   </div>
   <Typography variant='body1' style={{ textAlign: "justify", margin: "0px 20px" }} gutterBottom>occurs when teachers use evidence of student learning to make  judgements on student achievement against goals and standards</Typography>
 </Card>
@@ -151,11 +174,64 @@ export default function AssessmentTool() {
 <br/>
 <br/>
 </Root>
-
-
-
       </div>
-      <FormSubmit/>
+
+
+      <div style={{ width: "100%", marginTop: 25 }}>
+        <DivStyle4>
+          <Typography
+            variant="h4"
+            style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito",color:Colors.MAIN_COLOR }}
+          >
+            Need this Product? Contact us:
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ textAlign: "justify", fontFamily: "nunito", marginTop: 1 }}
+          >
+            {" "}
+            If you like and want this product, Please feel free to contact us.
+            Also we can add/update new features and design changes in this
+            product if you want.
+          </Typography>
+
+          <Typography
+            variant="body1"
+            sx={{ textAlign: "justify", fontFamily: "nunito", marginTop: 1 }}
+          >
+            To discuss about this product and our other services, please mail us
+            on
+            <span
+              style={{ color: " #3B7CFE", cursor: "pointer" }}
+              onClick={() => {
+                window.open("mailto:info@ncpli.com");
+              }}
+            >
+              {" "}
+              info@ncpli.com
+            </span>{" "}
+            or call
+            <span style={{ cursor: "pointer", color: " #3B7CFE" }} onClick={() => { window.open("tel:753886286", "_self"); }} > +91 753 886 286 </span>
+          </Typography>
+          <Button
+            style={{
+              backgroundColor: "#ED514A",
+              color: "white",
+              fontWeight: "600",
+              fontFamily: "nunito",
+              marginTop: 15,
+              textTransform: "none",
+              width: 150,
+            }}
+
+            onClick={()=>navigate('/form-submit',{state:{productName:'Assessment Tool'}})} 
+
+          >
+            Request a Demo
+          </Button>
+        </DivStyle4>
+      </div>
+      
 <Footer/>
     </>
   )

@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { ScrollToTop } from "react-simple-scroll-up";
-
+import BannerAll from "../components/SubComponents/BreadCrumbComponent";
 import AppbarHead from "../components/SubComponents/AppbarHead";
 import HomeIcon from "@mui/icons-material/Home";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
@@ -22,7 +22,7 @@ import BulletIconJD from "@mui/icons-material/KeyboardDoubleArrowRight";
 import BulletIconRS from "@mui/icons-material/DoneOutline";
 import BulletIconQE from "@mui/icons-material/NoiseControlOff";
 
-import { Colors } from '../constants';
+import { Colors } from "../constants";
 
 const BreadcrumbStyle = styled("div")(({ theme }) => ({
   display: "flex",
@@ -64,35 +64,14 @@ export default function CareerDetails() {
     <>
       <ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
       <AppbarHead dataParent={{ appBtnText: "Career" }} />
-      <BreadcrumbStyle>
-        <Card sx={{ width: 420, height: 50 }}>
-          <CardContent>
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" />}
-              aria-label="breadcrumb"
-            >
-              <Link
-                underline="hover"
-                color="inherit"
-                href="/"
-                sx={{ display: "flex", alignItems: "center" }}
-              >
-                {" "}
-                <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" /> Home{" "}
-              </Link>
-              <Link
-                underline="hover"
-                color="inherit"
-                href="/carrer"
-                sx={{ display: "flex", alignItems: "center" }}
-              >
-                <Typography color="text.primary">Career</Typography>
-              </Link>
-              <Typography color={Colors.MAIN_COLOR}>Career Details</Typography>
-            </Breadcrumbs>
-          </CardContent>
-        </Card>
-      </BreadcrumbStyle>
+
+      <BannerAll
+        dataParent={{
+          title: "Career",
+          subTitle: "",
+          path: ["Home", "Career", "Career Details"],
+        }}
+      />
 
       <br />
       <br />
@@ -104,7 +83,11 @@ export default function CareerDetails() {
         <DetailsRoot>
           <Typography
             variant="h5"
-            style={{ fontWeight: "bold", textAlign: "center" , color:'#157561'}}
+            style={{
+              fontWeight: "bold",
+              textAlign: "center",
+              color: "#157561",
+            }}
           >
             {" "}
             {details.title}{" "}
@@ -151,43 +134,27 @@ export default function CareerDetails() {
           <DetailsDiv>
             <Typography variant="h6">Requirements and skills:</Typography>
 
-            {details.title === "SME (SUBJECT MATTER EXPERT)" ? (
+            {details.skills?.map((data, i) => (
               <div
                 style={{
-                  fontFamily: "nunito",
-                  paddingLeft: 1,
-                  textAlign: "justify",
-                  marginTop: 1,
+                  display: "flex",
+                  flexDirection: "row",
+                  margin: 7,
                 }}
-                dangerouslySetInnerHTML={{ __html: details.skills }}
-              />
-            ) : (
-              <>
-                {details.skills?.map((data, i) => (
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      margin: 7,
-                    }}
-                  >
-                    <BulletIconRS sx={{ color: "#157561", marginTop: 1 }} />
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        fontFamily: "nunito",
-                        paddingLeft: 1,
-                        textAlign: "justify",
-                        marginTop: 1,
-                      }}
-                    >
-                      {" "}
-                      {data}
-                    </Typography>
-                  </div>
-                ))}
-              </>
-            )}
+              >
+                <BulletIconRS sx={{ color: "#157561", marginTop: 1 }} />
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontFamily: "nunito",
+                    paddingLeft: 1,
+                    textAlign: "justify",
+                    marginTop: 1,
+                  }}
+                  dangerouslySetInnerHTML={{ __html: data }}
+                ></Typography>
+              </div>
+            ))}
           </DetailsDiv>
 
           {/* Qualifications and Experience */}
@@ -219,10 +186,20 @@ export default function CareerDetails() {
             ))}
           </DetailsDiv>
 
-
-
-            <Button startIcon={<SendIcon/>} variant="contained" sx={{backgroundColor:'#157561' , '&:hover':{backgroundColor:'#157561'}}} onClick={()=>{window.open('https://forms.gle/96oyuMhfggrESGzG6')}}> Apply Now </Button>
-
+          <Button
+            startIcon={<SendIcon />}
+            variant="contained"
+            sx={{
+              backgroundColor: "#157561",
+              "&:hover": { backgroundColor: "#157561" },
+            }}
+            onClick={() => {
+              window.open("https://forms.gle/96oyuMhfggrESGzG6");
+            }}
+          >
+            {" "}
+            Apply Now{" "}
+          </Button>
         </DetailsRoot>
       </div>
 

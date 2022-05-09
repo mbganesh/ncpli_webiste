@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { styled } from "@mui/system";
 import {
   Typography,
@@ -11,6 +11,8 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import HomeIcon from "@mui/icons-material/Home";
 import { ScrollToTop } from "react-simple-scroll-up";
 import AppbarHead from "../SubComponents/AppbarHead";
+import { Colors } from '../../constants';
+import about1 from "../../images/allPageBanner/abouts-03.png"
 
 import ReactPlayer from "react-player";
 import location from "../../images/projectPageImages/smart-Classroom/location.svg";
@@ -18,6 +20,8 @@ import { AnimationOnScroll } from "react-animation-on-scroll";
 import smartClassImg2 from "../../images/projectPageImages/smart-Classroom/smart_class_2.svg";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import BannerAll from '../SubComponents/BreadCrumbComponent';
+import Footer from "../SubComponents/Footer";
 
 
 export default function TwDThDAnimations() {
@@ -58,7 +62,6 @@ export default function TwDThDAnimations() {
         opacity: 1,
       },
     },
-
     ".overlay": {
       position: "absolute",
       bottom: 0,
@@ -68,9 +71,11 @@ export default function TwDThDAnimations() {
       display: "flex",
       transition: ".5s ease",
       opacity: 0,
-      padding: "20px",
       "&:hover": {
         opacity: 1,
+      },
+      [theme.breakpoints.up("lg")]: {
+        padding:"20px"
       },
     },
     [theme.breakpoints.down("md")]: {
@@ -168,36 +173,28 @@ export default function TwDThDAnimations() {
     " Each student can use smart card and manage this information more securely, using authentication and user identification procedures.",
   ];
 
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
+  
+
   return (
     <>
       <ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
       <AppbarHead dataParent={{ appBtnText: "Projects" }} />
-      <BreadcrumbStyle>
-        <Card
-          elevation={6}
-        >
-          <CardContent>
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" />}
-              aria-label="breadcrumb"
-            >
-              <Link
-                underline="hover"
-                color="inherit"
-                href="/"
-                sx={{ display: "flex", alignItems: "center" }}
-              >
-                {" "}
-                <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" /> Home{" "}
-              </Link>
-              <Typography color="text.primary">Projects</Typography>
-              <Typography color="text.primary">
-                EMIS Software Solutions
-              </Typography>
-            </Breadcrumbs>
-          </CardContent>
-        </Card>
-      </BreadcrumbStyle>
+
+      <BannerAll
+        dataParent={{
+          title: "EMIS Software Solutions",
+          subTitle: "",
+          path: ["Home", "Projects", "EMIS Software Solutions"],
+        }}
+      />
+
+
+
+
+     
 
       {/* Full vertical page */}
       <div style={{ width: "100%", marginTop: 25 }}>
@@ -235,7 +232,7 @@ export default function TwDThDAnimations() {
           <DivStyle3>
             <Typography
               variant="h6"
-              style={{ marginBottom: 10, fontFamily: "nunito" ,fontWeight:'bold'}}
+              style={{ marginBottom: 10, fontFamily: "nunito" ,fontWeight:'bold' ,color:Colors.MAIN_COLOR }}
             >
               EMIS Software Solutions video
             </Typography>
@@ -306,7 +303,7 @@ export default function TwDThDAnimations() {
           <DivStyle3>
             <Typography
               variant="h6"
-              style={{ marginBottom: 10, fontFamily: "nunito",fontWeight:'bold'}}
+              style={{ marginBottom: 10, fontFamily: "nunito",fontWeight:'bold',color:Colors.MAIN_COLOR}}
             >
               EMIS Application
             </Typography>
@@ -327,7 +324,7 @@ export default function TwDThDAnimations() {
             </Typography>
             <Typography
               variant="h6"
-              style={{ marginBottom: 5, marginTop: 10, fontFamily: "nunito",fontWeight:'bold' }}
+              style={{ marginBottom: 5, marginTop: 10, fontFamily: "nunito",fontWeight:'bold' ,color:Colors.MAIN_COLOR}}
             >
               About Smart Card
             </Typography>
@@ -388,7 +385,7 @@ export default function TwDThDAnimations() {
               <CardContent>
                 <Typography
                   variant="h6"
-                  style={{ marginBottom: 10, fontFamily: "nunito",fontWeight:'bold'}}
+                  style={{ marginBottom: 10, fontFamily: "nunito",fontWeight:'bold',color:Colors.MAIN_COLOR}}
                 >
                   Features
                 </Typography>
@@ -420,7 +417,7 @@ export default function TwDThDAnimations() {
               <CardContent>
                 <Typography
                   variant="h6"
-                  style={{ marginBottom: 10, fontFamily: "nunito" ,fontWeight:'bold'}}
+                  style={{ marginBottom: 10, fontFamily: "nunito" ,fontWeight:'bold',color:Colors.MAIN_COLOR}}
                 >
                   Advantages
                 </Typography>
@@ -452,6 +449,7 @@ export default function TwDThDAnimations() {
           </DivStyle3>
         </DivStyle1>
       </div>
+      <Footer/>
     </>
   );
 }

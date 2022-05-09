@@ -14,7 +14,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import { ScrollToTop } from "react-simple-scroll-up";
 import AppbarHead from "../SubComponents/AppbarHead";
 
-
+import GilgalAppImg from "../../images/productPageImages/gilgal_app/gilgalApp.jpg"
 
 import ArrowIcon from '@mui/icons-material/Check';
 
@@ -26,7 +26,8 @@ import LearnFromAnywhere from "../../images/productPageImages/gilgal_app/feature
 import LearnVideoClass from "../../images/productPageImages/gilgal_app/featureIcons/LearnVideoClass.svg";
 import ModalQuestionPaper from "../../images/productPageImages/gilgal_app/featureIcons/ModalQuestionPaper.svg";
 import QuestionAndAnswer from "../../images/productPageImages/gilgal_app/featureIcons/QuestionAndAnswer.svg";
-
+import { Colors } from '../../constants';
+import about1 from "../../images/allPageBanner/abouts-03.png"
 
 import Slider from "react-slick";
 
@@ -46,6 +47,8 @@ import Pic11 from "../../images/productPageImages/gilgal_app/PFPic/frame (1)-11.
 import Pic12 from "../../images/productPageImages/gilgal_app/PFPic/frame (1)-12.png";
 import Pic13 from "../../images/productPageImages/gilgal_app/PFPic/frame (1)-13.png";
 import Footer from "../SubComponents/Footer";
+import { useNavigate } from "react-router-dom";
+import BannerAll from '../SubComponents/BreadCrumbComponent';
 
 const BreadcrumbStyle = styled("div")(({ theme }) => ({
   display: "flex",
@@ -162,6 +165,20 @@ const MyCard = styled("div")(({ theme }) => ({
 }));
 
 
+const DivStyle4 = styled("div")(({ theme }) => ({
+  margin: "0 auto",
+  flexDirection: "column",
+  display: "flex",
+  justifyContent: "center",
+  [theme.breakpoints.down("md")]: {
+    width: "90%",
+  },
+  [theme.breakpoints.up("md")]: {
+    width: "67%",
+  },
+}));
+
+
 const Container = styled("div")(({ theme }) => ({
   position: "relative",
   textAlign: "center",
@@ -171,6 +188,8 @@ const Container = styled("div")(({ theme }) => ({
 const pics = [Pic12, Pic13, Pic1, Pic3, Pic5, Pic7, Pic8, Pic6, Pic9, Pic10,Pic4, Pic2,Pic11];
 
 export default function EducationalMobileAppGilGal() {
+
+  const navigate=useNavigate();
 
   const ServicesList = [
     {
@@ -239,49 +258,40 @@ export default function EducationalMobileAppGilGal() {
   ];
 
   const [width, setWidth] = useState(window.innerWidth);
-  const [height, setHeight] = useState(window.innerHeight);
+  
 
   const updateWidthAndHeight = () => {
     setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
+    
   };
+
+
+
 
 
 
   useEffect(() => {
     window.addEventListener("resize", updateWidthAndHeight);
     window.scrollTo(0, 0);
-    console.log(width);
+    
   }, []);
 
   return (
     <>
       <ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
       <AppbarHead dataParent={{ appBtnText: "Products" }} />
-      <BreadcrumbStyle>
-        <Card elevation={6}>
-          <CardContent>
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" />}
-              aria-label="breadcrumb"
-            >
-              <Link
-                underline="hover"
-                color="inherit"
-                href="/"
-                sx={{ display: "flex", alignItems: "center" }}
-              >
-                {" "}
-                <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" /> Home{" "}
-              </Link>
-              <Typography color="text.primary">Products</Typography>
-              <Typography color="text.primary">
-                Educational Mobile App -Gilgal
-              </Typography>
-            </Breadcrumbs>
-          </CardContent>
-        </Card>
-      </BreadcrumbStyle>
+
+      
+      <BannerAll
+        dataParent={{
+          title: "Educational Mobile App - Gilgal",
+          subTitle: "",
+          path: ["Home", "Projects", "Educational Mobile App - Gilgal"],
+        }}
+      />
+
+
+      
 
       {/* Full vertical page */}
       <div style={{ width: "100%", marginTop: 25 }}>
@@ -337,9 +347,9 @@ export default function EducationalMobileAppGilGal() {
             <div className="container">
               <img
                 width="100%"
-                style={{ top: 0, left: 0, height: "240px" }}
+                style={{ top: 0, left: 0, height:(width < 800? "200px" : "280px")}}
                 src={
-                  "http://192.168.1.31:3000/static/media/SDApp.f9917eab4968056a400cf6280fdfd69d.svg"
+                  GilgalAppImg
                 }
                 alt="loading"
               />
@@ -400,10 +410,16 @@ export default function EducationalMobileAppGilGal() {
         </DivStyle1>
       </div>
 
+      <div style={{ width: "100%", marginTop: "5%" }}>
+        {/* 67% middle of page */}
+        <DivStyle1 >
+          <Typography variant="h4" style={{ display: "flex", margin: "0 auto", color: Colors.MAIN_COLOR, fontWeight:"bold" }} > GilGal App Screenshots </Typography>
+
+        </DivStyle1>
+      </div>
 
 
-
-      <div style={{ position: "relative", marginTop: "10%",marginBottom:"10%" }}>
+      <div style={{ position: "relative", marginTop: "8%",marginBottom:"10%" }}>
         <Slider
           autoplay={true}
           arrows={false}
@@ -443,7 +459,10 @@ export default function EducationalMobileAppGilGal() {
             }}
           />
         ) : null}
-      </div>
+      </div>   
+
+
+
     <Footer/>
 
     </>

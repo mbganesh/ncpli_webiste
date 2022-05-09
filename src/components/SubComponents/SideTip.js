@@ -67,7 +67,7 @@ export default function SideTip() {
       <SideStyle
         style={{ top: "59%" }}
         onClick={() => {
-          window.open("https://api.whatsapp.com/send/?phone=%2B91**********&text&app_absent=0");
+          window.open("https://wa.me/+917538862862");
         }}
       >
         <WhatsAppIcon />

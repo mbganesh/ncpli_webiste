@@ -1,4 +1,4 @@
-import {React,  useState, useEffect} from "react";
+import { React, useState, useEffect } from "react";
 import { styled } from "@mui/system";
 import {
   Typography,
@@ -18,77 +18,58 @@ import AppbarHead from "./SubComponents/AppbarHead";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import TabPanel from "@mui/lab/TabPanel";
 import Tab from "@mui/material/Tab";
-import TabList from "@mui/lab/TabList";
+import BannerAll from '../components/SubComponents/BreadCrumbComponent';
 import Box from "@mui/material/Box";
 import TabContext from "@mui/lab/TabContext";
 
+import NSC01 from "../images/portfolioPageImages/NSC/NSC01.webp";
+import NSC02 from "../images/portfolioPageImages/NSC/NSC02.webp";
+import NSC03 from "../images/portfolioPageImages/NSC/NSC03.webp";
+import NSC04 from "../images/portfolioPageImages/NSC/NSC04.webp";
+import NSC05 from "../images/portfolioPageImages/NSC/NSC05.webp";
+import NSC06 from "../images/portfolioPageImages/NSC/NSC06.webp";
+import NSC07 from "../images/portfolioPageImages/NSC/NSC07.webp";
+import NSC08 from "../images/portfolioPageImages/NSC/NSC08.webp";
+import NSC09 from "../images/portfolioPageImages/NSC/NSC09.webp";
+import NSC10 from "../images/portfolioPageImages/NSC/NSC10.webp";
+import NSC11 from "../images/portfolioPageImages/NSC/NSC11.webp";
+import NSC12 from "../images/portfolioPageImages/NSC/NSC12.webp";
+import NSC13 from "../images/portfolioPageImages/NSC/NSC13.webp";
+import NSC14 from "../images/portfolioPageImages/NSC/NSC14.webp";
+import NSC15 from "../images/portfolioPageImages/NSC/NSC15.webp";
+import NSC16 from "../images/portfolioPageImages/NSC/NSC16.webp";
+import NSC17 from "../images/portfolioPageImages/NSC/NSC17.webp";
+import NSC18 from "../images/portfolioPageImages/NSC/NSC18.webp";
+import NSC19 from "../images/portfolioPageImages/NSC/NSC19.webp";
+import NSC20 from "../images/portfolioPageImages/NSC/NSC20.webp";
 
+import NSC36 from "../images/portfolioPageImages/NSC/NSC36.webp";
 
-import NSC01 from "../images/portfolioPageImages/NSC/NSC01.JPG";
-import NSC02 from "../images/portfolioPageImages/NSC/NSC02.JPG";
-import NSC03 from "../images/portfolioPageImages/NSC/NSC03.JPG";
-import NSC04 from "../images/portfolioPageImages/NSC/NSC04.JPG";
-import NSC05 from "../images/portfolioPageImages/NSC/NSC05.JPG";
-import NSC06 from "../images/portfolioPageImages/NSC/NSC06.JPG";
-import NSC07 from "../images/portfolioPageImages/NSC/NSC07.JPG";
-import NSC08 from "../images/portfolioPageImages/NSC/NSC08.JPG";
-import NSC09 from "../images/portfolioPageImages/NSC/NSC09.JPG";
-import NSC10 from "../images/portfolioPageImages/NSC/NSC10.JPG";
-import NSC11 from "../images/portfolioPageImages/NSC/NSC11.PNG";
-import NSC12 from "../images/portfolioPageImages/NSC/NSC12.PNG";
-import NSC13 from "../images/portfolioPageImages/NSC/NSC13.jpg";
-import NSC14 from "../images/portfolioPageImages/NSC/NSC14.jpeg";
-import NSC15 from "../images/portfolioPageImages/NSC/NSC15.JPG";
-import NSC16 from "../images/portfolioPageImages/NSC/NSC16.jpg";
-import NSC17 from "../images/portfolioPageImages/NSC/NSC17.jpg";
-import NSC18 from "../images/portfolioPageImages/NSC/NSC18.jpg";
-import NSC19 from "../images/portfolioPageImages/NSC/NSC19.jpg";
-import NSC20 from "../images/portfolioPageImages/NSC/NSC20.jpeg";
-import NSC21 from "../images/portfolioPageImages/NSC/NSC21.jpeg";
-import NSC22 from "../images/portfolioPageImages/NSC/NSC22.jpeg";
-import NSC23 from "../images/portfolioPageImages/NSC/NSC23.jpeg";
-import NSC24 from "../images/portfolioPageImages/NSC/NSC24.jpeg";
-import NSC25 from "../images/portfolioPageImages/NSC/NSC25.jpg";
-import NSC26 from "../images/portfolioPageImages/NSC/NSC26.jpg";
-import NSC27 from "../images/portfolioPageImages/NSC/NSC27.jpg";
-import NSC28 from "../images/portfolioPageImages/NSC/NSC28.jpg";
-import NSC29 from "../images/portfolioPageImages/NSC/NSC29.jpg";
-import NSC30 from "../images/portfolioPageImages/NSC/NSC30.jpeg";
-import NSC31 from "../images/portfolioPageImages/NSC/NSC31.jpeg";
-import NSC32 from "../images/portfolioPageImages/NSC/NSC32.jpeg";
-import NSC33 from "../images/portfolioPageImages/NSC/NSC33.jpg";
-import NSC34 from "../images/portfolioPageImages/NSC/NSC34.jpeg";
-import NSC35 from "../images/portfolioPageImages/NSC/NSC35.jpeg";
-import NSC36 from "../images/portfolioPageImages/NSC/NSC36.jpeg";
-import NSC37 from "../images/portfolioPageImages/NSC/NSC37.jpg";
-import NSC38 from "../images/portfolioPageImages/NSC/NSC38.jpg";
+import KIOSK1 from "../images/portfolioPageImages/kioskImage/kiosk1.webp";
+import KIOSK2 from "../images/portfolioPageImages/kioskImage/kiosk2.webp";
+import KIOSK3 from "../images/portfolioPageImages/kioskImage/kiosk3.webp";
+import KIOSK4 from "../images/portfolioPageImages/kioskImage/kiosk4.webp";
+import KIOSK5 from "../images/portfolioPageImages/kioskImage/kiosk5.webp";
+import KIOSK6 from "../images/portfolioPageImages/kioskImage/kiosk6.webp";
+import KIOSK7 from "../images/portfolioPageImages/kioskImage/kiosk7.webp";
+import KIOSK8 from "../images/portfolioPageImages/kioskImage/kiosk8.webp";
+import KIOSK9 from "../images/portfolioPageImages/kioskImage/kiosk9.webp";
 
-import KIOSK1 from "../images/portfolioPageImages/kioskImage/kiosk1.jpeg";
-import KIOSK2 from "../images/portfolioPageImages/kioskImage/kiosk2.jpeg";
-import KIOSK3 from "../images/portfolioPageImages/kioskImage/kiosk3.jpg";
-import KIOSK4 from "../images/portfolioPageImages/kioskImage/kiosk4.jpeg";
-import KIOSK5 from "../images/portfolioPageImages/kioskImage/kiosk5.PNG";
-import KIOSK6 from "../images/portfolioPageImages/kioskImage/kiosk6.jpg";
-import KIOSK7 from "../images/portfolioPageImages/kioskImage/kiosk7.jpg";
-import KIOSK8 from "../images/portfolioPageImages/kioskImage/kiosk8.jpg";
-import KIOSK9 from "../images/portfolioPageImages/kioskImage/kiosk9.jpeg";
+import SKILL1 from "../images/portfolioPageImages/skilldevelopment/skill1.webp";
+import SKILL2 from "../images/portfolioPageImages/skilldevelopment/skill2.webp";
+import SKILL3 from "../images/portfolioPageImages/skilldevelopment/skill3.webp";
+import SKILL4 from "../images/portfolioPageImages/skilldevelopment/skill4.webp";
+import SKILL5 from "../images/portfolioPageImages/skilldevelopment/skill5.webp";
+import SKILL6 from "../images/portfolioPageImages/skilldevelopment/skill6.webp";
+import SKILL7 from "../images/portfolioPageImages/skilldevelopment/skill7.webp";
+import SKILL8 from "../images/portfolioPageImages/skilldevelopment/skill8.webp";
 
-import SKILL1 from "../images/portfolioPageImages/skilldevelopment/skill1.jpeg";
-import SKILL2 from "../images/portfolioPageImages/skilldevelopment/skill2.jpg";
-import SKILL3 from "../images/portfolioPageImages/skilldevelopment/skill3.jpeg";
-import SKILL4 from "../images/portfolioPageImages/skilldevelopment/skill4.jpg";
-import SKILL5 from "../images/portfolioPageImages/skilldevelopment/skill5.jpg";
-import SKILL6 from "../images/portfolioPageImages/skilldevelopment/skill6.jpg";
-import SKILL7 from "../images/portfolioPageImages/skilldevelopment/skill7.jpeg";
-import SKILL8 from "../images/portfolioPageImages/skilldevelopment/skill8.jpeg";
-
-
-import DG1 from "../images/portfolioPageImages/DigitalContentImage/dg1.jpg";
-import DG2 from "../images/portfolioPageImages/DigitalContentImage/dg2.jpeg";
-import DG3 from "../images/portfolioPageImages/DigitalContentImage/dg3.jpeg";
-import DG4 from "../images/portfolioPageImages/DigitalContentImage/dg4.jpeg";
-import DG5 from "../images/portfolioPageImages/DigitalContentImage/dg5.jpeg";
-import DG6 from "../images/portfolioPageImages/DigitalContentImage/dg6.jpg";
+import DG1 from "../images/portfolioPageImages/DigitalContentImage/dg1.webp";
+import DG2 from "../images/portfolioPageImages/DigitalContentImage/dg2.webp";
+import DG3 from "../images/portfolioPageImages/DigitalContentImage/dg3.webp";
+import DG4 from "../images/portfolioPageImages/DigitalContentImage/dg4.webp";
+import DG5 from "../images/portfolioPageImages/DigitalContentImage/dg5.webp";
+import DG6 from "../images/portfolioPageImages/DigitalContentImage/dg6.webp";
 
 import Footer from "./SubComponents/Footer";
 import { Colors } from "../constants";
@@ -106,7 +87,6 @@ export default function Portfolio() {
     justifycontent: "center",
     flexwrap: "wrap",
     padding: "30px",
-
 
     ".Card": {
       position: "relative",
@@ -172,11 +152,10 @@ export default function Portfolio() {
     paddingTop: "5%",
     paddingBottom: "5%",
     width: "75%",
-    
-    [theme.breakpoints.down('md')]:{
-      width: "100%"
-    }
-   
+
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+    },
   }));
 
   const [selectedImg, setSelectedImg] = useState("");
@@ -196,7 +175,6 @@ export default function Portfolio() {
     },
   }));
 
-
   const ModalRootKiosk = styled("div")(({ theme }) => ({
     display: "flex ",
     justifyContent: "center",
@@ -214,80 +192,85 @@ export default function Portfolio() {
 
   const GalleryRoot = styled("div")(({ theme }) => ({
     display: "flex ",
-    flexWrap: "wrap",  
-    justifyContent: "center",        
-    [theme.breakpoints.up('md')]:{
+    flexWrap: "wrap",
+    justifyContent: "center",
+    [theme.breakpoints.up("md")]: {
       width: "70%",
-    }
-   
-    
+    },
   }));
 
   const myCard = (theme) => ({
-    
     margin: "1%",
-    width: 300,  
-    height:300,
-    
-  
+    width: 350,
+    height: 300,
+
     "&:hover": {
       transition: "0.7s",
       transform: `translateY(-10px)`,
       boxShadow: `rgba(17,101,48, 0.4) 5px 5px, rgba(17,101,48, 0.3) 10px 10px, rgba(17,101,48, 0.2) 15px 15px, rgba(17,101,48, 0.1) 20px 20px, rgba(17,101,48, 0.05) 25px 25px`,
-    },    
+    },
   });
 
   const smartClassRoom = [
-    NSC01,
-    NSC02,
-    NSC03,
-    NSC04,
-    NSC05,
-    NSC06,
-    NSC07,
-    NSC08,
-    NSC09,
-    NSC10,
-    NSC11,
-    NSC12,
-    NSC13,
-    NSC14,
-    NSC15,
-    NSC16,
-    NSC17,
-    NSC18,
-    NSC19,
-    NSC20,
-    NSC21,
-    NSC22,
-    NSC23,
-    NSC24,
-    NSC25,
-    NSC26,
-    NSC27,
-    NSC28,
-    NSC29,
-    NSC30,
-    NSC31,
-    NSC32,
-    NSC33,
-    NSC34,
-    NSC35,
-    NSC36,   
+    { img: NSC01, text: "ADW 100 School" },
+    { img: NSC02, text: "Sevvapet Girls School" },
+    { img: NSC03, text: "ADW 100 School" },
+    { img: NSC04, text: "Covai-Muttathuvayal School" },
+    { img: NSC05, text: "Dharmapuri-Maruthipatti School" },
+    { img: NSC06, text: "Dharmapuri-Sitheri School" },
+    { img: NSC07, text: "Dharmapuri-Sitheri School" },
+    { img: NSC08, text: "Erode-Kongadai School" },
+    { img: NSC09, text: "GTR School" },
+    { img: NSC10, text: "GTR School" },
+    { img: NSC11, text: "GTR School Training-Sankarapuram" },
+    { img: NSC12, text: "SALEM- Semmanatham School" },
+    { img: NSC13, text: "Salem-Kunnur School" },
+    { img: NSC14, text: "Salem-Kunnur School" },
+    { img: NSC15, text: "Sevvapet Girls School" },
+    { img: NSC16, text: "Thanjavur-Nalladai" },
+    { img: NSC17, text: "Thanjavur-Nalladai" },
+    { img: NSC18, text: "Thiruvanamalai-Aattiyanur" },
+    { img: NSC19, text: "Thiruvanamalai-Pattaraikadu" },
+    { img: NSC20, text: "Villupuram-Sankarapuram School" },
+    { img: NSC36, text: "Villupuram Sangarapuram School" },
   ];
 
+  const kioskImage = [
+    { img: KIOSK1, text: "Salem-Kunnur School" },
+    { img: KIOSK2, text: "Thanjavur-Nalladai" },
+    { img: KIOSK3, text: "Villupuram-Sankarapuram School" },
+    { img: KIOSK4, text: "GTR School" },
+    { img: KIOSK5, text: "Erode-Kongadai School" },
+    { img: KIOSK6, text: "Dharmapuri-Sitheri School" },
+    { img: KIOSK7, text: "Covai-Muttathuvayal School" },
+    { img: KIOSK8, text: "Sevvapet Girls School" },
+    { img: KIOSK9, text: "ADW 100 School" },
+  ];
 
-  const kioskImage = [KIOSK1,KIOSK2,KIOSK3,KIOSK4,KIOSK5,KIOSK6,KIOSK7,KIOSK8,KIOSK9];
+  const skilldevelopmentImage = [
+    { img: SKILL1, text: "Salem-Kunnur School" },
+    { img: SKILL2, text: "Covai-Muttathuvayal School" },
+    { img: SKILL3, text: "ADW 100 School" },
+    { img: SKILL4, text: "Villupuram-Sankarapuram School" },
+    { img: SKILL5, text: "Thanjavur-Nalladai" },
+    { img: SKILL6, text: "Sevvapet Girls School" },
+    { img: SKILL7, text: "Erode-Kongadai School" },
+    { img: SKILL8, text: "GTR School" },
+  ];
 
-  const skilldevelopmentImage=[SKILL1,SKILL2,SKILL3,SKILL4,SKILL5,SKILL6,SKILL7,SKILL8];
-
-  const  digitalContent =[DG1,DG2,DG3,DG4,DG5,DG6]
-
+  const digitalContent = [
+    { img: DG1, text: "Sevvapet Girls School" },
+    { img: DG2, text: "Erode-Kongadai School" },
+    { img: DG3, text: "Villupuram-Sankarapuram School" },
+    { img: DG4, text: "Salem-Kunnur School" },
+    { img: DG5, text: "Thanjavur-Nalladai" },
+    { img: DG6, text: "GTR School" },
+  ];
 
   const [open, setOpen] = useState(false);
   const handleOpen = (img) => {
     setOpen(true);
-    setSelectedImg(img);
+    setSelectedImg(img.img);
   };
   const handleClose = () => setOpen(false);
 
@@ -345,7 +328,7 @@ export default function Portfolio() {
 
   const [value, setValue] = useState("1");
 
-  const [colorTextTab1, setcolorTextTab1] = useState("green");
+  const [colorTextTab1, setcolorTextTab1] = useState(Colors.MAIN_COLOR);
   const [colorTextTab2, setcolorTextTab2] = useState("black");
   const [colorTextTab3, setcolorTextTab3] = useState("black");
   const [colorTextTab4, setcolorTextTab4] = useState("black");
@@ -355,102 +338,94 @@ export default function Portfolio() {
     setValue(newValue);
 
     if (newValue === "1") {
-      setcolorTextTab1("green");
+      setcolorTextTab1(Colors.MAIN_COLOR);
     } else {
       setcolorTextTab1("black");
     }
 
     if (newValue === "2") {
-      setcolorTextTab2("green");
+      setcolorTextTab2(Colors.MAIN_COLOR);
     } else {
       setcolorTextTab2("black");
     }
 
     if (newValue === "3") {
-      setcolorTextTab3("green");
+      setcolorTextTab3(Colors.MAIN_COLOR);
     } else {
       setcolorTextTab3("black");
     }
 
     if (newValue === "4") {
-      setcolorTextTab4("green");
+      setcolorTextTab4(Colors.MAIN_COLOR);
     } else {
       setcolorTextTab4("black");
     }
 
     if (newValue === "5") {
-      setcolorTextTab5("green");
+      setcolorTextTab5(Colors.MAIN_COLOR);
     } else {
       setcolorTextTab5("black");
     }
   };
 
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+
+  console.log(width);
+  console.log(height);
+
+  const updateWidthAndHeight = () => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  };
 
   useEffect(() => {
-    
-    window.scrollTo(0,0)
-       
-    }, [])
-
+    window.addEventListener("resize", updateWidthAndHeight);
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>
+
+<ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
+        <AppbarHead dataParent={{ appBtnText: "Portfolio" }} />
+
+        <BannerAll
+          dataParent={{
+            title: "Portfolio",
+            subTitle:
+              "We devote all of our experience and efforts for creation",
+            path: ["Home", "Portfolio"],
+          }}
+        />
+
+
       <div
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          width: "100%",
+
         }}
       >
-        <ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
-        <AppbarHead dataParent={{ appBtnText: "Portfolio" }} />
-        <BreadcrumbStyle>
-          <Card sx={{ width: 200, height: 50 }}>
-            <CardContent>
-              <Breadcrumbs
-                separator={<NavigateNextIcon fontSize="small" />}
-                aria-label="breadcrumb"
-              >
-                <Link
-                  underline="hover"
-                  color="inherit"
-                  href="/"
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
-                  {" "}
-                  <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" /> Home{" "}
-                </Link>
-                <Typography color={Colors.MAIN_COLOR}>Portfolio</Typography>
-              </Breadcrumbs>
-            </CardContent>
-          </Card>
-        </BreadcrumbStyle>
+       
 
-        <div style={{ marginTop: "2%", textAlign:"center" }}>
-        <Typography variant="h3" style ={{color:Colors.MAIN_COLOR}}>
-            Portfolio
-          </Typography>
-          <Typography variant="subtitle1" style ={{color:"grey", marginTop: "2%"}}>
-            We devote all of our experience and efforts for creation
-          </Typography>
-        </div>
-        <Divider style={{ color: "grey", width: "50%", marginTop: "2%" }} />
+        <Divider style={{ marginTop: "2%" }} />
 
         <Box sx={{ width: "100%", typography: "body1" }}>
           <TabContext value={value}>
             <Box
               sx={{
-                borderBottom: 1,
-                borderColor: "green",
                 display: "flex",
                 flexDirection: "row",
-                justifyContent: "center",
+                justifyContent: "center",                
               }}
             >
               <Tabs
                 value={value}
                 variant="scrollable"
-                scrollButtons="auto"
+                allowScrollButtonsMobile
                 onChange={handleChange}
                 TabIndicatorProps={{ style: { background: "green" } }}
                 textColor="inherit"
@@ -495,20 +470,24 @@ export default function Portfolio() {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                
               }}
             >
               <Root>
                 {imageName.map((text) => (
-                  <Container  >
+                  <Container>
                     <div className="Card">
-                      <div className="Image" >
+                      <div className="Image">
                         <img
-                          
+                        
                           src={text.imgLink}
                           height={305}
                           width={380}
-                          style={{ maxWidth: "100%", borderRadius: "15px",objectFit:'cover'}}
+                          style={{
+                            maxWidth: "100%",
+                            borderRadius: "15px",
+                            objectFit: "cover",
+                            cursor:'pointer'                            
+                          }}
                         />
                       </div>
                       <div className="Content">
@@ -540,20 +519,47 @@ export default function Portfolio() {
                   display: "flex",
                   width: "100%",
                   alignItems: "center",
-                  justifyContent: "center",                  
+                  justifyContent: "center",
                 }}
               >
                 {/* gallery */}
-                
-                  <GalleryRoot>
+
+                <GalleryRoot>
                   {smartClassRoom.map((data, i) => (
                     <Card sx={myCard} onClick={() => handleOpen(data)}>
-                      <img width={300} style={{objectFit:'cover' , height:'300px'}}  alt="Loading..." src={data} />
+                      <div>
+                        <img
+                        
+                          width={350}
+                          style={{ objectFit: "cover", height: "300px" }}
+                          alt="Loading..."
+                          src={data.img}
+                        />
+                        <Typography
+                          sx={{
+                            cursor:'pointer',
+                            position: "sticky",
+                            textShadow: "1px 1px 2px #ffffff",
+                            bottom: 5,
+                            left: 5,
+                            height: width < 1000 ? null : "300px",
+                            color: "white",
+                            justifyContent: "center",
+                            alignItems: "flex-end",
+                            display: "flex",
+                            transition: ".5s ease",
+                            opacity: width < 1000 ? 1 : 0,
+                            "&:hover": {
+                              opacity: 1,
+                            },
+                          }}
+                        >
+                          {data.text}
+                        </Typography>
+                      </div>
                     </Card>
                   ))}
                 </GalleryRoot>
-                
-                
 
                 <Modal
                   style={{
@@ -570,7 +576,10 @@ export default function Portfolio() {
                     <Button
                       size="large"
                       fullWidth
-                      style={{ borderRadius: 0 }}
+                      style={{
+                        borderRadius: 0,
+                        backgroundColor: Colors.MAIN_COLOR,
+                      }}
                       variant="contained"
                       onClick={handleClose}
                     >
@@ -582,7 +591,7 @@ export default function Portfolio() {
             </TabPanel>
 
             <TabPanel value="3">
-            <div
+              <div
                 style={{
                   display: "flex",
                   width: "100%",
@@ -594,7 +603,35 @@ export default function Portfolio() {
                 <GalleryRoot>
                   {kioskImage.map((data, i) => (
                     <Card sx={myCard} onClick={() => handleOpen(data)}>
-                      <img width={300} style={{objectFit:'cover' , height:'300px'}}  alt="Loading..." src={data} />
+                      <div>
+                        <img
+                          width={350}
+                          style={{ objectFit: "cover", height: "300px" }}
+                          alt="Loading..."
+                          src={data.img}
+                        />
+                        <Typography
+                          sx={{
+                            cursor:'pointer',
+                            position: "sticky",
+                            textShadow: "1px 1px 2px #ffffff",
+                            bottom: 5,
+                            left: 5,
+                            height: width < 1000 ? null : "300px",
+                            color: "white",
+                            justifyContent: "center",
+                            alignItems: "flex-end",
+                            display: "flex",
+                            transition: ".5s ease",
+                            opacity: width < 1000 ? 1 : 0,
+                            "&:hover": {
+                              opacity: 1,
+                            },
+                          }}
+                        >
+                          {data.text}
+                        </Typography>
+                      </div>
                     </Card>
                   ))}
                 </GalleryRoot>
@@ -614,7 +651,10 @@ export default function Portfolio() {
                     <Button
                       size="large"
                       fullWidth
-                      style={{ borderRadius: 0 }}
+                      style={{
+                        borderRadius: 0,
+                        backgroundColor: Colors.MAIN_COLOR,
+                      }}
                       variant="contained"
                       onClick={handleClose}
                     >
@@ -626,25 +666,52 @@ export default function Portfolio() {
             </TabPanel>
 
             <TabPanel value="4">
-            <div
+              <div
                 style={{
                   display: "flex",
                   width: "100%",
                   alignItems: "center",
-                  justifyContent: "center",                  
+                  justifyContent: "center",
                 }}
               >
                 {/* gallery */}
-                
-                  <GalleryRoot>
+
+                <GalleryRoot>
                   {skilldevelopmentImage.map((data, i) => (
                     <Card sx={myCard} onClick={() => handleOpen(data)}>
-                      <img width={300} style={{objectFit:'cover' , height:'300px'}}  alt="Loading..." src={data} />
+                      <div>
+                        <img
+                          width={350}
+                          style={{ objectFit: "cover", height: "300px" }}
+                          alt="Loading..."
+                          src={data.img}
+                        />
+                        <Typography
+                          sx={{
+                            cursor:'pointer',
+                            position: "sticky",
+                            textShadow: "1px 1px 2px #ffffff",
+                            bottom: 5,
+                            left: 5,
+                            height: width < 1000 ? null : "300px",
+                            paddingBottom: "10px",
+                            color: "white",
+                            justifyContent: "center",
+                            alignItems: "flex-end",
+                            display: "flex",
+                            transition: ".5s ease",
+                            opacity: width < 1000 ? 1 : 0,
+                            "&:hover": {
+                              opacity: 1,
+                            },
+                          }}
+                        >
+                          {data.text}
+                        </Typography>
+                      </div>
                     </Card>
                   ))}
                 </GalleryRoot>
-                
-                
 
                 <Modal
                   style={{
@@ -661,7 +728,10 @@ export default function Portfolio() {
                     <Button
                       size="large"
                       fullWidth
-                      style={{ borderRadius: 0 }}
+                      style={{
+                        borderRadius: 0,
+                        backgroundColor: Colors.MAIN_COLOR,
+                      }}
                       variant="contained"
                       onClick={handleClose}
                     >
@@ -673,26 +743,52 @@ export default function Portfolio() {
             </TabPanel>
 
             <TabPanel value="5">
-              
-                 <div
+              <div
                 style={{
                   display: "flex",
                   width: "100%",
                   alignItems: "center",
-                  justifyContent: "center",                  
+                  justifyContent: "center",
                 }}
               >
                 {/* gallery */}
-                
-                  <GalleryRoot>
+
+                <GalleryRoot>
                   {digitalContent.map((data, i) => (
                     <Card sx={myCard} onClick={() => handleOpen(data)}>
-                      <img width={300} style={{objectFit:'cover' , height:'300px'}}  alt="Loading..." src={data} />
+                      <div>
+                        <img
+                          width={350}
+                          style={{ objectFit: "cover", height: "300px" }}
+                          alt="Loading..."
+                          src={data.img}
+                        />
+                        <Typography
+                          sx={{
+                            cursor:'pointer',
+                            position: "sticky",
+                            textShadow: "1px 1px 2px #ffffff",
+                            bottom: 5,
+                            left: 5,
+                            height: width < 1000 ? null : "300px",
+                            paddingBottom: "10px",
+                            color: "white",
+                            justifyContent: "center",
+                            alignItems: "flex-end",
+                            display: "flex",
+                            transition: ".5s ease",
+                            opacity: width < 1000 ? 1 : 0,
+                            "&:hover": {
+                              opacity: 1,
+                            },
+                          }}
+                        >
+                          {data.text}
+                        </Typography>
+                      </div>
                     </Card>
                   ))}
                 </GalleryRoot>
-                
-                
 
                 <Modal
                   style={{
@@ -709,7 +805,10 @@ export default function Portfolio() {
                     <Button
                       size="large"
                       fullWidth
-                      style={{ borderRadius: 0 }}
+                      style={{
+                        borderRadius: 0,
+                        backgroundColor: Colors.MAIN_COLOR,
+                      }}
                       variant="contained"
                       onClick={handleClose}
                     >
@@ -718,7 +817,6 @@ export default function Portfolio() {
                   </ModalRoot>
                 </Modal>
               </div>
-              
             </TabPanel>
           </TabContext>
         </Box>

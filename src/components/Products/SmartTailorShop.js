@@ -1,16 +1,23 @@
 import { React, useState, useEffect } from "react";
 import { styled } from "@mui/system";
-import { Typography, Breadcrumbs, Link, Card, CardContent, Button, TextField, } from "@mui/material";
+import {
+  Typography,
+  Breadcrumbs,
+  Link,
+  Card,
+  CardContent,
+  Button,
+  TextField,
+} from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import HomeIcon from "@mui/icons-material/Home";
 import { ScrollToTop } from "react-simple-scroll-up";
 import AppbarHead from "../SubComponents/AppbarHead";
 import ReactPlayer from "react-player";
 
-
-import HomeSD from "../../images/productPageImages/smart_Tailor_App/Home.png";
-import OrderSD from "../../images/productPageImages/smart_Tailor_App/order.png";
-import orderUser from "../../images/productPageImages/smart_Tailor_App/orderUser.png";
+import HomeSD from "../../images/productPageImages/smart_Tailor_App/Home.jpg";
+import OrderSD from "../../images/productPageImages/smart_Tailor_App/order.jpg";
+import orderUser from "../../images/productPageImages/smart_Tailor_App/orderUser.jpg";
 import SDApp from "../../images/productPageImages/smart_Tailor_App/SDApp.svg";
 
 import reactLogo from "../../images/productPageImages/smart_Tailor_App/mernLogo/reactLogo.svg";
@@ -31,20 +38,21 @@ import twLogo from "../../images/productPageImages/smart_Tailor_App/socialmedia_
 import linLogo from "../../images/productPageImages/smart_Tailor_App/socialmedia_icon/linkedin.png";
 import ytLogo from "../../images/productPageImages/smart_Tailor_App/socialmedia_icon/youtube.png";
 
-
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import DangerousRoundedIcon from '@mui/icons-material/DangerousRounded';
-import AdjustIcon from '@mui/icons-material/Adjust';
-import Footer from '../SubComponents/Footer';
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import DangerousRoundedIcon from "@mui/icons-material/DangerousRounded";
+import AdjustIcon from "@mui/icons-material/Adjust";
+import Footer from "../SubComponents/Footer";
 
 import smartTailorshopContent from "../StaticTextContents/productContents/smartTailorshopContent";
 import { Colors } from "../../constants";
 import { CenterFocusStrong } from "@mui/icons-material";
 
-import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
-
+import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
+import { useNavigate } from "react-router-dom";
+import BannerAll from "../SubComponents/BreadCrumbComponent";
 
 export default function SmartTailorShop() {
+  const navigate = useNavigate();
 
   const BreadcrumbStyle = styled("div")(({ theme }) => ({
     display: "flex",
@@ -52,9 +60,11 @@ export default function SmartTailorShop() {
   }));
 
   const PriceHeadSection = styled("div")(({ theme }) => ({
-    display: "flex", paddingLeft: '5%', justifyContent: "center", alignItems: "center",
-    paddingRight: '5%',
-
+    display: "flex",
+    paddingLeft: "5%",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingRight: "5%",
   }));
 
   const DivStyle1 = styled("div")(({ theme }) => ({
@@ -102,7 +112,6 @@ export default function SmartTailorShop() {
     },
   }));
 
-
   const DivStyle4 = styled("div")(({ theme }) => ({
     margin: "0 auto",
     flexDirection: "column",
@@ -130,30 +139,22 @@ export default function SmartTailorShop() {
     { text: "MongoDB", image: mongoLogo },
   ];
 
-
   const DivStyle5 = styled("div")(({ theme }) => ({
-    display: "flex", margin: "0 auto", flexDirection: "column",
+    display: "flex",
+    margin: "0 auto",
+    flexDirection: "column",
     [theme.breakpoints.down("md")]: {
-
       width: "90%",
-
     },
     [theme.breakpoints.up("md")]: {
       width: "90%",
-
-
-
     },
     [theme.breakpoints.up("lg")]: {
       width: "82%",
-
-
-
     },
     [theme.breakpoints.up("xl")]: {
       width: "67%",
-
-    }
+    },
   }));
 
   const contactDetails = ["Name", "Company Name", "Email", "Contact Number"];
@@ -173,48 +174,59 @@ export default function SmartTailorShop() {
   const [selectProduct, setSelectProduct] = useState("");
   const [message, setMessage] = useState("");
 
+  const smartTailor = [
+    { title: "Smart Tailor Shop", rate: "₹ 6999 /month", color: "#96546F" },
+    { title: "Smart Tailor Shop Pro", rate: "₹ 7999 /month", color: "#7E8BB8" },
+    {
+      title: "Smart Tailor Shop Ulimate",
+      rate: "₹ 9999 /month",
+      color: "#C8892A",
+    },
+  ];
 
-  const smartTailor = [{ title: "Smart Tailor Shop", rate: "₹ 6999 /month", color: "#96546F" },
-  { title: "Smart Tailor Shop Pro", rate: "₹ 7999 /month", color: "#7E8BB8" }, { title: "Smart Tailor Shop Ulimate", rate: "₹ 9999 /month", color: "#C8892A" }]
+  const smartTailorProDetails = [
+    "Customer Management",
+    "Interactive Charts",
+    "Report Generation",
+    "Rates Updater",
+    "Smart Billing",
+    "Live Support",
+    "Free Installation",
+    "Fit in all Devices",
+    "Stiching Team Login Panel",
+    "Stiched Dress Image Updater",
+    "Export Customer Details & Order Details as Excel File",
+    "Separate App for Customers",
+  ];
 
-  const smartTailorProDetails = ["Customer Management", "Interactive Charts", "Report Generation", "Rates Updater", "Smart Billing", "Live Support", "Free Installation", "Fit in all Devices", "Stiching Team Login Panel", "Stiched Dress Image Updater", "Export Customer Details & Order Details as Excel File", "Separate App for Customers",]
+  const smartTailorOrders = [
+    "500 Orders Placement",
+    "1000 Orders Placement",
+    "Unlimited Orders Placement",
+  ];
 
-  const smartTailorOrders = ["500 Orders Placement", "1000 Orders Placement", "Unlimited Orders Placement"]
+  const smartTailorBenfits = [
+    "First Time Fee - ₹ 14999 for Domain and Hosting Charges (includes 1 Month Ultimate Plan)",
+    "7 Days FREE Trial",
+    "GST @18% Applicable on All Purchases",
+  ];
 
-  const smartTailorBenfits = ["First Time Fee - ₹ 14999 for Domain and Hosting Charges (includes 1 Month Ultimate Plan)", "7 Days FREE Trial", "GST @18% Applicable on All Purchases"]
-
-  // useEffect(() => {
-  //   window.scrollTo(0, 0)
-  // }, [])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
       <ScrollToTop bgColor="green" symbol="&#8593;" strokeFillColor="white" />
       <AppbarHead dataParent={{ appBtnText: "Products" }} />
-      <BreadcrumbStyle>
-        <Card elevation={6}>
-          <CardContent>
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" />}
-              aria-label="breadcrumb"
-            >
-              <Link
-                underline="hover"
-                color="inherit"
-                href="/"
-                sx={{ display: "flex", alignItems: "center" }}
-              >
-                {" "}
-                <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" /> Home{" "}
-              </Link>
-              <Typography color="text.primary">Products</Typography>
-              <Typography color="text.primary">Smart Tailor Shop</Typography>
-            </Breadcrumbs>
-          </CardContent>
-        </Card>
-      </BreadcrumbStyle>
 
-
+      <BannerAll
+        dataParent={{
+          title: "Smart Tailor Shop",
+          subTitle: "",
+          path: ["Home", "Projects", "Smart Tailor Shop"],
+        }}
+      />
 
       {/* Full vertical page */}
       <div style={{ width: "100%", marginTop: 25 }}>
@@ -222,46 +234,59 @@ export default function SmartTailorShop() {
         <DivStyle1>
           {/* Left Side */}
           <DivStyle2>
-         
-            <Typography variant="subtitle1" sx={{ textAlign: "justify", fontFamily: "nunito" }}>
-              <span style={{ fontWeight: "bold", color: Colors.MAIN_COLOR }}>Smart Tailor Application</span>
+            <Typography
+              variant="subtitle1"
+              sx={{ textAlign: "justify", fontFamily: "nunito" }}
+            >
+              <span style={{ fontWeight: "bold", color: Colors.MAIN_COLOR }}>
+                Smart Tailor Application
+              </span>
               {smartTailorshopContent.about}
             </Typography>
 
-            <Typography variant="h5" style={{ marginTop: 20, fontWeight: "600", color: Colors.MAIN_COLOR }}>
+            <Typography
+              variant="h5"
+              style={{
+                marginTop: 20,
+                fontWeight: "600",
+                color: Colors.MAIN_COLOR,
+              }}
+            >
               Features
             </Typography>
 
+            {smartTailorshopContent.features.map((item, index) => (
+              <div>
+                <Typography
+                  variant="subtitle1"
+                  style={{
+                    color: Colors.MAIN_COLOR,
+                    marginTop: 20,
+                    fontWeight: "bold",
+                  }}
+                >
+                  {item.name}
+                </Typography>
 
-            {
-              smartTailorshopContent.features.map((item, index) => (
-
-                <div>
-
-
-                  <Typography variant="subtitle1" style={{ color: Colors.MAIN_COLOR, marginTop: 20, fontWeight: "bold" }}>
-                    {item.name}
-                  </Typography>
-
-                  {
-                    item.points.map((text, index) => (
-                      <div style={{ display: "flex", marginTop:10 }}>
-                        <DoubleArrowIcon style={{ color: Colors.MAIN_COLOR }} />
-                        <Typography variant="subtitle1" style={{ marginLeft: 10 }}>
-                          {text}
-                        </Typography>
-                      </div>
-                    ))
-                  }
-
-
-                </div>
-              ))}
-
+                {item.points.map((text, index) => (
+                  <div style={{ display: "flex", marginTop: 10 }}>
+                    <DoubleArrowIcon style={{ color: Colors.MAIN_COLOR }} />
+                    <Typography variant="subtitle1" style={{ marginLeft: 10 }}>
+                      {text}
+                    </Typography>
+                  </div>
+                ))}
+              </div>
+            ))}
 
             <Typography
               variant="h6"
-              style={{ marginTop: 7, fontWeight: "600", fontFamily: "nunito" }}
+              style={{
+                marginTop: 7,
+                fontWeight: "600",
+                fontFamily: "nunito",
+                color: Colors.MAIN_COLOR,
+              }}
             >
               Technology used{" "}
             </Typography>
@@ -286,11 +311,14 @@ export default function SmartTailorShop() {
               ))}
             </ul>
 
-
-
             <Typography
               variant="h6"
-              style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
+              style={{
+                marginTop: 20,
+                fontWeight: "600",
+                fontFamily: "nunito",
+                color: Colors.MAIN_COLOR,
+              }}
             >
               Customer Mobile App Technology used
             </Typography>
@@ -321,7 +349,7 @@ export default function SmartTailorShop() {
           <DivStyle3>
             <Typography
               variant="h6"
-              style={{ marginBottom: 10, fontFamily: "nunito" }}
+              style={{ marginBottom: 10, fontFamily: "nunito",color:Colors.MAIN_COLOR }}
             >
               Smart Tailoring Web Application Demo
             </Typography>
@@ -335,7 +363,7 @@ export default function SmartTailorShop() {
                 config={{
                   file: { attributes: { controlsList: "nodownload" } },
                 }}
-                url={"https://gdurl.com/kTI9"}
+                url={"https://gdurl.com/NAfp"}
                 controls
               ></ReactPlayer>
             </div>
@@ -349,10 +377,10 @@ export default function SmartTailorShop() {
               <span
                 style={{ color: " #3B7CFE", cursor: "pointer" }}
                 onClick={() => {
-                  window.open("mailto:career@ncpli.com");
+                  window.open("mailto:info@ncpli.com");
                 }}
               >
-                career@ncpli.com
+                info@ncpli.com
               </span>
             </Typography>
 
@@ -407,99 +435,154 @@ export default function SmartTailorShop() {
         </DivStyle1>
       </div>
 
-
       <PriceHeadSection>
-        <Typography variant="h4" style={{ justifyContent: "center", color: Colors.MAIN_COLOR, fontWeight: "bold" }}>Pricing Plans</Typography>
+        <Typography
+          variant="h4"
+          style={{
+            justifyContent: "center",
+            color: Colors.MAIN_COLOR,
+            fontWeight: "bold",
+          }}
+        >
+          Pricing Plans
+        </Typography>
       </PriceHeadSection>
-
-
-
 
       {/* Pricing Details */}
 
       <div>
-
         {/* Full vertical page */}
         <div style={{ width: "100%", marginTop: 25 }}>
           {/* 67% middle of page */}
 
-          <DivStyle1 >
-
-
+          <DivStyle1>
             {smartTailor.map((obj, index) => (
-
-
-              <Card sx={{ width: "350px", height: "725px", border: `2px solid ${obj.color}` }}>
+              <Card
+                sx={{
+                  width: "350px",
+                  height: "725px",
+                  border: `2px solid ${obj.color}`,
+                }}
+              >
                 <CardContent>
-                  <div style={{ backgroundColor: obj.color, height: "90px", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
-                    <Typography variant="h5" style={{ display: "flex", justifyContent: 'center', color: "white" }} >{obj.title} </Typography>
-                    <Typography variant="h4" style={{ display: "flex", justifyContent: 'center', color: "white" }} >{obj.rate}</Typography>
+                  <div
+                    style={{
+                      backgroundColor: obj.color,
+                      height: "90px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <Typography
+                      variant="h5"
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        color: "white",
+                      }}
+                    >
+                      {obj.title}{" "}
+                    </Typography>
+                    <Typography
+                      variant="h4"
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        color: "white",
+                      }}
+                    >
+                      {obj.rate}
+                    </Typography>
                   </div>
 
-
-                  <div style={{ display: "flex", flexDirection: "row", marginTop: 20 }} >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      marginTop: 20,
+                    }}
+                  >
                     <CheckCircleIcon style={{ color: "green" }} />
-                    <Typography variant="body1" sx={{ fontFamily: "nunito", paddingLeft: 1 }} >{smartTailorOrders[index]}</Typography>
+                    <Typography
+                      variant="body1"
+                      sx={{ fontFamily: "nunito", paddingLeft: 1 }}
+                    >
+                      {smartTailorOrders[index]}
+                    </Typography>
                   </div>
 
                   {smartTailorProDetails.map((text, index) => (
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        marginTop: 20,
+                      }}
+                    >
+                      {obj.title === "Smart Tailor Shop" && index > 7 ? (
+                        <DangerousRoundedIcon style={{ color: "grey" }} />
+                      ) : obj.title === "Smart Tailor Shop Pro" && index > 9 ? (
+                        <DangerousRoundedIcon style={{ color: "grey" }} />
+                      ) : (
+                        <CheckCircleIcon style={{ color: "green" }} />
+                      )}
 
-                    <div style={{ display: "flex", flexDirection: "row", marginTop: 20 }} >
-                      {
-                        obj.title === "Smart Tailor Shop" && index > 7 ? <DangerousRoundedIcon style={{ color: "grey" }} /> :
-                          obj.title === "Smart Tailor Shop Pro" && index > 9 ? <DangerousRoundedIcon style={{ color: "grey" }} /> :
-                            <CheckCircleIcon style={{ color: "green" }} />}
-
-                      <Typography variant="body1" sx={{
-                        fontFamily: "nunito", paddingLeft: 1,
-                        color:
-                          obj.title === "Smart Tailor Shop" && index > 7 ? "grey" :
-                            obj.title === "Smart Tailor Shop Pro" && index > 9 ? "grey" :
-                              "black"
-                      }} >{text}</Typography>
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          fontFamily: "nunito",
+                          paddingLeft: 1,
+                          color:
+                            obj.title === "Smart Tailor Shop" && index > 7
+                              ? "grey"
+                              : obj.title === "Smart Tailor Shop Pro" &&
+                                index > 9
+                              ? "grey"
+                              : "black",
+                        }}
+                      >
+                        {text}
+                      </Typography>
                     </div>
                   ))}
-
                 </CardContent>
               </Card>
-
             ))}
-
           </DivStyle1>
         </div>
 
         {/* Full vertical page */}
         <div style={{ width: "100%", marginTop: 10 }}>
-
-          <DivStyle5  >
-
+          <DivStyle5>
             {smartTailorBenfits.map((text) => (
-
-
-              <div style={{ display: "flex", flexDirection: "row", marginTop: 15 }} >
+              <div
+                style={{ display: "flex", flexDirection: "row", marginTop: 15 }}
+              >
                 <AdjustIcon style={{ color: "green" }} />
-                <Typography variant="body1" sx={{ fontFamily: "nunito", paddingLeft: 1 }} >{text}</Typography>
+                <Typography
+                  variant="body1"
+                  sx={{ fontFamily: "nunito", paddingLeft: 1 }}
+                >
+                  {text}
+                </Typography>
               </div>
             ))}
-
-
           </DivStyle5>
         </div>
       </div>
-
-
-
-
-
-
-
-
 
       <div style={{ width: "100%", marginTop: 25 }}>
         <DivStyle4>
           <Typography
             variant="h4"
-            style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
+            style={{
+              marginTop: 20,
+              fontWeight: "600",
+              fontFamily: "nunito",
+              color: Colors.MAIN_COLOR,
+            }}
           >
             Need this Product? Contact us:
           </Typography>
@@ -522,22 +605,14 @@ export default function SmartTailorShop() {
             <span
               style={{ color: " #3B7CFE", cursor: "pointer" }}
               onClick={() => {
-                window.open("mailto:career@ncpli.com");
+                window.open("mailto:info@ncpli.com");
               }}
             >
               {" "}
-              career@ncpli.com
+              info@ncpli.com
             </span>{" "}
-            or call
-            <span
-              style={{ cursor: "pointer" }}
-              onClick={() => {
-                window.open("tel:04622585979");
-              }}
-            >
-              {" "}
-              0462 - 2585979{" "}
-            </span>
+            or call 
+            <span style={{ cursor: "pointer", color: " #3B7CFE" }} onClick={() => { window.open("tel:753886286", "_self"); }} > +91 753 886 286 </span>
           </Typography>
           <Button
             style={{
@@ -549,180 +624,17 @@ export default function SmartTailorShop() {
               textTransform: "none",
               width: 150,
             }}
+            onClick={() =>
+              navigate("/form-submit", {
+                state: { productName: "Smart Tailoring Shop" },
+              })
+            }
           >
-            Requested a Demo
+            Request a Demo
           </Button>
         </DivStyle4>
       </div>
 
-      <div style={{ width: "100%", marginTop: 25 }}>
-        <div
-          style={{
-            width: "67%",
-            margin: "0 auto",
-            flexDirection: "row",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <Typography
-            variant="h4"
-            style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
-          >
-            Submit a Query
-          </Typography>
-        </div>
-      </div>
-
-      {/* Full vertical page */}
-      <div style={{ width: "100%", marginTop: 25, marginBottom: 50 }}>
-        {/* 67% middle of page */}
-        <div
-          style={{
-            width: "57%",
-            margin: "0 auto",
-            flexDirection: "row",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          {/* Left Side */}
-          <div style={{ width: "65%" }}>
-            {contactDetails.map((text) => (
-              <div>
-                <Typography
-                  variant="body1"
-                  style={{
-                    marginTop: 20,
-                    fontWeight: "600",
-                    fontFamily: "nunito",
-                  }}
-                  multiline
-                >
-                  {text} <span style={{ color: "#ED514A" }}>*</span>
-                </Typography>
-                <TextField
-                  style={{ width: "90%", marginTop: 7 }}
-                  size="small"
-                  onChange={(e) => {
-                    text === "Name"
-                      ? setName(e.target.value)
-                      : text === "Company Name"
-                        ? setCompanyName(e.target.value)
-                        : text === "Email"
-                          ? setEmail(e.target.value)
-                          : setPhNumber(e.target.value);
-                  }}
-                />
-              </div>
-            ))}
-
-            <Typography
-              variant="body1"
-              style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
-            >
-              Select Products <span style={{ color: "#ED514A" }}>*</span>{" "}
-            </Typography>
-            <TextField
-              style={{ width: "90%", marginTop: 7 }}
-              size="small"
-              select
-              onChange={(e) => setSelectProduct(e.target.value)}
-            >
-              {products.map((productName) => (
-                <MenuItem value={productName}> {productName} </MenuItem>
-              ))}
-            </TextField>
-            <Typography
-              variant="body1"
-              style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
-            >
-              Message <span style={{ color: "#ED514A" }}>*</span>{" "}
-            </Typography>
-            <TextField
-              multiline
-              rows={3}
-              style={{ width: "90%" }}
-              onChange={(e) => {
-                setMessage(e.target.value);
-              }}
-            />
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <Button
-                style={{
-                  backgroundColor: "#ED514A",
-                  color: "white",
-                  fontWeight: "600",
-                  fontFamily: "nunito",
-                  marginTop: 20,
-                  textTransform: "none",
-                  width: "20%",
-                }}
-                onClick={() => {
-                  console.log(
-                    name,
-                    companyName,
-                    Email,
-                    phNumber,
-                    selectProduct,
-                    message
-                  );
-                }}
-              >
-                Submit
-              </Button>
-            </div>
-          </div>
-
-          <div style={{ width: "25%" }}>
-            <Typography
-              variant="h5"
-              style={{ marginTop: 20, fontWeight: "600", fontFamily: "nunito" }}
-            >
-              Contact{" "}
-            </Typography>
-            <div
-              style={{ display: "flex", flexDirection: "row", marginTop: 20 }}
-            >
-              <EmailIcon style={{}} />
-              <Typography
-                variant="h6"
-                style={{
-                  fontFamily: "nunito",
-                  paddingLeft: 4,
-                  color: " #3B7CFE",
-                  cursor: "pointer",
-                }}
-                onClick={() => {
-                  window.open("mailto:career@ncpli.com");
-                }}
-              >
-                career@ncpli.com
-              </Typography>
-            </div>
-            <div
-              style={{ display: "flex", flexDirection: "row", marginTop: 20 }}
-            >
-              <PhoneIcon />
-              <Typography
-                variant="h6"
-                style={{ fontFamily: "nunito", paddingLeft: 4 }}
-                onClick={() => {
-                  window.open("tel:04622585979");
-                }}
-              >
-                0462 - 2585979{" "}
-              </Typography>
-            </div>
-
-            <div style={{ marginTop: 20, marginLeft: 2 }}>
-              {logos.map((image) => (
-                <img src={image} width="10%" style={{ paddingLeft: 20 }} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
       <Footer />
     </>
   );
