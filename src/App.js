@@ -38,6 +38,7 @@ import EContentDevelopment from "./components/Services/EContentDevelopment";
 import WebHostingServices from "./components/Services/WebHostingServices";
 import HardwareSupportMaintanence from "./components/Services/HardwareSupportMaintanence";
 import FormSubmit from "./components/SubComponents/FormSubmit";
+import CareerModifier from "./components/CareerModifier";
 
 
 
@@ -86,6 +87,9 @@ function App() {
           <Route exact path="/web-hosting" element={<WebHostingServices />} />
           <Route exact path="/hardware-support-maintainence" element={<HardwareSupportMaintanence />} />
           <Route exact path="/short-film" element={<ShortFilm />} />
+
+
+          <Route exact path="/cm" element={<CareerModifier />} />
 
         </Routes>
       </HashRouter >
