@@ -170,6 +170,26 @@ export default function CareerModifier() {
 
   useEffect(()=>{
     showItems()
+
+    window.addEventListener('online' , (e) =>{
+      alert('you are online')
+    })
+
+    window.addEventListener('offline' , (e) =>{
+      alert('you are offline')
+    })
+
+    /**
+     * i dont fucking care...
+     */
+
+    // if(navigator.onLine){
+    //   console.log('online');
+    // }else{
+    //   console.log('offline');
+    // }
+
+
   },[])
 
   return (

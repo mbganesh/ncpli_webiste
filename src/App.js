@@ -39,8 +39,7 @@ import WebHostingServices from "./components/Services/WebHostingServices";
 import HardwareSupportMaintanence from "./components/Services/HardwareSupportMaintanence";
 import FormSubmit from "./components/SubComponents/FormSubmit";
 import CareerModifier from "./components/CareerModifier";
-
-
+import CustomTabs from './components/CustomTabs'
 
 
 function App() {
@@ -90,6 +89,7 @@ function App() {
 
 
           <Route exact path="/cm" element={<CareerModifier />} />
+          <Route exact path="/ct" element={<CustomTabs />} />
 
         </Routes>
       </HashRouter >
